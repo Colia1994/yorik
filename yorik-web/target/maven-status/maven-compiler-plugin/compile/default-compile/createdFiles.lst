@@ -1,0 +1,10 @@
+com/colia/yorik/yorikweb/interfaces/controller/GoodsController.class
+com/colia/yorik/yorikweb/StartApplication.class
+com/colia/yorik/yorikweb/interfaces/service/impl/LoginServiceImpl.class
+com/colia/yorik/yorikweb/infrastructure/interceptor/MyInterceptor.class
+com/colia/yorik/yorikweb/domain/User.class
+com/colia/yorik/yorikweb/domain/LearnResource.class
+com/colia/yorik/yorikweb/interfaces/service/LoginService.class
+com/colia/yorik/yorikweb/interfaces/controller/LoginController.class
+com/colia/yorik/yorikweb/infrastructure/swagger/Swagger2Config.class
+com/colia/yorik/yorikweb/infrastructure/config/MyWebMvcConfigurerAdapter.class

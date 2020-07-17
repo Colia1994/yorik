@@ -1,0 +1,9 @@
+com/colia/yorik/yorikapplication/test.class
+com/colia/yorik/yorikapplication/application/goods/dto/GoodsBasicDetailDTO.class
+com/colia/yorik/yorikapplication/application/test.class
+com/colia/yorik/yorikapplication/application/goods/dto/GoodsBasicDetailListItemDTO.class
+com/colia/yorik/yorikapplication/application/goods/impl/RecommendGoodsServiceImpl.class
+com/colia/yorik/yorikapplication/application/goods/dto/Testmapper.class
+com/colia/yorik/yorikapplication/application/goods/RecommendGoodsService.class
+com/colia/yorik/yorikapplication/application/goods/dto/TestmapperImpl.class
+com/colia/yorik/yorikapplication/application/goods/dto/GoodsBasicDetailDTOAssembler.class
