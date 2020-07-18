@@ -3,7 +3,6 @@ package com.colia.yorik.yorikapplication.application.goods.impl;
 import com.colia.yorik.yorikapplication.application.goods.RecommendGoodsService;
 import com.colia.yorik.yorikapplication.application.goods.dto.GoodsBasicDetailDTO;
 import com.colia.yorik.yorikapplication.application.goods.dto.GoodsBasicDetailDTOAssembler;
-import com.colia.yorik.yorikapplication.application.goods.dto.GoodsBasicDetailMapper;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
 import com.pdd.pop.sdk.common.util.JsonUtil;
 import com.pdd.pop.sdk.http.PopClient;

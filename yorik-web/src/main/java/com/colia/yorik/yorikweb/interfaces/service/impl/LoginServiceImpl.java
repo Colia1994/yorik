@@ -1,6 +1,5 @@
 package com.colia.yorik.yorikweb.interfaces.service.impl;
 
-import com.colia.yorik.yorikapplication.application.goods.RecommendGoodsService;
 import com.colia.yorik.yoriksupport.redis.RedisService;
 import com.colia.yorik.yoriksupport.utils.StringUtils;
 import com.colia.yorik.yorikweb.interfaces.service.LoginService;
