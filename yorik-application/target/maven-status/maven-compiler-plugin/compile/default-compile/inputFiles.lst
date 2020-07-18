@@ -4,5 +4,5 @@
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/dto/GoodsBasicDetailListItemDTO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/test.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/RecommendGoodsService.java
-/Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/dto/Testmapper.java
+/Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/dto/GoodsBasicDetailMapper.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/dto/GoodsBasicDetailDTOAssembler.java

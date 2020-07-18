@@ -41,7 +41,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
+            <version>5.6.2</version>
             <scope>test</scope>
         </dependency>
 
@@ -69,6 +69,7 @@
                 <version>${spring.boot.version}</version>
                 <configuration>
                     <mainClass>com.colia.yorik.yorikweb.StartApplication</mainClass>
+                    <includeSystemScope>true</includeSystemScope>
                 </configuration>
                 <executions>
                     <execution>
