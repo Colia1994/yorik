@@ -39,7 +39,6 @@
             <systemPath>${project.basedir}/../libs/pop-sdk-1.9.22-all.jar</systemPath>
         </dependency>
 
-
     </dependencies>
 
 
