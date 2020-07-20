@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikcommon.interfaces.command;
+package com.colia.yorik.yorikcommon.interfaces.requestBody;
 
 /**
  * 指令验证器

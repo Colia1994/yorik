@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikcommon.interfaces.command;
+package com.colia.yorik.yorikcommon.interfaces.requestBody;
 
 
 import com.colia.yorik.yorikcommon.infrastructure.exception.ValidateException;

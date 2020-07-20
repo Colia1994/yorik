@@ -1,10 +1,12 @@
-package com.colia.yorik.yorikweb.interfaces.controller;
+package com.colia.yorik.yorikweb.interfaces.goods.controller;
 
 import com.colia.yorik.yorikapplication.application.goods.RecommendGoodsService;
 import com.colia.yorik.yorikapplication.application.goods.dto.GoodsBasicDetailDTO;
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResultUtils;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.GoodsRecommendRequest;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,10 +28,13 @@ public class GoodsController {
 
 
     @RequestMapping(value = "/getGoodsList", method = RequestMethod.POST)
-    @ApiOperation("获取推荐商品信息")
-    public AjaxResponse<GoodsBasicDetailDTO> getGoodsList() {
-        return AjaxResultUtils.renderSuccess("fuck you",
+    @ApiOperation(value = "获取推荐商品信息",notes = "testnode")
+    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "int", paramType = "path")
+    public AjaxResponse<GoodsBasicDetailDTO> getGoodsList(GoodsRecommendRequest request) {
+        return AjaxResultUtils.renderSuccess("cl you",
                 recommendGoodsService.getRecommendGoods("", ""));
 
     }
+
+
 }

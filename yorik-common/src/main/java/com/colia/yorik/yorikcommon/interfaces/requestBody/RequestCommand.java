@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikcommon.interfaces.command;
+package com.colia.yorik.yorikcommon.interfaces.requestBody;
 
 /**
  * 指令
@@ -6,7 +6,7 @@ package com.colia.yorik.yorikcommon.interfaces.command;
  * @Author colia
  * @Date 2020/7/16 下午6:55
  **/
-public interface Command {
+public interface RequestCommand {
     /**
      * 指令验证
      */

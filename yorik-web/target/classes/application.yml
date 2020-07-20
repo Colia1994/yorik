@@ -1,0 +1,6 @@
+logging:
+  # "."是logback.xml中 LOG_USER LOG_PREFIX所需的默认值。其作用是当执行"java -jar xxx.jar" 没有覆盖日志路径时，默认存放在当前路径下。
+  #    userpath: currentuser
+  userpath: .
+  #    prefixpath: logprefix
+  prefixpath: .

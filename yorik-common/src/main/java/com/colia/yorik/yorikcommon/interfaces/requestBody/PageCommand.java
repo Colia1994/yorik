@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikcommon.interfaces.command;
+package com.colia.yorik.yorikcommon.interfaces.requestBody;
 
 import com.colia.yorik.yorikcommon.interfaces.Constants;
 import lombok.Data;
@@ -10,7 +10,7 @@ import lombok.Data;
  * @Date 2020/7/16 下午6:55
  **/
 @Data
-public abstract class PageCommand implements Command {
+public abstract class PageCommand implements RequestCommand {
 
     /**
      * 页码
