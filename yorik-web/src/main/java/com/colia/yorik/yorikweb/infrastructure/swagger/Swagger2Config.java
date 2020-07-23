@@ -1,8 +1,10 @@
 package com.colia.yorik.yorikweb.infrastructure.swagger;
 
+import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -20,11 +22,10 @@ public class Swagger2Config {
     //前台api接口文档
     public Docket webApiConfig() {
         return new Docket(DocumentationType.SWAGGER_2)
-//                .groupName("webApi")//组名
                 .apiInfo(webApiInfo())
                 .select()//创建ApiSelectorBuilder对象
-//                .paths(Predicates.not(PathSelectors.regex("/admin/.*")))//过滤掉 admin 接口
-//                .paths(Predicates.not(PathSelectors.regex("/error.*")))//过滤掉 error 接口
+                .paths(Predicates.not(PathSelectors.regex("/admin/.*")))//过滤掉 admin 接口
+                .paths(Predicates.not(PathSelectors.regex("/error.*")))//过滤掉 error 接口
                 .build();
     }
 

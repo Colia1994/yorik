@@ -6,11 +6,8 @@ import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResultUtils;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.GoodsRecommendRequest;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -27,14 +24,16 @@ public class GoodsController {
     private RecommendGoodsService recommendGoodsService;
 
 
-    @RequestMapping(value = "/getGoodsList", method = RequestMethod.POST)
-    @ApiOperation(value = "获取推荐商品信息",notes = "testnode")
-    @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "int", paramType = "path")
-    public AjaxResponse<GoodsBasicDetailDTO> getGoodsList(GoodsRecommendRequest request) {
+    @ResponseBody
+    @RequestMapping(value = "/pdd/getRecommendGoods", method = RequestMethod.POST)
+    @ApiOperation(value = "获取推荐商品信息")
+    public AjaxResponse<GoodsBasicDetailDTO> getGoodsList(@RequestBody GoodsRecommendRequest params) {
         return AjaxResultUtils.renderSuccess("cl you",
-                recommendGoodsService.getRecommendGoods("", ""));
+                recommendGoodsService.getRecommendGoods(params.getClientId(), params.getClientSecret()));
 
     }
+
+
 
 
 }

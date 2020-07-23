@@ -1,7 +1,7 @@
 package com.colia.yorik.yorikapplication.application.goods.dto;
 
 import com.colia.yorik.yorikcommon.interfaces.dto.BaseDTO;
-import com.pdd.pop.ext.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,84 +15,108 @@ import java.util.List;
 @Data
 public class GoodsBasicDetailListItemDTO extends BaseDTO {
 
-    @JsonProperty("category_id")
+
+    @ApiModelProperty("类目id")
     private String categoryId;
-    @JsonProperty("category_name")
+     
+    @ApiModelProperty("分类名称")
     private String categoryName;
-    @JsonProperty("cat_id")
+
+    @ApiModelProperty("商品类目id")
     private String catId;
-    @JsonProperty("cat_ids")
+     
+    @ApiModelProperty("商品一~四级类目ID列表")
     private List<Long> catIds;
-    @JsonProperty("coupon_discount")
+
+    @ApiModelProperty("优惠券面额,单位为分")
     private Long couponDiscount;
-    @JsonProperty("coupon_end_time")
+
+    @ApiModelProperty("优惠券失效时间,UNIX时间戳")
     private Long couponEndTime;
-    @JsonProperty("coupon_min_order_amount")
+
+
+    @ApiModelProperty("优惠券门槛价格,单位为分")
     private Long couponMinOrderAmount;
-    @JsonProperty("coupon_price")
+
+    @ApiModelProperty("优惠券金额")
     private Long couponPrice;
-    @JsonProperty("coupon_remain_quantity")
+
+    @ApiModelProperty("优惠券剩余数量")
     private Long couponRemainQuantity;
-    @JsonProperty("coupon_start_time")
+
+    @ApiModelProperty("优惠券生效时间,UNIX时间戳")
     private Long couponStartTime;
-    @JsonProperty("coupon_total_quantity")
+
+    @ApiModelProperty("优惠券总数量")
     private Long couponTotalQuantity;
-    @JsonProperty("create_at")
-    private Long createAt;
-    @JsonProperty("desc_txt")
-    private String descTxt;
-    @JsonProperty("goods_desc")
+
+    @ApiModelProperty("商品描述")
     private String goodsDesc;
-    @JsonProperty("goods_fact_price")
-    private Long goodsFactPrice;
-    @JsonProperty("goods_gallery_urls")
+     
+    @ApiModelProperty("商品详情图列表")
     private String goodsGalleryUrls;
-    @JsonProperty("goods_id")
+     
+    @ApiModelProperty("商品id")
     private Long goodsId;
-    @JsonProperty("goods_image_url")
+
+    @ApiModelProperty("商品主图")
     private String goodsImageUrl;
-    @JsonProperty("goods_mark_price")
+     
+    @ApiModelProperty("商品标准价格")
     private Long goodsMarkPrice;
-    @JsonProperty("goods_name")
+     
+    @ApiModelProperty("商品名称")
     private String goodsName;
-    @JsonProperty("goods_rate")
+     
+    @ApiModelProperty("商品等级")
     private Long goodsRate;
-    @JsonProperty("goods_thumbnail_url")
+     
+    @ApiModelProperty("商品缩略图")
     private String goodsThumbnailUrl;
-    @JsonProperty("goods_type")
+     
+    @ApiModelProperty("商品类型")
     private Integer goodsType;
-    @JsonProperty("has_coupon")
+     
+    @ApiModelProperty("商品是否带券,true-带券,false-不带券")
     private Boolean hasCoupon;
-    @JsonProperty("lgst_txt")
-    private String lgstTxt;
-    @JsonProperty("mall_id")
+
+    @ApiModelProperty("商家id")
     private Long mallId;
-    @JsonProperty("mall_name")
+     
+    @ApiModelProperty("店铺名称")
     private String mallName;
-    @JsonProperty("market_fee")
+     
+    @ApiModelProperty("市场服务费")
     private Long marketFee;
-    @JsonProperty("merchant_type")
+     
+    @ApiModelProperty("商家类型")
     private String merchantType;
-    @JsonProperty("min_group_price")
+     
+    @ApiModelProperty("最小成团价格，单位分")
     private Long minGroupPrice;
-    @JsonProperty("min_normal_price")
+     
+    @ApiModelProperty("最小单买价格，单位分")
     private Long minNormalPrice;
-    @JsonProperty("opt_id")
+     
+    @ApiModelProperty("商品标签类目ID,使用pdd.goods.opt.get获取")
     private String optId;
-    @JsonProperty("opt_ids")
+     
+    @ApiModelProperty("商品一~四级标签类目ID列表")
     private List<Long> optIds;
-    @JsonProperty("opt_name")
+     
+    @ApiModelProperty("商品标签名")
     private String optName;
-    @JsonProperty("promotion_rate")
-    private Long promotionRate;
-    @JsonProperty("qr_code_image_url")
+     
+    @ApiModelProperty("二维码主图")
     private String qrCodeImageUrl;
-    @JsonProperty("sales_tip")
+     
+    @ApiModelProperty("销售量")
     private String salesTip;
-    @JsonProperty("search_id")
+     
+    @ApiModelProperty("搜索id，建议生成推广链接时候填写，提高收益。")
     private String searchId;
-    @JsonProperty("serv_txt")
-    private String servTxt;
-    @JsonProperty("share_desc")
+
+      
+    @ApiModelProperty("分享描述")
     private String shareDesc;
 }

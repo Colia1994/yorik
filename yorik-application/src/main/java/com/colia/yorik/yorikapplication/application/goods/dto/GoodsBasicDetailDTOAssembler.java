@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import java.util.Objects;
 
 /**
+ * 商品通用dto 组装器
  * @Author konglingyao
  * @Date 2020/7/17
  */
@@ -15,7 +16,7 @@ import java.util.Objects;
 public class GoodsBasicDetailDTOAssembler implements Assembler<GoodsBasicDetailDTO> {
 
     @Resource
-    private GoodsBasicDetailMapper goodsBasicDetailMapper;
+    private GoodsMapper goodsMapper;
 
     @Override
     public GoodsBasicDetailDTO toDTO(Object objects) {
@@ -23,8 +24,10 @@ public class GoodsBasicDetailDTOAssembler implements Assembler<GoodsBasicDetailD
             return null;
         }
 
-        if (objects instanceof PddDdkGoodsRecommendGetResponse.GoodsBasicDetailResponse) {
-            return goodsBasicDetailMapper.toDto((PddDdkGoodsRecommendGetResponse.GoodsBasicDetailResponse) objects);
+
+        //pdd
+        if (objects instanceof PddGoodsListVO) {
+            return goodsMapper.pddVoToDto((PddGoodsListVO) objects);
         }
 
         return null;

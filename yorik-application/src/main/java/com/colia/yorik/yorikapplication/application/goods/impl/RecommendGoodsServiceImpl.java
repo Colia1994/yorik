@@ -3,6 +3,8 @@ package com.colia.yorik.yorikapplication.application.goods.impl;
 import com.colia.yorik.yorikapplication.application.goods.RecommendGoodsService;
 import com.colia.yorik.yorikapplication.application.goods.dto.GoodsBasicDetailDTO;
 import com.colia.yorik.yorikapplication.application.goods.dto.GoodsBasicDetailDTOAssembler;
+import com.colia.yorik.yorikapplication.application.goods.dto.GoodsMapper;
+import com.colia.yorik.yorikapplication.application.goods.dto.PddGoodsListVO;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
 import com.pdd.pop.sdk.common.util.JsonUtil;
 import com.pdd.pop.sdk.http.PopClient;
@@ -22,6 +24,9 @@ public class RecommendGoodsServiceImpl implements RecommendGoodsService {
     @Resource
     private GoodsBasicDetailDTOAssembler goodsBasicDetailDTOAssembler;
 
+    @Resource
+    private GoodsMapper goodsMapper;
+
     @Override
     public GoodsBasicDetailDTO getRecommendGoods(String clientId, String clientSecret) {
         PopClient client = new PopHttpClient(clientId, clientSecret);
@@ -37,6 +42,7 @@ public class RecommendGoodsServiceImpl implements RecommendGoodsService {
             throw new BizProcessException("", e);
         }
         System.out.println(JsonUtil.transferToJson(response));
+        PddGoodsListVO listVO = goodsMapper.toPddGoodsVO(response.getGoodsBasicDetailResponse());
         return goodsBasicDetailDTOAssembler.toDTO(response.getGoodsBasicDetailResponse());
     }
 }
