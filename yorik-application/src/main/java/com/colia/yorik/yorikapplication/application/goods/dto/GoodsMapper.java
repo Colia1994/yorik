@@ -28,7 +28,6 @@ public interface GoodsMapper {
      */
     @Mappings({
             @Mapping(source = "list", target = "records"),
-            @Mapping(source = "listId", target = "current"),
     })
     GoodsBasicDetailDTO pddVoToDto(PddGoodsListVO listVO);
 

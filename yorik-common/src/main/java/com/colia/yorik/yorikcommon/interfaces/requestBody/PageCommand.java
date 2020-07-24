@@ -22,6 +22,12 @@ public abstract class PageCommand implements RequestCommand {
     private Integer pageNo = Constants.DEFAULT_PAGE_NO;
 
     /**
+     * 特殊标识页
+     */
+    @ApiModelProperty(value = "pdd翻页需要传入上一页返回的listId")
+    private String listId ;
+
+    /**
      * 每页行数
      */
     @ApiModelProperty(value = "每页行数", example = "10")

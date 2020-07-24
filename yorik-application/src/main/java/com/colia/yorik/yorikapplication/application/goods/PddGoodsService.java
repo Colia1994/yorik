@@ -7,8 +7,14 @@ import com.colia.yorik.yorikcommon.application.AppService;
  * @Author konglingyao
  * @Date 2020/7/15
  */
-public interface RecommendGoodsService extends AppService {
+public interface PddGoodsService extends AppService {
 
-    GoodsBasicDetailDTO getRecommendGoods(String clientId, String clientSecret);
+    /**
+     * pdd推荐商品
+     * @return 商品流list
+     */
+    GoodsBasicDetailDTO getRecommendGoods();
 
+
+    void getGoodsBasicInfo();
 }

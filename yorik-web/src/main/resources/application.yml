@@ -4,3 +4,8 @@ logging:
   userpath: .
   #    prefixpath: logprefix
   prefixpath: .
+
+
+pdd:
+  clientId: ENC(fAlR/yw/3AN2HuDY2lTxr987lOYeeBrlMNWW3xN4WcONDFvRh042BRzIQVQaUI0DuurqMb60eGZyt/MlRN7cfvaAe/IppMtB4iA4Ecl4MvY=)
+  clientSecret: ENC(d/gdv6vHHnVMcoLbkqcNw8HgrLrjqdap2rOuG/5OlkpRJzCu2oh/gd4BqoLADLmzSSHLlrscqlBTatfETKlDwFw7jkE0XlNzoTe8bkHS+WM=)

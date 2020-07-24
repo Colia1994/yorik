@@ -1,6 +1,6 @@
 package com.colia.yorik.yorikweb.interfaces.goods.controller;
 
-import com.colia.yorik.yorikapplication.application.goods.RecommendGoodsService;
+import com.colia.yorik.yorikapplication.application.goods.PddGoodsService;
 import com.colia.yorik.yorikapplication.application.goods.dto.GoodsBasicDetailDTO;
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResultUtils;
@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 public class GoodsController {
 
     @Resource
-    private RecommendGoodsService recommendGoodsService;
+    private PddGoodsService pddGoodsService;
 
 
     @ResponseBody
@@ -29,7 +29,7 @@ public class GoodsController {
     @ApiOperation(value = "获取推荐商品信息")
     public AjaxResponse<GoodsBasicDetailDTO> getGoodsList(@RequestBody GoodsRecommendRequest params) {
         return AjaxResultUtils.renderSuccess("cl you",
-                recommendGoodsService.getRecommendGoods(params.getClientId(), params.getClientSecret()));
+                pddGoodsService.getRecommendGoods());
 
     }
 

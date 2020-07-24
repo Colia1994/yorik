@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-07-22T22:43:13+0800",
+    date = "2020-07-24T14:10:49+0800",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 1.8.0_251 (Oracle Corporation)"
 )
 @Component
@@ -76,9 +76,7 @@ public class GoodsMapperImpl implements GoodsMapper {
         GoodsBasicDetailDTO goodsBasicDetailDTO = new GoodsBasicDetailDTO();
 
         goodsBasicDetailDTO.setRecords( pddGoodsDetailVOListToGoodsBasicDetailListItemDTOList( listVO.getList() ) );
-        if ( listVO.getListId() != null ) {
-            goodsBasicDetailDTO.setCurrent( Integer.parseInt( listVO.getListId() ) );
-        }
+        goodsBasicDetailDTO.setListId( listVO.getListId() );
         goodsBasicDetailDTO.setTotal( listVO.getTotal() );
 
         return goodsBasicDetailDTO;

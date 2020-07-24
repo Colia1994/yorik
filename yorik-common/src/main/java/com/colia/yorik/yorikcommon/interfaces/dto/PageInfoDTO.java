@@ -20,6 +20,12 @@ public class PageInfoDTO<T> extends BaseDTO {
      * 当前页为第几页
      */
     private Integer current = 1;
+
+    /**
+     * 特殊翻页页数
+     */
+    private String listId;
+
     /**
      * 总记录数
      */

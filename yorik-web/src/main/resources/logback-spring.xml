@@ -24,7 +24,7 @@
         <file>${LOG_PREFIX}/${LOG_USER}/logs/logback.log</file>
         <!--滚动记录文件：根据时间来制定滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PREFIX}/${LOG_USER}/logs/logback.%d{yyyy-MM-dd}%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_PREFIX}/${LOG_USER}/logs/logback.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100 MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
