@@ -2,6 +2,7 @@ package com.colia.yorik.yorikapplication.application.goods.impl;
 
 import com.colia.yorik.yorikapplication.application.goods.PddGoodsService;
 import com.colia.yorik.yorikapplication.application.goods.adapter.GoodsVOMapper;
+import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsBasicVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
 import com.colia.yorik.yoriksupport.utils.HttpPddClient;
@@ -51,37 +52,33 @@ public class PddGoodsServiceImpl implements PddGoodsService {
     }
 
     @Override
-    public void getGoodsBasicInfo() {
+    public List<PddGoodsBasicVO> getGoodsBasicInfoByID(List<Long> goodsIdList) {
         PopClient client = HttpPddClient.getPddClient();
 
         PddDdkGoodsBasicInfoGetRequest request = new PddDdkGoodsBasicInfoGetRequest();
-        List<Long> goodsIdList = new ArrayList<>();
 
-        goodsIdList.add(0L);
         request.setGoodsIdList(goodsIdList);
         PddDdkGoodsBasicInfoGetResponse response = null;
         try {
             response = client.syncInvoke(request);
         } catch (Exception e) {
-            throw new BizProcessException("PDD获取商品详情接口异常", e);
+            log.error("PDD获取商品基本信息接口异常", e);
+            throw new BizProcessException("PDD获取商品基本信息接口异常", e);
         }
+
+        return goodsVOMapper.toPddGoodsBasicList(response.getGoodsBasicDetailResponse().getGoodsList());
     }
 
-    void getGoodsDetailInfo(List<Long> goodsIdList) {
-        PopClient client = HttpPddClient.getPddClient();
+    void getGoodsDetailInfo(PddDdkGoodsDetailRequest request) {
 
-        PddDdkGoodsDetailRequest request = new PddDdkGoodsDetailRequest();
-        request.setCustomParameters("str");
-        request.setGoodsIdList(goodsIdList);
-        request.setPid("str");
-        request.setPlanType(0);
-        request.setSearchId("str");
-        request.setZsDuoId(0L);
+        PopClient client = HttpPddClient.getPddClient();
         PddDdkGoodsDetailResponse response = null;
         try {
             response = client.syncInvoke(request);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("PDD获取商品详细信息接口异常", e);
+            throw new BizProcessException("PDD获取商品详细信息接口异常", e);
         }
+
     }
 }

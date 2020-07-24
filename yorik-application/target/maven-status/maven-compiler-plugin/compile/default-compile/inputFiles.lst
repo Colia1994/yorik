@@ -1,7 +1,6 @@
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsDetailVO.java
-/Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/test.java
+/Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsBasicVO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsListVO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/adapter/GoodsVOMapper.java
-/Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/test.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/PddGoodsService.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/impl/PddGoodsServiceImpl.java

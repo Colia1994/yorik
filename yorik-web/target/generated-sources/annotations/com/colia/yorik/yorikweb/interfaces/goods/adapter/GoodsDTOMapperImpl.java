@@ -2,6 +2,7 @@ package com.colia.yorik.yorikweb.interfaces.goods.adapter;
 
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO;
+import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO.PddGoodsListItemVO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-07-24T17:02:39+0800",
+    date = "2020-07-24T17:45:15+0800",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 1.8.0_251 (Oracle Corporation)"
 )
 @Component
@@ -77,21 +78,72 @@ public class GoodsDTOMapperImpl implements GoodsDTOMapper {
 
         GoodsListDTO goodsListDTO = new GoodsListDTO();
 
-        goodsListDTO.setRecords( pddGoodsDetailVOListToGoodsDetailDTOList( listVO.getList() ) );
+        goodsListDTO.setRecords( pddGoodsListItemVOListToGoodsDetailDTOList( listVO.getList() ) );
         goodsListDTO.setListId( listVO.getListId() );
         goodsListDTO.setTotal( listVO.getTotal() );
 
         return goodsListDTO;
     }
 
-    protected List<GoodsDetailDTO> pddGoodsDetailVOListToGoodsDetailDTOList(List<PddGoodsDetailVO> list) {
+    protected GoodsDetailDTO pddGoodsListItemVOToGoodsDetailDTO(PddGoodsListItemVO pddGoodsListItemVO) {
+        if ( pddGoodsListItemVO == null ) {
+            return null;
+        }
+
+        GoodsDetailDTO goodsDetailDTO = new GoodsDetailDTO();
+
+        goodsDetailDTO.setCategoryId( pddGoodsListItemVO.getCategoryId() );
+        goodsDetailDTO.setCategoryName( pddGoodsListItemVO.getCategoryName() );
+        goodsDetailDTO.setCatId( pddGoodsListItemVO.getCatId() );
+        List<Long> list = pddGoodsListItemVO.getCatIds();
+        if ( list != null ) {
+            goodsDetailDTO.setCatIds( new ArrayList<Long>( list ) );
+        }
+        goodsDetailDTO.setCouponDiscount( pddGoodsListItemVO.getCouponDiscount() );
+        goodsDetailDTO.setCouponEndTime( pddGoodsListItemVO.getCouponEndTime() );
+        goodsDetailDTO.setCouponMinOrderAmount( pddGoodsListItemVO.getCouponMinOrderAmount() );
+        goodsDetailDTO.setCouponPrice( pddGoodsListItemVO.getCouponPrice() );
+        goodsDetailDTO.setCouponRemainQuantity( pddGoodsListItemVO.getCouponRemainQuantity() );
+        goodsDetailDTO.setCouponStartTime( pddGoodsListItemVO.getCouponStartTime() );
+        goodsDetailDTO.setCouponTotalQuantity( pddGoodsListItemVO.getCouponTotalQuantity() );
+        goodsDetailDTO.setGoodsDesc( pddGoodsListItemVO.getGoodsDesc() );
+        goodsDetailDTO.setGoodsGalleryUrls( pddGoodsListItemVO.getGoodsGalleryUrls() );
+        goodsDetailDTO.setGoodsId( pddGoodsListItemVO.getGoodsId() );
+        goodsDetailDTO.setGoodsImageUrl( pddGoodsListItemVO.getGoodsImageUrl() );
+        goodsDetailDTO.setGoodsMarkPrice( pddGoodsListItemVO.getGoodsMarkPrice() );
+        goodsDetailDTO.setGoodsName( pddGoodsListItemVO.getGoodsName() );
+        goodsDetailDTO.setGoodsRate( pddGoodsListItemVO.getGoodsRate() );
+        goodsDetailDTO.setGoodsThumbnailUrl( pddGoodsListItemVO.getGoodsThumbnailUrl() );
+        goodsDetailDTO.setGoodsType( pddGoodsListItemVO.getGoodsType() );
+        goodsDetailDTO.setHasCoupon( pddGoodsListItemVO.getHasCoupon() );
+        goodsDetailDTO.setMallId( pddGoodsListItemVO.getMallId() );
+        goodsDetailDTO.setMallName( pddGoodsListItemVO.getMallName() );
+        goodsDetailDTO.setMarketFee( pddGoodsListItemVO.getMarketFee() );
+        goodsDetailDTO.setMerchantType( pddGoodsListItemVO.getMerchantType() );
+        goodsDetailDTO.setMinGroupPrice( pddGoodsListItemVO.getMinGroupPrice() );
+        goodsDetailDTO.setMinNormalPrice( pddGoodsListItemVO.getMinNormalPrice() );
+        goodsDetailDTO.setOptId( pddGoodsListItemVO.getOptId() );
+        List<Long> list1 = pddGoodsListItemVO.getOptIds();
+        if ( list1 != null ) {
+            goodsDetailDTO.setOptIds( new ArrayList<Long>( list1 ) );
+        }
+        goodsDetailDTO.setOptName( pddGoodsListItemVO.getOptName() );
+        goodsDetailDTO.setQrCodeImageUrl( pddGoodsListItemVO.getQrCodeImageUrl() );
+        goodsDetailDTO.setSalesTip( pddGoodsListItemVO.getSalesTip() );
+        goodsDetailDTO.setSearchId( pddGoodsListItemVO.getSearchId() );
+        goodsDetailDTO.setShareDesc( pddGoodsListItemVO.getShareDesc() );
+
+        return goodsDetailDTO;
+    }
+
+    protected List<GoodsDetailDTO> pddGoodsListItemVOListToGoodsDetailDTOList(List<PddGoodsListItemVO> list) {
         if ( list == null ) {
             return null;
         }
 
         List<GoodsDetailDTO> list1 = new ArrayList<GoodsDetailDTO>( list.size() );
-        for ( PddGoodsDetailVO pddGoodsDetailVO : list ) {
-            list1.add( pddVoToDto( pddGoodsDetailVO ) );
+        for ( PddGoodsListItemVO pddGoodsListItemVO : list ) {
+            list1.add( pddGoodsListItemVOToGoodsDetailDTO( pddGoodsListItemVO ) );
         }
 
         return list1;

@@ -1,8 +1,8 @@
-com/colia/yorik/yorikapplication/test.class
 com/colia/yorik/yorikapplication/application/goods/PddGoodsService.class
 com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsListVO.class
 com/colia/yorik/yorikapplication/application/goods/adapter/GoodsVOMapperImpl.class
 com/colia/yorik/yorikapplication/application/goods/adapter/GoodsVOMapper.class
-com/colia/yorik/yorikapplication/application/test.class
+com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsBasicVO.class
 com/colia/yorik/yorikapplication/application/goods/impl/PddGoodsServiceImpl.class
+com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsListVO$PddGoodsListItemVO.class
 com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsDetailVO.class

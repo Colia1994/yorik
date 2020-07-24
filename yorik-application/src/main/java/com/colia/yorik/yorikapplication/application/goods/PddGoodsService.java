@@ -1,8 +1,11 @@
 package com.colia.yorik.yorikapplication.application.goods;
 
+import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsBasicVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO;
 import com.colia.yorik.yorikcommon.application.AppService;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsRecommendGetRequest;
+
+import java.util.List;
 
 /**
  * @Author konglingyao
@@ -18,6 +21,13 @@ public interface PddGoodsService extends AppService {
      */
     PddGoodsListVO getRecommendGoods(PddDdkGoodsRecommendGetRequest request);
 
+    /**
+     * pdd根据商品id获取基本信息
+     *
+     * @param goodsIdList 商品id列表
+     * @return 商品基本信息
+     */
+    List<PddGoodsBasicVO> getGoodsBasicInfoByID(List<Long> goodsIdList);
 
-    void getGoodsBasicInfo();
+//     getGoodsDetailInfo()；
 }

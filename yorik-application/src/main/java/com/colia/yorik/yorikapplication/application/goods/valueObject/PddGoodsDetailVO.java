@@ -35,6 +35,36 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
     private List<Long> catIds;
 
     /**
+     * 店铺收藏券id
+     */
+    private String cltCpnBatchSn;
+    /**
+     * 店铺收藏券面额,单位为分
+     */
+    private Long cltCpnDiscount;
+    /**
+     * 店铺收藏券截止时间
+     */
+    private Long cltCpnEndTime;
+    /**
+     * 店铺收藏券使用门槛价格,单位为分
+     */
+    private Long cltCpnMinAmt;
+    /**
+     * 店铺收藏券总量
+     */
+    private Long cltCpnQuantity;
+    /**
+     * 店铺收藏券剩余量
+     */
+    private Long cltCpnRemainQuantity;
+    /**
+     * 店铺收藏券起始时间
+     */
+    private Long cltCpnStartTime;
+
+
+    /**
      * 优惠券面额,单位为分
      */
     private Long couponDiscount;
@@ -135,9 +165,49 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
     private Boolean hasCoupon;
 
     /**
+     * 是否有店铺券
+     */
+    private Boolean hasMallCoupon;
+
+    /**
      * 物流分
      */
     private String lgstTxt;
+
+    /**
+     * 店铺折扣
+     */
+    private Integer mallCouponDiscountPct;
+    /**
+     * 店铺券使用结束时间
+     */
+    private Long mallCouponEndTime;
+    /**
+     * 最大使用金额
+     */
+    private Integer mallCouponMaxDiscountAmount;
+    /**
+     * 最小使用金额
+     */
+    private Integer mallCouponMinOrderAmount;
+    /**
+     * 店铺券余量
+     */
+    private Long mallCouponRemainQuantity;
+    /**
+     * 店铺券使用开始时间
+     */
+    private Long mallCouponStartTime;
+    /**
+     * 店铺券总量
+     */
+    private Long mallCouponTotalQuantity;
+
+
+    /**
+     * 	该商品所在店铺是否参与全店推广，0：否，1：是
+     */
+    private Integer mallCps;
 
     /**
      * 商家id
@@ -148,11 +218,6 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
      * 店铺名称
      */
     private String mallName;
-
-    /**
-     * 市场服务费
-     */
-    private Long marketFee;
 
     /**
      * 商家类型
@@ -170,6 +235,11 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
     private Long minNormalPrice;
 
     /**
+     * 快手专享
+     */
+    private Boolean onlySceneAuth;
+
+    /**
      * 商品标签类目ID,使用pdd.goods.opt.get获取
      */
     private String optId;
@@ -185,14 +255,14 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
     private String optName;
 
     /**
+     * 推广计划类型
+     */
+    private Integer planType;
+
+    /**
      * 佣金比例,千分比
      */
     private Long promotionRate;
-
-    /**
-     * 二维码主图
-     */
-    private String qrCodeImageUrl;
 
     /**
      * 销售量
@@ -200,9 +270,9 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
     private String salesTip;
 
     /**
-     * 搜索id，建议生成推广链接时候填写，提高收益。
+     * 服务标签: 4-送货入户并安装,5-送货入户,6-电子发票,9-坏果包赔,11-闪电退款,12-24小时发货,13-48小时发货,17-顺丰包邮,18-只换不修,1可定制化,29-预约配送,1000001-正品发票,1000002-送货入户并安装
      */
-    private String searchId;
+    private List<Integer> serviceTags;
 
     /**
      * 服务分
@@ -210,9 +280,27 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
     private String servTxt;
 
     /**
-     * 分享描述
+     * 招商团长id
      */
-    private String shareDesc;
+    private Long zsDuoId;
+
+    /**
+     * 商品视频url
+     */
+    private List<String> videoUrls;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public boolean sameValueAs(PddGoodsDetailVO other) {
