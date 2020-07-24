@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class iConfiguration {
 
     @Bean
-    public ServiceProxyFactoryBean<TestService> testCreatBean(){
+    public ServiceProxyFactoryBean<TestService> testCreatBean() {
         ServiceProxyFactoryBean<TestService> bean = new ServiceProxyFactoryBean<>();
         bean.setInterfaces(TestService.class);
         bean.setQueue("redis");

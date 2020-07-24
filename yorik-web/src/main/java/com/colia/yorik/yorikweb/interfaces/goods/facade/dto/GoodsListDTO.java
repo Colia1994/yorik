@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikapplication.application.goods.dto;
+package com.colia.yorik.yorikweb.interfaces.goods.facade.dto;
 
 import com.colia.yorik.yorikcommon.interfaces.dto.PageInfoDTO;
 import lombok.Data;
@@ -10,6 +10,6 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class GoodsBasicDetailDTO extends PageInfoDTO<GoodsBasicDetailListItemDTO> {
+public class GoodsListDTO extends PageInfoDTO<GoodsDetailDTO> {
 
 }

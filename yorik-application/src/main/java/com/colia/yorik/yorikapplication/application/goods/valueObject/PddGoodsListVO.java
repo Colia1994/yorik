@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikapplication.application.goods.dto;
+package com.colia.yorik.yorikapplication.application.goods.valueObject;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,7 +11,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = false)
 @Data
-public class PddGoodsListVO  {
+public class PddGoodsListVO {
 
     /**
      * 列表

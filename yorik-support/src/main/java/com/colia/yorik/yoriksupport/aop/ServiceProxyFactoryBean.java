@@ -1,7 +1,6 @@
 package com.colia.yorik.yoriksupport.aop;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.FactoryBean;
 
@@ -26,10 +25,11 @@ public class ServiceProxyFactoryBean<T> implements InvocationHandler, FactoryBea
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         log.info("invoke doing");
-        method.invoke(obj,args);
+        method.invoke(obj, args);
         System.out.println("invoke doing");
         return queue;
     }
+
     @Override
     public T getObject() throws Exception {
         log.info("queue:{},interfaces:{},{},{}", getQueue(), interfaces.getCanonicalName(), interfaces.getName(), interfaces.getSimpleName());

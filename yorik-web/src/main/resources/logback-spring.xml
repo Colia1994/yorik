@@ -2,9 +2,9 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <contextName>logback</contextName>
     <!-- 日志路径文件中的变量,标明当前用户,从application.yml 中取得，通过jar启动时 可以通过 logging.userPath=XXX 来覆盖application.yml中的默认值 (XXX)一般为当前系统用户名  -->
-    <springProperty scope="context" name="LOG_USER" source="logging.userpath" />
+    <springProperty scope="context" name="LOG_USER" source="logging.userpath"/>
     <!-- 日志路径文件中的变量,标明日志输出路径前缀，使用方式如上，logging.prefixpath=XXX  实现动态配置  XXX为日志文件绝对路径的前缀部分-->
-    <springProperty scope="context" name="LOG_PREFIX" source="logging.prefixpath"  />
+    <springProperty scope="context" name="LOG_PREFIX" source="logging.prefixpath"/>
 
     <property name="log.path" value="${LOG_PREFIX}/${LOG_USER}/logs/logback.log"/>
 
@@ -25,7 +25,7 @@
         <!--滚动记录文件：根据时间来制定滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_PREFIX}/${LOG_USER}/logs/logback.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100 MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>

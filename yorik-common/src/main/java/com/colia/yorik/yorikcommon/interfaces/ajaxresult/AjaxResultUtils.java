@@ -72,7 +72,7 @@ public class AjaxResultUtils {
     /**
      * 执行失败 返回自定义提示语  自定义执行事件
      *
-     * @param message        错误信息
+     * @param message 错误信息
      */
     public static <T> AjaxResponse<T> renderFail(String message) {
         return renderFail(null, null, message);
@@ -81,7 +81,7 @@ public class AjaxResultUtils {
     /**
      * 执行失败 返回自定义错误编码 自定义提示语
      *
-     * @param type 错误类型
+     * @param type    错误类型
      * @param message 错误消息
      * @return 标准格式返回
      */
@@ -93,8 +93,8 @@ public class AjaxResultUtils {
     /**
      * 执行失败 返回自定义错误编码 自定义提示语 自定义异常名称  执行事件 "UNDO"
      *
-     * @param type 错误类型
-     * @param code 错误编码
+     * @param type    错误类型
+     * @param code    错误编码
      * @param message 错误信息
      * @return 标准格式返回
      */
@@ -110,9 +110,10 @@ public class AjaxResultUtils {
         public AjaxResponse<T> build(String message, T data) {
             AjaxResponse<T> ajaxSuccessResponse = new AjaxResponse<>(Boolean.TRUE);
 
-            if (!StringUtils.isEmpty(message))
+            if (!StringUtils.isEmpty(message)) {
 
                 ajaxSuccessResponse.setMsg(message);
+            }
 
             ajaxSuccessResponse.setData(data);
             return ajaxSuccessResponse;
@@ -131,9 +132,5 @@ public class AjaxResultUtils {
 
             return ajaxErrorResponse;
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(AjaxResultUtils.renderSuccess("", "{a:true}"));
     }
 }
