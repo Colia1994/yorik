@@ -1,5 +1,7 @@
 com/colia/yorik/yorikweb/interfaces/goods/facade/GoodsRecommendFacade.class
 com/colia/yorik/yorikweb/interfaces/goods/facade/dto/GoodsDetailDTO.class
+com/colia/yorik/yorikweb/interfaces/goods/adapter/GoodsListDTOAssembler.class
+com/colia/yorik/yorikweb/interfaces/goods/facade/request/GoodsDetailRequest.class
 com/colia/yorik/yorikweb/infrastructure/interceptor/MyInterceptor.class
 com/colia/yorik/yorikweb/interfaces/goods/facade/impl/GoodsRecommendFacadeImpl.class
 com/colia/yorik/yorikweb/interfaces/goods/facade/request/GoodsRecommendRequest.class
@@ -7,8 +9,8 @@ com/colia/yorik/yorikweb/interfaces/goods/adapter/GoodsDTOMapper.class
 com/colia/yorik/yorikweb/interfaces/goods/facade/dto/GoodsListDTO.class
 com/colia/yorik/yorikweb/StartApplication.class
 com/colia/yorik/yorikweb/interfaces/goods/adapter/GoodsDTOMapperImpl.class
+com/colia/yorik/yorikweb/interfaces/goods/adapter/GoodsDetailDTOAssembler.class
 com/colia/yorik/yorikweb/interfaces/basic/HealthCheckController.class
-com/colia/yorik/yorikweb/interfaces/goods/adapter/GoodsBasicDetailDTOAssembler.class
 com/colia/yorik/yorikweb/interfaces/goods/controller/GoodsController.class
 com/colia/yorik/yorikweb/domain/User.class
 com/colia/yorik/yorikweb/domain/LearnResource.class

@@ -3,6 +3,7 @@ package com.colia.yorik.yorikapplication.application.goods.impl;
 import com.colia.yorik.yorikapplication.application.goods.PddGoodsService;
 import com.colia.yorik.yorikapplication.application.goods.adapter.GoodsVOMapper;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsBasicVO;
+import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
 import com.colia.yorik.yoriksupport.utils.HttpPddClient;
@@ -58,7 +59,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         PddDdkGoodsBasicInfoGetRequest request = new PddDdkGoodsBasicInfoGetRequest();
 
         request.setGoodsIdList(goodsIdList);
-        PddDdkGoodsBasicInfoGetResponse response = null;
+        PddDdkGoodsBasicInfoGetResponse response;
         try {
             response = client.syncInvoke(request);
         } catch (Exception e) {
@@ -69,16 +70,19 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         return goodsVOMapper.toPddGoodsBasicList(response.getGoodsBasicDetailResponse().getGoodsList());
     }
 
-    void getGoodsDetailInfo(PddDdkGoodsDetailRequest request) {
+    @Override
+    public List<PddGoodsDetailVO> getGoodsDetailInfo(PddDdkGoodsDetailRequest request) {
 
         PopClient client = HttpPddClient.getPddClient();
-        PddDdkGoodsDetailResponse response = null;
+        PddDdkGoodsDetailResponse response;
         try {
             response = client.syncInvoke(request);
         } catch (Exception e) {
             log.error("PDD获取商品详细信息接口异常", e);
             throw new BizProcessException("PDD获取商品详细信息接口异常", e);
         }
+
+        return goodsVOMapper.toPddGoodsDetailList(response.getGoodsDetailResponse().getGoodsDetails());
 
     }
 }

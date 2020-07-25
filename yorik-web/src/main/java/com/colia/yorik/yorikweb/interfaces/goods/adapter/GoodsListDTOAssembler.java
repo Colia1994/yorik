@@ -15,7 +15,7 @@ import java.util.Objects;
  * @Date 2020/7/17
  */
 @Component
-public class GoodsBasicDetailDTOAssembler implements Assembler<GoodsListDTO> {
+public class GoodsListDTOAssembler implements Assembler<GoodsListDTO> {
 
     @Resource
     private GoodsDTOMapper goodsDTOMapper;

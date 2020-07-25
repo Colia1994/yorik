@@ -122,7 +122,7 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
     /**
      * 商品详情图列表
      */
-    private String goodsGalleryUrls;
+    private List<String> goodsGalleryUrls;
 
     /**
      * 商品id

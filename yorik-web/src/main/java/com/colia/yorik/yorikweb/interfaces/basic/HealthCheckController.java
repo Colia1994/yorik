@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @Date 2020/7/20
  */
 @Controller
-@RequestMapping("/health")
+@RequestMapping("/api/health")
 public class HealthCheckController {
 
 

@@ -2,6 +2,7 @@ package com.colia.yorik.yorikweb.interfaces.goods.adapter;
 
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO;
+import com.colia.yorik.yorikcommon.infrastructure.adapter.StringStrategy;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import org.mapstruct.Mapper;
@@ -12,7 +13,7 @@ import org.mapstruct.Mappings;
  * @Author konglingyao
  * @Date 2020/7/24
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring",uses = StringStrategy.class)
 public interface GoodsDTOMapper {
 
     /**
@@ -21,7 +22,7 @@ public interface GoodsDTOMapper {
      * @param item 推荐商品vo
      * @return 通用商品dto
      */
-    GoodsDetailDTO pddVoToDto(PddGoodsDetailVO item);
+    GoodsDetailDTO pddVoToDto(PddGoodsListVO.PddGoodsListItemVO item);
 
     /**
      * 转换成通用商品dto
@@ -33,4 +34,12 @@ public interface GoodsDTOMapper {
             @Mapping(source = "list", target = "records"),
     })
     GoodsListDTO pddVoToDto(PddGoodsListVO listVO);
+
+    /**
+     * 转换成通用商品详情dto
+     *
+     * @param item 商品详情vo
+     * @return 商品详情dto
+     */
+    GoodsDetailDTO pddVoToDto(PddGoodsDetailVO item);
 }

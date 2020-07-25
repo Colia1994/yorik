@@ -17,6 +17,7 @@
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-common/src/main/java/com/colia/yorik/yorikcommon/application/AppService.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-common/src/main/java/com/colia/yorik/yorikcommon/interfaces/dto/FormInfoDTO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-common/src/main/java/com/colia/yorik/yorikcommon/infrastructure/exception/ValidateException.java
+/Users/konglingyao/colia.git/ideaProjects/yorik/yorik-common/src/main/java/com/colia/yorik/yorikcommon/infrastructure/adapter/StringStrategy.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-common/src/main/java/com/colia/yorik/yorikcommon/infrastructure/exception/BizProcessException.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-common/src/main/java/com/colia/yorik/yorikcommon/interfaces/requestBody/PageCommand.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-common/src/main/java/com/colia/yorik/yorikcommon/domain/event/DomainEvent.java

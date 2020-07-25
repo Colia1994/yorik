@@ -1,6 +1,7 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade.dto;
 
 import com.colia.yorik.yorikcommon.interfaces.dto.BaseDTO;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,6 +14,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
+@ApiModel("商品详情")
 public class GoodsDetailDTO extends BaseDTO {
 
 
@@ -54,13 +56,16 @@ public class GoodsDetailDTO extends BaseDTO {
     private String goodsDesc;
 
     @ApiModelProperty("商品详情图列表")
-    private String goodsGalleryUrls;
+    private List<String> goodsGalleryUrls;
 
     @ApiModelProperty("商品id")
     private Long goodsId;
 
     @ApiModelProperty("商品主图")
     private String goodsImageUrl;
+
+    @ApiModelProperty("商品实际价格")
+    private Long goodsFactPrice;
 
     @ApiModelProperty("商品标准价格")
     private Long goodsMarkPrice;

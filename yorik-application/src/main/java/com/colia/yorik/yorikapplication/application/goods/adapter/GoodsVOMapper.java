@@ -4,6 +4,7 @@ import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsBa
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsBasicInfoGetResponse;
+import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsDetailResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsRecommendGetResponse;
 import org.mapstruct.Mapper;
 
@@ -42,5 +43,12 @@ public interface GoodsVOMapper {
      * @return pdd商品基本信息
      */
     List<PddGoodsBasicVO> toPddGoodsBasicList(List<PddDdkGoodsBasicInfoGetResponse.GoodsBasicDetailResponseGoodsListItem> list);
+
+    /**
+     * 转换pdd 商品详情信息
+     *
+     * @return pdd商品详情信息
+     */
+    List<PddGoodsDetailVO> toPddGoodsDetailList(List<PddDdkGoodsDetailResponse.GoodsDetailResponseGoodsDetailsItem> list);
 
 }

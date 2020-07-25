@@ -14,6 +14,7 @@ com/colia/yorik/yorikcommon/interfaces/dto/AssemblerValidateException.class
 com/colia/yorik/yorikcommon/interfaces/dto/AssemblerProcessException.class
 com/colia/yorik/yorikcommon/domain/repository/InMemRepository.class
 com/colia/yorik/yorikcommon/application/AppService.class
+com/colia/yorik/yorikcommon/infrastructure/adapter/StringStrategy.class
 com/colia/yorik/yorikcommon/infrastructure/exception/BizException.class
 com/colia/yorik/yorikcommon/domain/entity/EntitySupport.class
 com/colia/yorik/yorikcommon/domain/specification/AbstractSpecification.class
