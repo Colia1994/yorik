@@ -2,97 +2,46 @@ package com.colia.yorik.yorikapplication.application.goods.adapter;
 
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsBasicVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO.PddGoodsListItemVO;
+import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsRecommendVO;
+import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsSearchVO;
+import com.colia.yorik.yorikcommon.infrastructure.adapter.StringStrategy;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsBasicInfoGetResponse.GoodsBasicDetailResponseGoodsListItem;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsDetailResponse.GoodsDetailResponseGoodsDetailsItem;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsRecommendGetResponse.GoodsBasicDetailResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsRecommendGetResponse.GoodsBasicDetailResponseListItem;
+import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsSearchResponse.GoodsSearchResponse;
+import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsSearchResponse.GoodsSearchResponseGoodsListItem;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-07-26T22:31:03+0800",
+    date = "2020-07-27T21:28:45+0800",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 1.8.0_251 (Oracle Corporation)"
 )
 @Component
 public class GoodsMapperImpl implements GoodsMapper {
 
-    @Override
-    public PddGoodsListItemVO toPddGoodListItemVO(GoodsBasicDetailResponseListItem item) {
-        if ( item == null ) {
-            return null;
-        }
-
-        PddGoodsListItemVO pddGoodsListItemVO = new PddGoodsListItemVO();
-
-        pddGoodsListItemVO.setCategoryId( item.getCategoryId() );
-        pddGoodsListItemVO.setCategoryName( item.getCategoryName() );
-        pddGoodsListItemVO.setCatId( item.getCatId() );
-        List<Long> list = item.getCatIds();
-        if ( list != null ) {
-            pddGoodsListItemVO.setCatIds( new ArrayList<Long>( list ) );
-        }
-        pddGoodsListItemVO.setCouponDiscount( item.getCouponDiscount() );
-        pddGoodsListItemVO.setCouponEndTime( item.getCouponEndTime() );
-        pddGoodsListItemVO.setCouponMinOrderAmount( item.getCouponMinOrderAmount() );
-        pddGoodsListItemVO.setCouponPrice( item.getCouponPrice() );
-        pddGoodsListItemVO.setCouponRemainQuantity( item.getCouponRemainQuantity() );
-        pddGoodsListItemVO.setCouponStartTime( item.getCouponStartTime() );
-        pddGoodsListItemVO.setCouponTotalQuantity( item.getCouponTotalQuantity() );
-        pddGoodsListItemVO.setCreateAt( item.getCreateAt() );
-        pddGoodsListItemVO.setDescTxt( item.getDescTxt() );
-        pddGoodsListItemVO.setGoodsDesc( item.getGoodsDesc() );
-        pddGoodsListItemVO.setGoodsFactPrice( item.getGoodsFactPrice() );
-        pddGoodsListItemVO.setGoodsGalleryUrls( item.getGoodsGalleryUrls() );
-        pddGoodsListItemVO.setGoodsId( item.getGoodsId() );
-        pddGoodsListItemVO.setGoodsImageUrl( item.getGoodsImageUrl() );
-        pddGoodsListItemVO.setGoodsMarkPrice( item.getGoodsMarkPrice() );
-        pddGoodsListItemVO.setGoodsName( item.getGoodsName() );
-        pddGoodsListItemVO.setGoodsRate( item.getGoodsRate() );
-        pddGoodsListItemVO.setGoodsThumbnailUrl( item.getGoodsThumbnailUrl() );
-        pddGoodsListItemVO.setGoodsType( item.getGoodsType() );
-        pddGoodsListItemVO.setHasCoupon( item.getHasCoupon() );
-        pddGoodsListItemVO.setLgstTxt( item.getLgstTxt() );
-        pddGoodsListItemVO.setMallId( item.getMallId() );
-        pddGoodsListItemVO.setMallName( item.getMallName() );
-        pddGoodsListItemVO.setMarketFee( item.getMarketFee() );
-        pddGoodsListItemVO.setMerchantType( item.getMerchantType() );
-        pddGoodsListItemVO.setMinGroupPrice( item.getMinGroupPrice() );
-        pddGoodsListItemVO.setMinNormalPrice( item.getMinNormalPrice() );
-        pddGoodsListItemVO.setOptId( item.getOptId() );
-        List<Long> list1 = item.getOptIds();
-        if ( list1 != null ) {
-            pddGoodsListItemVO.setOptIds( new ArrayList<Long>( list1 ) );
-        }
-        pddGoodsListItemVO.setOptName( item.getOptName() );
-        pddGoodsListItemVO.setPromotionRate( item.getPromotionRate() );
-        pddGoodsListItemVO.setQrCodeImageUrl( item.getQrCodeImageUrl() );
-        pddGoodsListItemVO.setSalesTip( item.getSalesTip() );
-        pddGoodsListItemVO.setSearchId( item.getSearchId() );
-        pddGoodsListItemVO.setServTxt( item.getServTxt() );
-        pddGoodsListItemVO.setShareDesc( item.getShareDesc() );
-
-        return pddGoodsListItemVO;
-    }
+    @Autowired
+    private StringStrategy stringStrategy;
 
     @Override
-    public PddGoodsListVO toPddGoodsVO(GoodsBasicDetailResponse response) {
+    public PddGoodsRecommendVO toPddGoodsRecommendVO(GoodsBasicDetailResponse response) {
         if ( response == null ) {
             return null;
         }
 
-        PddGoodsListVO pddGoodsListVO = new PddGoodsListVO();
+        PddGoodsRecommendVO pddGoodsRecommendVO = new PddGoodsRecommendVO();
 
-        pddGoodsListVO.setList( goodsBasicDetailResponseListItemListToPddGoodsListItemVOList( response.getList() ) );
-        pddGoodsListVO.setListId( response.getListId() );
-        pddGoodsListVO.setSearchId( response.getSearchId() );
-        pddGoodsListVO.setTotal( response.getTotal() );
+        pddGoodsRecommendVO.setList( goodsBasicDetailResponseListItemListToPddGoodsDetailVOList( response.getList() ) );
+        pddGoodsRecommendVO.setListId( response.getListId() );
+        pddGoodsRecommendVO.setSearchId( response.getSearchId() );
+        pddGoodsRecommendVO.setTotal( response.getTotal() );
 
-        return pddGoodsListVO;
+        return pddGoodsRecommendVO;
     }
 
     @Override
@@ -123,14 +72,87 @@ public class GoodsMapperImpl implements GoodsMapper {
         return list1;
     }
 
-    protected List<PddGoodsListItemVO> goodsBasicDetailResponseListItemListToPddGoodsListItemVOList(List<GoodsBasicDetailResponseListItem> list) {
+    @Override
+    public PddGoodsSearchVO toPddGoodsSearchVO(GoodsSearchResponse response) {
+        if ( response == null ) {
+            return null;
+        }
+
+        PddGoodsSearchVO pddGoodsSearchVO = new PddGoodsSearchVO();
+
+        pddGoodsSearchVO.setGoodsList( goodsSearchResponseGoodsListItemListToPddGoodsBasicVOList( response.getGoodsList() ) );
+        pddGoodsSearchVO.setListId( response.getListId() );
+        pddGoodsSearchVO.setSearchId( response.getSearchId() );
+        pddGoodsSearchVO.setTotalCount( response.getTotalCount() );
+
+        return pddGoodsSearchVO;
+    }
+
+    protected PddGoodsDetailVO goodsBasicDetailResponseListItemToPddGoodsDetailVO(GoodsBasicDetailResponseListItem goodsBasicDetailResponseListItem) {
+        if ( goodsBasicDetailResponseListItem == null ) {
+            return null;
+        }
+
+        PddGoodsDetailVO pddGoodsDetailVO = new PddGoodsDetailVO();
+
+        pddGoodsDetailVO.setCategoryId( goodsBasicDetailResponseListItem.getCategoryId() );
+        pddGoodsDetailVO.setCategoryName( goodsBasicDetailResponseListItem.getCategoryName() );
+        pddGoodsDetailVO.setCatId( goodsBasicDetailResponseListItem.getCatId() );
+        List<Long> list = goodsBasicDetailResponseListItem.getCatIds();
+        if ( list != null ) {
+            pddGoodsDetailVO.setCatIds( new ArrayList<Long>( list ) );
+        }
+        pddGoodsDetailVO.setCouponDiscount( goodsBasicDetailResponseListItem.getCouponDiscount() );
+        pddGoodsDetailVO.setCouponEndTime( goodsBasicDetailResponseListItem.getCouponEndTime() );
+        pddGoodsDetailVO.setCouponMinOrderAmount( goodsBasicDetailResponseListItem.getCouponMinOrderAmount() );
+        pddGoodsDetailVO.setCouponPrice( goodsBasicDetailResponseListItem.getCouponPrice() );
+        pddGoodsDetailVO.setCouponRemainQuantity( goodsBasicDetailResponseListItem.getCouponRemainQuantity() );
+        pddGoodsDetailVO.setCouponStartTime( goodsBasicDetailResponseListItem.getCouponStartTime() );
+        pddGoodsDetailVO.setCouponTotalQuantity( goodsBasicDetailResponseListItem.getCouponTotalQuantity() );
+        pddGoodsDetailVO.setCreateAt( goodsBasicDetailResponseListItem.getCreateAt() );
+        pddGoodsDetailVO.setDescTxt( goodsBasicDetailResponseListItem.getDescTxt() );
+        pddGoodsDetailVO.setGoodsDesc( goodsBasicDetailResponseListItem.getGoodsDesc() );
+        pddGoodsDetailVO.setGoodsFactPrice( goodsBasicDetailResponseListItem.getGoodsFactPrice() );
+        pddGoodsDetailVO.setGoodsGalleryUrls( stringStrategy.stringToList( goodsBasicDetailResponseListItem.getGoodsGalleryUrls() ) );
+        pddGoodsDetailVO.setGoodsId( goodsBasicDetailResponseListItem.getGoodsId() );
+        pddGoodsDetailVO.setGoodsImageUrl( goodsBasicDetailResponseListItem.getGoodsImageUrl() );
+        pddGoodsDetailVO.setGoodsMarkPrice( goodsBasicDetailResponseListItem.getGoodsMarkPrice() );
+        pddGoodsDetailVO.setGoodsName( goodsBasicDetailResponseListItem.getGoodsName() );
+        pddGoodsDetailVO.setGoodsRate( goodsBasicDetailResponseListItem.getGoodsRate() );
+        pddGoodsDetailVO.setGoodsThumbnailUrl( goodsBasicDetailResponseListItem.getGoodsThumbnailUrl() );
+        pddGoodsDetailVO.setGoodsType( goodsBasicDetailResponseListItem.getGoodsType() );
+        pddGoodsDetailVO.setHasCoupon( goodsBasicDetailResponseListItem.getHasCoupon() );
+        pddGoodsDetailVO.setLgstTxt( goodsBasicDetailResponseListItem.getLgstTxt() );
+        pddGoodsDetailVO.setMallId( goodsBasicDetailResponseListItem.getMallId() );
+        pddGoodsDetailVO.setMallName( goodsBasicDetailResponseListItem.getMallName() );
+        pddGoodsDetailVO.setMerchantType( goodsBasicDetailResponseListItem.getMerchantType() );
+        pddGoodsDetailVO.setMinGroupPrice( goodsBasicDetailResponseListItem.getMinGroupPrice() );
+        pddGoodsDetailVO.setMinNormalPrice( goodsBasicDetailResponseListItem.getMinNormalPrice() );
+        pddGoodsDetailVO.setOptId( goodsBasicDetailResponseListItem.getOptId() );
+        List<Long> list2 = goodsBasicDetailResponseListItem.getOptIds();
+        if ( list2 != null ) {
+            pddGoodsDetailVO.setOptIds( new ArrayList<Long>( list2 ) );
+        }
+        pddGoodsDetailVO.setOptName( goodsBasicDetailResponseListItem.getOptName() );
+        pddGoodsDetailVO.setPromotionRate( goodsBasicDetailResponseListItem.getPromotionRate() );
+        pddGoodsDetailVO.setSalesTip( goodsBasicDetailResponseListItem.getSalesTip() );
+        pddGoodsDetailVO.setServTxt( goodsBasicDetailResponseListItem.getServTxt() );
+        pddGoodsDetailVO.setMarketFee( goodsBasicDetailResponseListItem.getMarketFee() );
+        pddGoodsDetailVO.setQrCodeImageUrl( goodsBasicDetailResponseListItem.getQrCodeImageUrl() );
+        pddGoodsDetailVO.setSearchId( goodsBasicDetailResponseListItem.getSearchId() );
+        pddGoodsDetailVO.setShareDesc( goodsBasicDetailResponseListItem.getShareDesc() );
+
+        return pddGoodsDetailVO;
+    }
+
+    protected List<PddGoodsDetailVO> goodsBasicDetailResponseListItemListToPddGoodsDetailVOList(List<GoodsBasicDetailResponseListItem> list) {
         if ( list == null ) {
             return null;
         }
 
-        List<PddGoodsListItemVO> list1 = new ArrayList<PddGoodsListItemVO>( list.size() );
+        List<PddGoodsDetailVO> list1 = new ArrayList<PddGoodsDetailVO>( list.size() );
         for ( GoodsBasicDetailResponseListItem goodsBasicDetailResponseListItem : list ) {
-            list1.add( toPddGoodListItemVO( goodsBasicDetailResponseListItem ) );
+            list1.add( goodsBasicDetailResponseListItemToPddGoodsDetailVO( goodsBasicDetailResponseListItem ) );
         }
 
         return list1;
@@ -243,5 +265,33 @@ public class GoodsMapperImpl implements GoodsMapper {
         }
 
         return pddGoodsDetailVO;
+    }
+
+    protected PddGoodsBasicVO goodsSearchResponseGoodsListItemToPddGoodsBasicVO(GoodsSearchResponseGoodsListItem goodsSearchResponseGoodsListItem) {
+        if ( goodsSearchResponseGoodsListItem == null ) {
+            return null;
+        }
+
+        PddGoodsBasicVO pddGoodsBasicVO = new PddGoodsBasicVO();
+
+        pddGoodsBasicVO.setGoodsId( goodsSearchResponseGoodsListItem.getGoodsId() );
+        pddGoodsBasicVO.setGoodsName( goodsSearchResponseGoodsListItem.getGoodsName() );
+        pddGoodsBasicVO.setMinGroupPrice( goodsSearchResponseGoodsListItem.getMinGroupPrice() );
+        pddGoodsBasicVO.setMinNormalPrice( goodsSearchResponseGoodsListItem.getMinNormalPrice() );
+
+        return pddGoodsBasicVO;
+    }
+
+    protected List<PddGoodsBasicVO> goodsSearchResponseGoodsListItemListToPddGoodsBasicVOList(List<GoodsSearchResponseGoodsListItem> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<PddGoodsBasicVO> list1 = new ArrayList<PddGoodsBasicVO>( list.size() );
+        for ( GoodsSearchResponseGoodsListItem goodsSearchResponseGoodsListItem : list ) {
+            list1.add( goodsSearchResponseGoodsListItemToPddGoodsBasicVO( goodsSearchResponseGoodsListItem ) );
+        }
+
+        return list1;
     }
 }

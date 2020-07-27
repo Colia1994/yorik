@@ -3,7 +3,6 @@ com/colia/yorik/yorikapplication/application/order/adapter/OrderVOMapper.class
 com/colia/yorik/yorikapplication/application/promotion/impl/PddPromotionServiceImpl.class
 com/colia/yorik/yorikapplication/application/goods/PddGoodsService.class
 com/colia/yorik/yorikapplication/application/promotion/valueObject/PromotionVO.class
-com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsListVO.class
 com/colia/yorik/yorikapplication/application/order/valueObject/PddOrderVO.class
 com/colia/yorik/yorikapplication/application/promotion/adapter/PromotionMapperImpl.class
 com/colia/yorik/yorikapplication/application/order/valueObject/PddOrderRangeListVO.class
@@ -11,9 +10,10 @@ com/colia/yorik/yorikapplication/application/goods/adapter/GoodsMapper.class
 com/colia/yorik/yorikapplication/application/order/valueObject/PddOrderIncListVO.class
 com/colia/yorik/yorikapplication/application/goods/impl/PddGoodsServiceImpl.class
 com/colia/yorik/yorikapplication/application/goods/adapter/GoodsMapperImpl.class
-com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsListVO$PddGoodsListItemVO.class
 com/colia/yorik/yorikapplication/application/order/adapter/OrderVOMapperImpl.class
+com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsRecommendVO.class
 com/colia/yorik/yorikapplication/application/promotion/PddPromotionService.class
+com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsSearchVO.class
 com/colia/yorik/yorikapplication/application/order/PddOrderService.class
 com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsBasicVO.class
 com/colia/yorik/yorikapplication/application/promotion/adapter/PromotionMapper.class

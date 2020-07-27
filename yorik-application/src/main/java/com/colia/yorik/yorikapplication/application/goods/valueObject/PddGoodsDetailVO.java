@@ -290,6 +290,30 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
     private List<String> videoUrls;
 
 
+    /**
+     * 市场服务费
+     */
+    private Long marketFee;
+
+
+
+    /**
+     * 二维码主图
+     */
+    private String qrCodeImageUrl;
+
+
+    /**
+     * 搜索id，建议生成推广链接时候填写，提高收益。
+     */
+    private String searchId;
+
+
+    /**
+     * 分享描述
+     */
+    private String shareDesc;
+
 
 
 

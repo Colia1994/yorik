@@ -5,12 +5,13 @@
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/order/adapter/OrderVOMapper.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/promotion/adapter/PromotionMapper.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/order/impl/PddOrderServiceImpl.java
+/Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsSearchVO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsBasicVO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/adapter/GoodsMapper.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/order/valueObject/PddOrderRangeListVO.java
-/Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsListVO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/promotion/PddPromotionService.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/order/valueObject/PddOrderVO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/PddGoodsService.java
+/Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/goods/valueObject/PddGoodsRecommendVO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/promotion/valueObject/PromotionVO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-application/src/main/java/com/colia/yorik/yorikapplication/application/order/valueObject/PddOrderIncListVO.java
