@@ -2,13 +2,16 @@ package com.colia.yorik.yoriksupport.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
  * @Author konglingyao
  * @Date 2020/7/26
  */
-public class DateUtils {
+public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 
     /**
      * 获得当前日期 yyyy-MM-dd HH:mm:ss

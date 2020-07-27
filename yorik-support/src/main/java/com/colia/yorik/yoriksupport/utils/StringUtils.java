@@ -6,7 +6,7 @@ package com.colia.yorik.yoriksupport.utils;
  * @Author colia
  * @Date 2017-07-18
  */
-public class StringUtils {
+public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
     private static final String a = "IOS_8859_1";
     private static final String b = "GB2312";
