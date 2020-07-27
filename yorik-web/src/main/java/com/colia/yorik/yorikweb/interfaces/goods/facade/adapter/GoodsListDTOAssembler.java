@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikweb.interfaces.goods.adapter;
+package com.colia.yorik.yorikweb.interfaces.goods.facade.adapter;
 
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO;
 import com.colia.yorik.yorikcommon.interfaces.dto.Assembler;

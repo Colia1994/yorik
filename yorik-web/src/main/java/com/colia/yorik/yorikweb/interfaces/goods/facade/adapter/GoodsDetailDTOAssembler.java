@@ -1,10 +1,8 @@
-package com.colia.yorik.yorikweb.interfaces.goods.adapter;
+package com.colia.yorik.yorikweb.interfaces.goods.facade.adapter;
 
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO;
 import com.colia.yorik.yorikcommon.interfaces.dto.Assembler;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

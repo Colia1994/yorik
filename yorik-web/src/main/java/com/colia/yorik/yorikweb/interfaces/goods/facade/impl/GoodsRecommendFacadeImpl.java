@@ -1,8 +1,8 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade.impl;
 
 import com.colia.yorik.yorikapplication.application.goods.PddGoodsService;
-import com.colia.yorik.yorikweb.interfaces.goods.adapter.GoodsDetailDTOAssembler;
-import com.colia.yorik.yorikweb.interfaces.goods.adapter.GoodsListDTOAssembler;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.adapter.GoodsDetailDTOAssembler;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.adapter.GoodsListDTOAssembler;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.GoodsRecommendFacade;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
@@ -68,7 +68,6 @@ public class GoodsRecommendFacadeImpl implements GoodsRecommendFacade {
         pddRequest.setSearchId(request.getSearchId());
         pddRequest.setPid(request.getPid());
         pddRequest.setPlanType(request.getPlanType());
-//        pddRequest.se(request.getPid());
         return detailAssembler.toDTO(pddGoodsService.getGoodsDetailInfo(pddRequest).get(0));
     }
 }

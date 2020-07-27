@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel("商品列表")
+@ApiModel(description = "商品列表")
 public class GoodsListDTO extends PageInfoDTO<GoodsDetailDTO> {
 
 }

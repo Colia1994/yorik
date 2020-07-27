@@ -14,7 +14,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel("商品详情")
+@ApiModel(description = "商品详情")
 public class GoodsDetailDTO extends BaseDTO {
 
 
@@ -124,4 +124,9 @@ public class GoodsDetailDTO extends BaseDTO {
 
     @ApiModelProperty("分享描述")
     private String shareDesc;
+
+    /**
+     * 佣金比例,千分比
+     */
+    private Long promotionRate;
 }

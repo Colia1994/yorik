@@ -45,7 +45,7 @@
     </properties>
 
 
-    <!-- 只声明 不为子项目引入 子项目引入可以不穿版本等参数 -->
+    <!-- 只声明 不为子项目引入 子项目引入可以不传版本等参数 -->
     <dependencyManagement>
         <dependencies>
             <dependency>

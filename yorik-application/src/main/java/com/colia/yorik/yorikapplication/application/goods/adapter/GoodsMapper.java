@@ -17,7 +17,7 @@ import java.util.List;
  * @Date 2020/7/17
  */
 @Mapper(componentModel = "spring")
-public interface GoodsVOMapper {
+public interface GoodsMapper {
 
 
     /**

@@ -15,11 +15,11 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-07-25T20:56:41+0800",
+    date = "2020-07-26T22:31:03+0800",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 1.8.0_251 (Oracle Corporation)"
 )
 @Component
-public class GoodsVOMapperImpl implements GoodsVOMapper {
+public class GoodsMapperImpl implements GoodsMapper {
 
     @Override
     public PddGoodsListItemVO toPddGoodListItemVO(GoodsBasicDetailResponseListItem item) {

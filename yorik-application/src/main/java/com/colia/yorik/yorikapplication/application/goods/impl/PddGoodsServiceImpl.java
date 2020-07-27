@@ -1,7 +1,7 @@
 package com.colia.yorik.yorikapplication.application.goods.impl;
 
 import com.colia.yorik.yorikapplication.application.goods.PddGoodsService;
-import com.colia.yorik.yorikapplication.application.goods.adapter.GoodsVOMapper;
+import com.colia.yorik.yorikapplication.application.goods.adapter.GoodsMapper;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsBasicVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO;
@@ -18,7 +18,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,7 +29,7 @@ import java.util.List;
 public class PddGoodsServiceImpl implements PddGoodsService {
 
     @Resource
-    private GoodsVOMapper goodsVOMapper;
+    private GoodsMapper goodsVOMapper;
 
 
     /**

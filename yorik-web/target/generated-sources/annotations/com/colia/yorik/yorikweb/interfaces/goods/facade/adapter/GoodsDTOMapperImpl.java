@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikweb.interfaces.goods.adapter;
+package com.colia.yorik.yorikweb.interfaces.goods.facade.adapter;
 
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsListVO;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-07-25T20:56:43+0800",
+    date = "2020-07-26T22:31:05+0800",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 1.8.0_251 (Oracle Corporation)"
 )
 @Component
@@ -72,6 +72,7 @@ public class GoodsDTOMapperImpl implements GoodsDTOMapper {
         goodsDetailDTO.setSalesTip( item.getSalesTip() );
         goodsDetailDTO.setSearchId( item.getSearchId() );
         goodsDetailDTO.setShareDesc( item.getShareDesc() );
+        goodsDetailDTO.setPromotionRate( item.getPromotionRate() );
 
         return goodsDetailDTO;
     }
@@ -139,6 +140,7 @@ public class GoodsDTOMapperImpl implements GoodsDTOMapper {
         }
         goodsDetailDTO.setOptName( item.getOptName() );
         goodsDetailDTO.setSalesTip( item.getSalesTip() );
+        goodsDetailDTO.setPromotionRate( item.getPromotionRate() );
 
         return goodsDetailDTO;
     }

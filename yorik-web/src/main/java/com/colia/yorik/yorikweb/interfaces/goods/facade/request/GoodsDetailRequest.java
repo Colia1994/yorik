@@ -16,10 +16,10 @@ public class GoodsDetailRequest implements RequestCommand {
 
 
 
-    @ApiModelProperty(name = "商品id", required = true)
+    @ApiModelProperty(value = "商品id", required = true)
     private Long goodsId;
 
-    @ApiModelProperty(name = "推广位id")
+    @ApiModelProperty("推广位id")
     private String pid;
 
     @ApiModelProperty("佣金优惠券对应推广类型，3：专属 4：招商")
