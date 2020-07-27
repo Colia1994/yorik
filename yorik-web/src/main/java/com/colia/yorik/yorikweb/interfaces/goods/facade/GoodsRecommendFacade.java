@@ -4,6 +4,7 @@ import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsDetailRequest;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsRecommendRequest;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsSearchRequest;
 
 /**
  * @Author konglingyao
@@ -27,4 +28,13 @@ public interface GoodsRecommendFacade {
      * @return 商品详情
      */
     GoodsDetailDTO getGoodsDetailById(GoodsDetailRequest request);
+
+
+    /**
+     * 搜索商品
+     *
+     * @param params 参数
+     * @return 商品列表
+     */
+    GoodsListDTO searchGoods(GoodsSearchRequest params);
 }

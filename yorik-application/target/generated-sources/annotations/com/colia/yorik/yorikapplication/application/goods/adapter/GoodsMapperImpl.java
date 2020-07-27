@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-07-27T21:28:45+0800",
+    date = "2020-07-28T01:14:23+0800",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 1.8.0_251 (Oracle Corporation)"
 )
 @Component
@@ -80,7 +80,7 @@ public class GoodsMapperImpl implements GoodsMapper {
 
         PddGoodsSearchVO pddGoodsSearchVO = new PddGoodsSearchVO();
 
-        pddGoodsSearchVO.setGoodsList( goodsSearchResponseGoodsListItemListToPddGoodsBasicVOList( response.getGoodsList() ) );
+        pddGoodsSearchVO.setGoodsList( goodsSearchResponseGoodsListItemListToPddGoodsDetailVOList( response.getGoodsList() ) );
         pddGoodsSearchVO.setListId( response.getListId() );
         pddGoodsSearchVO.setSearchId( response.getSearchId() );
         pddGoodsSearchVO.setTotalCount( response.getTotalCount() );
@@ -267,29 +267,104 @@ public class GoodsMapperImpl implements GoodsMapper {
         return pddGoodsDetailVO;
     }
 
-    protected PddGoodsBasicVO goodsSearchResponseGoodsListItemToPddGoodsBasicVO(GoodsSearchResponseGoodsListItem goodsSearchResponseGoodsListItem) {
-        if ( goodsSearchResponseGoodsListItem == null ) {
-            return null;
-        }
-
-        PddGoodsBasicVO pddGoodsBasicVO = new PddGoodsBasicVO();
-
-        pddGoodsBasicVO.setGoodsId( goodsSearchResponseGoodsListItem.getGoodsId() );
-        pddGoodsBasicVO.setGoodsName( goodsSearchResponseGoodsListItem.getGoodsName() );
-        pddGoodsBasicVO.setMinGroupPrice( goodsSearchResponseGoodsListItem.getMinGroupPrice() );
-        pddGoodsBasicVO.setMinNormalPrice( goodsSearchResponseGoodsListItem.getMinNormalPrice() );
-
-        return pddGoodsBasicVO;
-    }
-
-    protected List<PddGoodsBasicVO> goodsSearchResponseGoodsListItemListToPddGoodsBasicVOList(List<GoodsSearchResponseGoodsListItem> list) {
+    protected List<Integer> longListToIntegerList(List<Long> list) {
         if ( list == null ) {
             return null;
         }
 
-        List<PddGoodsBasicVO> list1 = new ArrayList<PddGoodsBasicVO>( list.size() );
+        List<Integer> list1 = new ArrayList<Integer>( list.size() );
+        for ( Long long1 : list ) {
+            list1.add( long1.intValue() );
+        }
+
+        return list1;
+    }
+
+    protected PddGoodsDetailVO goodsSearchResponseGoodsListItemToPddGoodsDetailVO(GoodsSearchResponseGoodsListItem goodsSearchResponseGoodsListItem) {
+        if ( goodsSearchResponseGoodsListItem == null ) {
+            return null;
+        }
+
+        PddGoodsDetailVO pddGoodsDetailVO = new PddGoodsDetailVO();
+
+        if ( goodsSearchResponseGoodsListItem.getCategoryId() != null ) {
+            pddGoodsDetailVO.setCategoryId( String.valueOf( goodsSearchResponseGoodsListItem.getCategoryId() ) );
+        }
+        pddGoodsDetailVO.setCategoryName( goodsSearchResponseGoodsListItem.getCategoryName() );
+        List<Long> list = goodsSearchResponseGoodsListItem.getCatIds();
+        if ( list != null ) {
+            pddGoodsDetailVO.setCatIds( new ArrayList<Long>( list ) );
+        }
+        pddGoodsDetailVO.setCltCpnBatchSn( goodsSearchResponseGoodsListItem.getCltCpnBatchSn() );
+        pddGoodsDetailVO.setCltCpnDiscount( goodsSearchResponseGoodsListItem.getCltCpnDiscount() );
+        pddGoodsDetailVO.setCltCpnEndTime( goodsSearchResponseGoodsListItem.getCltCpnEndTime() );
+        pddGoodsDetailVO.setCltCpnMinAmt( goodsSearchResponseGoodsListItem.getCltCpnMinAmt() );
+        pddGoodsDetailVO.setCltCpnQuantity( goodsSearchResponseGoodsListItem.getCltCpnQuantity() );
+        pddGoodsDetailVO.setCltCpnRemainQuantity( goodsSearchResponseGoodsListItem.getCltCpnRemainQuantity() );
+        pddGoodsDetailVO.setCltCpnStartTime( goodsSearchResponseGoodsListItem.getCltCpnStartTime() );
+        pddGoodsDetailVO.setCouponDiscount( goodsSearchResponseGoodsListItem.getCouponDiscount() );
+        pddGoodsDetailVO.setCouponEndTime( goodsSearchResponseGoodsListItem.getCouponEndTime() );
+        pddGoodsDetailVO.setCouponMinOrderAmount( goodsSearchResponseGoodsListItem.getCouponMinOrderAmount() );
+        pddGoodsDetailVO.setCouponRemainQuantity( goodsSearchResponseGoodsListItem.getCouponRemainQuantity() );
+        pddGoodsDetailVO.setCouponStartTime( goodsSearchResponseGoodsListItem.getCouponStartTime() );
+        pddGoodsDetailVO.setCouponTotalQuantity( goodsSearchResponseGoodsListItem.getCouponTotalQuantity() );
+        pddGoodsDetailVO.setCreateAt( goodsSearchResponseGoodsListItem.getCreateAt() );
+        pddGoodsDetailVO.setDescTxt( goodsSearchResponseGoodsListItem.getDescTxt() );
+        pddGoodsDetailVO.setGoodsDesc( goodsSearchResponseGoodsListItem.getGoodsDesc() );
+        List<String> list1 = goodsSearchResponseGoodsListItem.getGoodsGalleryUrls();
+        if ( list1 != null ) {
+            pddGoodsDetailVO.setGoodsGalleryUrls( new ArrayList<String>( list1 ) );
+        }
+        pddGoodsDetailVO.setGoodsId( goodsSearchResponseGoodsListItem.getGoodsId() );
+        pddGoodsDetailVO.setGoodsImageUrl( goodsSearchResponseGoodsListItem.getGoodsImageUrl() );
+        pddGoodsDetailVO.setGoodsName( goodsSearchResponseGoodsListItem.getGoodsName() );
+        pddGoodsDetailVO.setGoodsThumbnailUrl( goodsSearchResponseGoodsListItem.getGoodsThumbnailUrl() );
+        pddGoodsDetailVO.setHasCoupon( goodsSearchResponseGoodsListItem.getHasCoupon() );
+        pddGoodsDetailVO.setHasMallCoupon( goodsSearchResponseGoodsListItem.getHasMallCoupon() );
+        pddGoodsDetailVO.setLgstTxt( goodsSearchResponseGoodsListItem.getLgstTxt() );
+        pddGoodsDetailVO.setMallCouponDiscountPct( goodsSearchResponseGoodsListItem.getMallCouponDiscountPct() );
+        pddGoodsDetailVO.setMallCouponEndTime( goodsSearchResponseGoodsListItem.getMallCouponEndTime() );
+        pddGoodsDetailVO.setMallCouponMaxDiscountAmount( goodsSearchResponseGoodsListItem.getMallCouponMaxDiscountAmount() );
+        pddGoodsDetailVO.setMallCouponMinOrderAmount( goodsSearchResponseGoodsListItem.getMallCouponMinOrderAmount() );
+        pddGoodsDetailVO.setMallCouponRemainQuantity( goodsSearchResponseGoodsListItem.getMallCouponRemainQuantity() );
+        pddGoodsDetailVO.setMallCouponStartTime( goodsSearchResponseGoodsListItem.getMallCouponStartTime() );
+        pddGoodsDetailVO.setMallCouponTotalQuantity( goodsSearchResponseGoodsListItem.getMallCouponTotalQuantity() );
+        pddGoodsDetailVO.setMallCps( goodsSearchResponseGoodsListItem.getMallCps() );
+        pddGoodsDetailVO.setMallId( goodsSearchResponseGoodsListItem.getMallId() );
+        pddGoodsDetailVO.setMallName( goodsSearchResponseGoodsListItem.getMallName() );
+        if ( goodsSearchResponseGoodsListItem.getMerchantType() != null ) {
+            pddGoodsDetailVO.setMerchantType( String.valueOf( goodsSearchResponseGoodsListItem.getMerchantType() ) );
+        }
+        pddGoodsDetailVO.setMinGroupPrice( goodsSearchResponseGoodsListItem.getMinGroupPrice() );
+        pddGoodsDetailVO.setMinNormalPrice( goodsSearchResponseGoodsListItem.getMinNormalPrice() );
+        pddGoodsDetailVO.setOnlySceneAuth( goodsSearchResponseGoodsListItem.getOnlySceneAuth() );
+        if ( goodsSearchResponseGoodsListItem.getOptId() != null ) {
+            pddGoodsDetailVO.setOptId( String.valueOf( goodsSearchResponseGoodsListItem.getOptId() ) );
+        }
+        List<Long> list2 = goodsSearchResponseGoodsListItem.getOptIds();
+        if ( list2 != null ) {
+            pddGoodsDetailVO.setOptIds( new ArrayList<Long>( list2 ) );
+        }
+        pddGoodsDetailVO.setOptName( goodsSearchResponseGoodsListItem.getOptName() );
+        pddGoodsDetailVO.setPlanType( goodsSearchResponseGoodsListItem.getPlanType() );
+        pddGoodsDetailVO.setPromotionRate( goodsSearchResponseGoodsListItem.getPromotionRate() );
+        pddGoodsDetailVO.setSalesTip( goodsSearchResponseGoodsListItem.getSalesTip() );
+        pddGoodsDetailVO.setServiceTags( longListToIntegerList( goodsSearchResponseGoodsListItem.getServiceTags() ) );
+        pddGoodsDetailVO.setServTxt( goodsSearchResponseGoodsListItem.getServTxt() );
+        pddGoodsDetailVO.setZsDuoId( goodsSearchResponseGoodsListItem.getZsDuoId() );
+        pddGoodsDetailVO.setSearchId( goodsSearchResponseGoodsListItem.getSearchId() );
+
+        return pddGoodsDetailVO;
+    }
+
+    protected List<PddGoodsDetailVO> goodsSearchResponseGoodsListItemListToPddGoodsDetailVOList(List<GoodsSearchResponseGoodsListItem> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<PddGoodsDetailVO> list1 = new ArrayList<PddGoodsDetailVO>( list.size() );
         for ( GoodsSearchResponseGoodsListItem goodsSearchResponseGoodsListItem : list ) {
-            list1.add( goodsSearchResponseGoodsListItemToPddGoodsBasicVO( goodsSearchResponseGoodsListItem ) );
+            list1.add( goodsSearchResponseGoodsListItemToPddGoodsDetailVO( goodsSearchResponseGoodsListItem ) );
         }
 
         return list1;

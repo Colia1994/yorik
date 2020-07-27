@@ -5,6 +5,7 @@
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-web/src/main/java/com/colia/yorik/yorikweb/interfaces/order/facade/OrderQueryFacade.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-web/src/main/java/com/colia/yorik/yorikweb/interfaces/goods/facade/dto/GoodsListDTO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-web/src/main/java/com/colia/yorik/yorikweb/infrastructure/swagger/Swagger2Config.java
+/Users/konglingyao/colia.git/ideaProjects/yorik/yorik-web/src/main/java/com/colia/yorik/yorikweb/interfaces/goods/facade/request/GoodsSearchRequest.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-web/src/main/java/com/colia/yorik/yorikweb/interfaces/order/facade/dto/OrderDetailDTO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-web/src/main/java/com/colia/yorik/yorikweb/interfaces/goods/facade/dto/GoodsDetailDTO.java
 /Users/konglingyao/colia.git/ideaProjects/yorik/yorik-web/src/main/java/com/colia/yorik/yorikweb/interfaces/goods/controller/GoodsController.java

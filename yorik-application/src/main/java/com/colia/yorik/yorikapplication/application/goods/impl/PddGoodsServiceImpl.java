@@ -111,39 +111,17 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         PopClient client = HttpPddClient.getPddClient();
 
         List<Integer> activityTags = new ArrayList<>();
-        activityTags.add(0);
+        //商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴等
+        activityTags.add(7);
         request.setActivityTags(activityTags);
-        request.setCatId(0L);
-        request.setCustomParameters("str");
-        List<Long> goodsIdList = new ArrayList<>();
-        goodsIdList.add(0L);
-        request.setGoodsIdList(goodsIdList);
-        request.setIsBrandGoods(false);
-        request.setKeyword("str");
-        request.setListId("str");
-        request.setMerchantType(0);
-        List<Integer> merchantTypeList = new ArrayList<>();
-        merchantTypeList.add(0);
-        request.setMerchantTypeList(merchantTypeList);
-        request.setOptId(0L);
-        request.setPage(0);
-        request.setPageSize(0);
-        request.setPid("str");
-        List<PddDdkGoodsSearchRequest.RangeListItem> rangeList = new ArrayList<>();
 
-        PddDdkGoodsSearchRequest.RangeListItem item = new PddDdkGoodsSearchRequest.RangeListItem();
-        item.setRangeFrom(0L);
-        item.setRangeId(0);
-        item.setRangeTo(0L);
-        rangeList.add(item);
-        request.setRangeList(rangeList);
-        request.setSortType(0);
-        request.setWithCoupon(false);
+        //是否只返回优惠券的商品，false返回所有商品，true只返回有优惠券的商品
+        request.setWithCoupon(true);
         PddDdkGoodsSearchResponse response;
         try {
             log.info("searchGoods:请求参数：{}", JsonUtil.transferToJson(request));
             response = client.syncInvoke(request);
-            log.info("searchGoods:返回参数：{}", JsonUtil.transferToJson(request));
+            log.info("searchGoods:返回参数：{}", JsonUtil.transferToJson(response));
         } catch (Exception e) {
             log.error("searchGoods接口异常", e);
             throw new BizProcessException("searchGoods接口异常", e);

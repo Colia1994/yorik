@@ -2,6 +2,7 @@ package com.colia.yorik.yorikweb.interfaces.goods.facade.adapter;
 
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsRecommendVO;
+import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsSearchVO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import java.util.ArrayList;
@@ -11,11 +12,27 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-07-27T21:28:54+0800",
+    date = "2020-07-28T01:14:26+0800",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 1.8.0_251 (Oracle Corporation)"
 )
 @Component
 public class GoodsDTOMapperImpl implements GoodsDTOMapper {
+
+    @Override
+    public GoodsListDTO pddVoToDto(PddGoodsSearchVO item) {
+        if ( item == null ) {
+            return null;
+        }
+
+        GoodsListDTO goodsListDTO = new GoodsListDTO();
+
+        goodsListDTO.setRecords( pddGoodsDetailVOListToGoodsDetailDTOList( item.getGoodsList() ) );
+        goodsListDTO.setTotal( item.getTotalCount() );
+        goodsListDTO.setListId( item.getListId() );
+        goodsListDTO.setSearchId( item.getSearchId() );
+
+        return goodsListDTO;
+    }
 
     @Override
     public GoodsListDTO pddVoToDto(PddGoodsRecommendVO listVO) {
@@ -28,6 +45,7 @@ public class GoodsDTOMapperImpl implements GoodsDTOMapper {
         goodsListDTO.setRecords( pddGoodsDetailVOListToGoodsDetailDTOList( listVO.getList() ) );
         goodsListDTO.setListId( listVO.getListId() );
         goodsListDTO.setTotal( listVO.getTotal() );
+        goodsListDTO.setSearchId( listVO.getSearchId() );
 
         return goodsListDTO;
     }

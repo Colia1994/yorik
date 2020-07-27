@@ -20,7 +20,7 @@ public class PddGoodsSearchVO implements ValueObject<PddGoodsSearchVO> {
      * 商品列表
      */
     @JsonProperty("goods_list")
-    private List<PddGoodsBasicVO> goodsList;
+    private List<PddGoodsDetailVO> goodsList;
 
     /**
      * 翻页时必填前页返回的list_id值

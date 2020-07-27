@@ -2,6 +2,7 @@ package com.colia.yorik.yorikweb.interfaces.goods.facade.adapter;
 
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsRecommendVO;
+import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsSearchVO;
 import com.colia.yorik.yorikcommon.infrastructure.adapter.StringStrategy;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
@@ -22,7 +23,11 @@ public interface GoodsDTOMapper {
      * @param item 推荐商品vo
      * @return 通用商品dto
      */
-//    GoodsDetailDTO pddVoToDto(PddGoodsRecommendVO.PddGoodsListItemVO item);
+    @Mappings({
+            @Mapping(source = "goodsList", target = "records"),
+            @Mapping(source = "totalCount", target = "total"),
+    })
+    GoodsListDTO pddVoToDto(PddGoodsSearchVO item);
 
     /**
      * 转换成通用商品dto

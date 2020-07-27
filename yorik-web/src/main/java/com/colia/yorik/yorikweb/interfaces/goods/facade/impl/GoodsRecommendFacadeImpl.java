@@ -8,8 +8,10 @@ import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsDetailRequest;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsRecommendRequest;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsSearchRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsDetailRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsRecommendGetRequest;
+import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsSearchRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -69,5 +71,23 @@ public class GoodsRecommendFacadeImpl implements GoodsRecommendFacade {
         pddRequest.setPid(request.getPid());
         pddRequest.setPlanType(request.getPlanType());
         return detailAssembler.toDTO(pddGoodsService.getGoodsDetailInfo(pddRequest).get(0));
+    }
+
+    /**
+     * 搜索商品
+     *
+     * @param params 参数
+     * @return 商品列表
+     */
+    @Override
+    public GoodsListDTO searchGoods(GoodsSearchRequest params) {
+        PddDdkGoodsSearchRequest request = new PddDdkGoodsSearchRequest();
+        request.setActivityTags(params.getActivityTags());
+        request.setKeyword(params.getKeyword());
+        request.setWithCoupon(params.getWithCoupon());
+        request.setPage(params.getPageNo());
+        request.setPageSize(params.getPageSize());
+        request.setListId(params.getListId());
+        return listAssembler.toDTO(pddGoodsService.searchGoods(request));
     }
 }

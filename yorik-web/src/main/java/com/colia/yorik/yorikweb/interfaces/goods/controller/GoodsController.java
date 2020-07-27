@@ -7,6 +7,7 @@ import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsDetailRequest;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsRecommendRequest;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsSearchRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -30,8 +31,7 @@ public class GoodsController {
     @RequestMapping(value = "/pdd/getRecommendGoods", method = RequestMethod.POST)
     @ApiOperation(value = "获取推荐商品信息")
     public AjaxResponse<GoodsListDTO> getGoodsList(@RequestBody GoodsRecommendRequest params) {
-        return AjaxResultUtils.renderSuccess("cl you",
-                goodsRecommendFacade.recommendGoods(params));
+        return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.recommendGoods(params));
 
     }
 
@@ -39,9 +39,15 @@ public class GoodsController {
     @RequestMapping(value = "/pdd/getGoodsDetail", method = RequestMethod.POST)
     @ApiOperation(value = "获取商品详情")
     public AjaxResponse<GoodsDetailDTO> getGoodsDetail(@RequestBody GoodsDetailRequest params) {
-        return AjaxResultUtils.renderSuccess("cl you",
-                goodsRecommendFacade.getGoodsDetailById(params));
+        return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.getGoodsDetailById(params));
+    }
 
+    @ResponseBody
+    @RequestMapping(value = "/pdd/searchGoods", method = RequestMethod.POST)
+    @ApiOperation(value = "搜索商品")
+    public AjaxResponse<GoodsListDTO> searchGoods(@RequestBody GoodsSearchRequest params) {
+
+        return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.searchGoods(params));
     }
 
 
