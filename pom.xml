@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.colia.yorik</groupId>
+    <artifactId>yorik</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>yorik</name>
+    <packaging>pom</packaging>
+
+
+    <properties>
+        <!--构建-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.complier.pulugin.version>3.5.1</maven.complier.pulugin.version>
+        <spring.boot.version>2.0.3.RELEASE</spring.boot.version>
+        <java.version>1.8</java.version>
+        <spring.version>5.0.7.RELEASE</spring.version>
+
+
+        <!--权限-->
+        <shiro.version>1.4.2</shiro.version>
+        <cas.version>3.5.1</cas.version>
+        <buji-pac4j.version>4.0.0</buji-pac4j.version>
+        <pac4j.version>3.0.2</pac4j.version>
+
+        <!--持久化-->
+        <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
+        <druid-spring-boot-starter.version>1.1.9</druid-spring-boot-starter.version>
+        <mysql.version>5.1.6</mysql.version>
+        <mybatis-plus.version>2.1.9</mybatis-plus.version>
+
+        <!--工具类-->
+        <commons-lang3.version>3.7</commons-lang3.version>
+        <fastjson.version>1.2.70</fastjson.version>
+        <lombok.version>1.18.10</lombok.version>
+        <commons.fileupload.version>1.3.3</commons.fileupload.version>
+        <guava.version>21.0</guava.version>
+        <poi.version>3.17</poi.version>
+        <javacsv.version>2.0</javacsv.version>
+
+
+    </properties>
+
+
+    <!-- 只声明 不为子项目引入 子项目引入可以不传版本等参数 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- mapstruct -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.3.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.3.0.Final</version>
+        </dependency>
+    </dependencies>
+
+    <modules>
+        <!-- web api服务 -->
+        <module>yorik-web</module>
+        <!-- 应用服务层 -->
+        <module>yorik-application</module>
+        <!-- 数据库服务层 -->
+        <module>yorik-dao</module>
+        <!-- 领域服务层 -->
+        <module>yorik-domain</module>
+        <!-- 基础支撑 -->
+        <module>yorik-support</module>
+        <!-- 公共支撑 -->
+        <module>yorik-common</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.complier.pulugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
