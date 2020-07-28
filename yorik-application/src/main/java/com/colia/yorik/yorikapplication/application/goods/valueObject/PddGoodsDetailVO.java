@@ -205,7 +205,7 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
 
 
     /**
-     * 	该商品所在店铺是否参与全店推广，0：否，1：是
+     * 该商品所在店铺是否参与全店推广，0：否，1：是
      */
     private Integer mallCps;
 
@@ -296,7 +296,6 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
     private Long marketFee;
 
 
-
     /**
      * 二维码主图
      */
@@ -313,17 +312,6 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
      * 分享描述
      */
     private String shareDesc;
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Override

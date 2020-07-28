@@ -1,7 +1,6 @@
 package com.colia.yorik.yorikapplication.application.goods.valueObject;
 
 import com.colia.yorik.yorikcommon.domain.vo.ValueObject;
-import com.pdd.pop.ext.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
