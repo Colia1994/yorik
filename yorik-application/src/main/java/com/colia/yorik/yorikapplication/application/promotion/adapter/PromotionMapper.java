@@ -1,7 +1,9 @@
 package com.colia.yorik.yorikapplication.application.promotion.adapter;
 
-import com.colia.yorik.yorikapplication.application.promotion.valueObject.PromotionVO;
+import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddPromotionVO;
+import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddUrlVO;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPidGenerateResponse;
+import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPromotionUrlGenerateResponse;
 import org.mapstruct.Mapper;
 
 /**
@@ -11,5 +13,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface PromotionMapper {
 
-    PromotionVO toPopVO(PddDdkGoodsPidGenerateResponse.PIdGenerateResponsePIdListItem item);
+    PddPromotionVO toPopVO(PddDdkGoodsPidGenerateResponse.PIdGenerateResponsePIdListItem item);
+
+    PddUrlVO toUrlVO(PddDdkGoodsPromotionUrlGenerateResponse.GoodsPromotionUrlGenerateResponseGoodsPromotionUrlListItem item);
 }

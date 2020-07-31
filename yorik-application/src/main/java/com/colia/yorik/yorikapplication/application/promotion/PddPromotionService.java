@@ -1,6 +1,6 @@
 package com.colia.yorik.yorikapplication.application.promotion;
 
-import com.colia.yorik.yorikapplication.application.promotion.valueObject.PromotionVO;
+import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddPromotionVO;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPromotionUrlGenerateRequest;
 
 /**
@@ -19,7 +19,7 @@ public interface PddPromotionService {
      * @param pIdName 推广位名称 可选
      * @return 推广位信息
      */
-    PromotionVO createOnePromotion(String pIdName);
+    PddPromotionVO createOnePromotion(String pIdName);
 
     void generatePromotionUrl(PddDdkGoodsPromotionUrlGenerateRequest request);
 

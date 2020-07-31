@@ -9,7 +9,7 @@ import lombok.Data;
  * @Date 2020/7/26
  */
 @Data
-public class PromotionVO implements ValueObject<PromotionVO> {
+public class PddPromotionVO implements ValueObject<PddPromotionVO> {
 
 
     @JsonProperty("create_time")
@@ -22,7 +22,7 @@ public class PromotionVO implements ValueObject<PromotionVO> {
     private String pId;
 
     @Override
-    public boolean sameValueAs(PromotionVO other) {
+    public boolean sameValueAs(PddPromotionVO other) {
         return false;
     }
 }

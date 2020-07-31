@@ -111,12 +111,13 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         PopClient client = HttpPddClient.getPddClient();
 
         List<Integer> activityTags = new ArrayList<>();
-        //商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴等
+//        商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴等
         activityTags.add(7);
         request.setActivityTags(activityTags);
+        //佣金率降序
+        request.setSortType(2);
 
         //是否只返回优惠券的商品，false返回所有商品，true只返回有优惠券的商品
-        request.setWithCoupon(true);
         PddDdkGoodsSearchResponse response;
         try {
             log.info("searchGoods:请求参数：{}", JsonUtil.transferToJson(request));
