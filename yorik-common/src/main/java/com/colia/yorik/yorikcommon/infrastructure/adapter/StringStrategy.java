@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * adapter string 适配器
+ * 暂时提供mapping struct使用
+ *
  * @Author konglingyao
  * @Date 2020/7/25
  */

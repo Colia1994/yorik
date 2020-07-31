@@ -26,8 +26,15 @@ public class PddUrlVO implements ValueObject<PddUrlVO> {
     @JsonProperty("mobile_url")
     private String mobileUrl;
 
+    /**
+     * qq小程序信息
+     */
     @JsonProperty("qq_app_info")
-    private PddDdkGoodsPromotionUrlGenerateResponse.GoodsPromotionUrlGenerateResponseGoodsPromotionUrlListItemQqAppInfo qqAppInfo;
+    private QqAppInfoVO qqAppInfo;
+
+    /**
+     * schema的链接
+     */
     @JsonProperty("schema_url")
     private String schemaUrl;
 
@@ -59,7 +66,7 @@ public class PddUrlVO implements ValueObject<PddUrlVO> {
      * 小程序信息
      */
     @JsonProperty("we_app_info")
-    private PddDdkGoodsPromotionUrlGenerateResponse.GoodsPromotionUrlGenerateResponseGoodsPromotionUrlListItemWeAppInfo weAppInfo;
+    private WeAppInfoVO weAppInfo;
 
     /**
      * 	唤起微信app推广短链接
@@ -78,6 +85,121 @@ public class PddUrlVO implements ValueObject<PddUrlVO> {
     public boolean sameValueAs(PddUrlVO other) {
         return false;
     }
+
+    @Data
+    public static class QqAppInfoVO implements ValueObject<QqAppInfoVO>{
+
+        /**
+         * 拼多多小程序id
+         */
+        @JsonProperty("app_id")
+        private String appId;
+
+        /**
+         * Banner图
+         */
+        @JsonProperty("banner_url")
+        private String bannerUrl;
+
+        /**
+         * 描述
+         */
+        @JsonProperty("desc")
+        private String desc;
+
+        /**
+         * 小程序path值
+         */
+        @JsonProperty("page_path")
+        private String pagePath;
+
+        /**
+         * 小程序icon
+         */
+        @JsonProperty("qq_app_icon_url")
+        private String qqAppIconUrl;
+
+        /**
+         * 来源名
+         */
+        @JsonProperty("source_display_name")
+        private String sourceDisplayName;
+
+        /**
+         * 小程序标题
+         */
+        @JsonProperty("title")
+        private String title;
+
+        /**
+         * 用户名
+         */
+        @JsonProperty("user_name")
+        private String userName;
+
+        @Override
+        public boolean sameValueAs(QqAppInfoVO other) {
+            return false;
+        }
+    }
+
+    @Data
+    public static class WeAppInfoVO implements ValueObject<WeAppInfoVO>{
+
+        /**
+         * 拼多多小程序id
+         */
+        @JsonProperty("app_id")
+        private String appId;
+
+        /**
+         * Banner图
+         */
+        @JsonProperty("banner_url")
+        private String bannerUrl;
+
+        /**
+         * 描述
+         */
+        @JsonProperty("desc")
+        private String desc;
+
+        /**
+         * 小程序path值
+         */
+        @JsonProperty("page_path")
+        private String pagePath;
+
+        /**
+         * 来源名
+         */
+        @JsonProperty("source_display_name")
+        private String sourceDisplayName;
+
+        /**
+         * 小程序标题
+         */
+        @JsonProperty("title")
+        private String title;
+
+        /**
+         * 用户名
+         */
+        @JsonProperty("user_name")
+        private String userName;
+
+        /**
+         * 小程序图片
+         */
+        @JsonProperty("we_app_icon_url")
+        private String weAppIconUrl;
+
+        @Override
+        public boolean sameValueAs(WeAppInfoVO other) {
+            return false;
+        }
+    }
+
 
 
 

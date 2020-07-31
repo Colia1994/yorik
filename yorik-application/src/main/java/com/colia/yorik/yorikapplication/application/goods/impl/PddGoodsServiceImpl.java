@@ -8,7 +8,7 @@ import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsRe
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsSearchVO;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
 import com.colia.yorik.yoriksupport.utils.HttpPddClient;
-import com.pdd.pop.sdk.common.util.JsonUtil;
+import com.colia.yorik.yoriksupport.utils.JSONUtil;
 import com.pdd.pop.sdk.http.PopClient;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsBasicInfoGetRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsDetailRequest;
@@ -48,11 +48,19 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         PopClient client = HttpPddClient.getPddClient();
         PddDdkGoodsRecommendGetResponse response;
         try {
+            log.info("getRecommendGoods:请求参数:{}", JSONUtil.transferToJson(request));
             response = client.syncInvoke(request);
+            log.info("getRecommendGoods:返回参数:{}", JSONUtil.transferToJson(response));
         } catch (Exception e) {
-            log.error("PDD推荐商品接口异常", e);
-            throw new BizProcessException("PDD推荐商品接口异常", e);
+            log.error("getRecommendGoods:接口异常", e);
+            throw new BizProcessException("getRecommendGoods:接口异常", e);
         }
+
+        if (response == null || response.getGoodsBasicDetailResponse() == null) {
+            log.error("getRecommendGoods:接口返回数据为空");
+            throw new BizProcessException("getRecommendGoods:接口返回数据为空");
+        }
+
         return goodsVOMapper.toPddGoodsRecommendVO(response.getGoodsBasicDetailResponse());
     }
 
@@ -71,10 +79,18 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         request.setGoodsIdList(goodsIdList);
         PddDdkGoodsBasicInfoGetResponse response;
         try {
+            log.info("getGoodsBasicInfoByID:请求参数:{}", JSONUtil.transferToJson(request));
             response = client.syncInvoke(request);
+            log.info("getGoodsBasicInfoByID:返回参数:{}", JSONUtil.transferToJson(response));
+
         } catch (Exception e) {
             log.error("PDD获取商品基本信息接口异常", e);
             throw new BizProcessException("PDD获取商品基本信息接口异常", e);
+        }
+
+        if (response == null || response.getGoodsBasicDetailResponse() == null) {
+            log.error("getGoodsBasicInfoByID:接口返回数据为空");
+            throw new BizProcessException("getGoodsBasicInfoByID:接口返回数据为空");
         }
 
         return goodsVOMapper.toPddGoodsBasicList(response.getGoodsBasicDetailResponse().getGoodsList());
@@ -92,11 +108,20 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         PopClient client = HttpPddClient.getPddClient();
         PddDdkGoodsDetailResponse response;
         try {
+            log.info("getGoodsDetailInfo:请求参数:{}", JSONUtil.transferToJson(request));
             response = client.syncInvoke(request);
+            log.info("getGoodsDetailInfo:返回参数:{}", JSONUtil.transferToJson(response));
+
         } catch (Exception e) {
             log.error("PDD获取商品详细信息接口异常", e);
             throw new BizProcessException("PDD获取商品详细信息接口异常", e);
         }
+
+        if (response == null || response.getGoodsDetailResponse() == null) {
+            log.error("getGoodsDetailInfo:接口返回数据为空");
+            throw new BizProcessException("getGoodsDetailInfo:接口返回数据为空");
+        }
+
         return goodsVOMapper.toPddGoodsDetailList(response.getGoodsDetailResponse().getGoodsDetails());
     }
 
@@ -111,7 +136,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         PopClient client = HttpPddClient.getPddClient();
 
         List<Integer> activityTags = new ArrayList<>();
-//        商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴等
+        //商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴等
         activityTags.add(7);
         request.setActivityTags(activityTags);
         //佣金率降序
@@ -120,12 +145,18 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         //是否只返回优惠券的商品，false返回所有商品，true只返回有优惠券的商品
         PddDdkGoodsSearchResponse response;
         try {
-            log.info("searchGoods:请求参数：{}", JsonUtil.transferToJson(request));
+            log.info("searchGoods:请求参数:{}", JSONUtil.transferToJson(request));
             response = client.syncInvoke(request);
-            log.info("searchGoods:返回参数：{}", JsonUtil.transferToJson(response));
+            log.info("searchGoods:返回参数:{}", JSONUtil.transferToJson(response));
         } catch (Exception e) {
             log.error("searchGoods接口异常", e);
             throw new BizProcessException("searchGoods接口异常", e);
+        }
+
+        if (response == null) {
+            log.error("searchGoods:接口返回数据为空");
+
+            throw new BizProcessException("searchGoods:接口返回数据为空");
         }
 
         return goodsVOMapper.toPddGoodsSearchVO(response.getGoodsSearchResponse());

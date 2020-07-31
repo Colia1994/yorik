@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 /**
+ * http 连接 pdd
+ *
  * @Author konglingyao
  * @Date 2020/7/23
  */

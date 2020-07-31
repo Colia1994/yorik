@@ -38,7 +38,6 @@ public class PddOrderServiceImpl implements PddOrderService {
     public PddOrderRangeListVO queryOrderByTimeRange(PddDdkOrderListRangeGetRequest request) {
         PopClient client = HttpPddClient.getPddClient();
         //2019-05-07 00:00:00
-//        request.setStartTime("2019-05-07 00:00:00");
         //暂时写死
         request.setPageSize(300);
         PddDdkOrderListRangeGetResponse response;
@@ -69,7 +68,6 @@ public class PddOrderServiceImpl implements PddOrderService {
             log.info("queryOrderByTimeRange:请求参数:{}", JsonUtil.transferToJson(request));
             response = client.syncInvoke(request);
             log.info("queryOrderByTimeRange:返回参数:{}", JsonUtil.transferToJson(response));
-
         } catch (Exception e) {
             log.error("queryOrderIncList接口异常", e);
             throw new BizProcessException("queryOrderIncList接口异常", e);
