@@ -1,6 +1,5 @@
 package com.colia.yorik.yorikweb.infrastructure.interceptor;
 
-import com.colia.yorik.yorikweb.domain.User;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,11 +26,6 @@ public class MyInterceptor implements HandlerInterceptor {
         Method method = handlerMethod.getMethod();
         System.out.println("用户:" + ip + ",访问目标:" + method.getDeclaringClass().getName() + "." + method.getName());
 
-        User user = (User) request.getSession().getAttribute("user");
-        if (null == user) {
-            response.sendRedirect("toLogin");
-            flag = false;
-        }
         return flag;
     }
 

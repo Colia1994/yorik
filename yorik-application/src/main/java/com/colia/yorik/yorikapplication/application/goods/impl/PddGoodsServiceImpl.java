@@ -137,8 +137,8 @@ public class PddGoodsServiceImpl implements PddGoodsService {
 
         List<Integer> activityTags = new ArrayList<>();
         //商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴等
-        activityTags.add(7);
-        request.setActivityTags(activityTags);
+//        activityTags.add(7);
+//        request.setActivityTags(activityTags);
         //佣金率降序
         request.setSortType(2);
 

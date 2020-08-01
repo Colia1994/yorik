@@ -31,7 +31,7 @@ public class OrderController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/pdd/queryOrderByTime", method = RequestMethod.POST)
+    @RequestMapping(value = "/queryOrderByTime", method = RequestMethod.POST)
     @ApiOperation(value = "用时间段查询推广订单")
     public AjaxResponse<OrderListDTO> getOrderListByTime(@RequestBody QueryOrderRangeRequest params) {
         return AjaxResultUtils.renderSuccess("cl you",
@@ -40,7 +40,7 @@ public class OrderController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/pdd/queryIncOrder", method = RequestMethod.POST)
+    @RequestMapping(value = "/queryIncOrder", method = RequestMethod.POST)
     @ApiOperation(value = "查询增量订单")
     public AjaxResponse<OrderListDTO> getIncOrderList(@RequestBody QueryOrderIncRequest params) {
 
