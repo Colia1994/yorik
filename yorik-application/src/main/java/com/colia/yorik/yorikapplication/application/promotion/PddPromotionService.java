@@ -24,6 +24,7 @@ public interface PddPromotionService {
 
     /**
      * 生成推广链接 商品直接转
+     *
      * @param request 商品和所需链接信息
      * @return 生成的链接信息
      */

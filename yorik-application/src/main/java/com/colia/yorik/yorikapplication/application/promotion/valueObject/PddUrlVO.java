@@ -2,7 +2,6 @@ package com.colia.yorik.yorikapplication.application.promotion.valueObject;
 
 import com.colia.yorik.yorikcommon.domain.vo.ValueObject;
 import com.pdd.pop.ext.fasterxml.jackson.annotation.JsonProperty;
-import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPromotionUrlGenerateResponse;
 import lombok.Data;
 
 /**
@@ -69,7 +68,7 @@ public class PddUrlVO implements ValueObject<PddUrlVO> {
     private WeAppInfoVO weAppInfo;
 
     /**
-     * 	唤起微信app推广短链接
+     * 唤起微信app推广短链接
      */
     @JsonProperty("we_app_web_view_short_url")
     private String weAppWebViewShortUrl;
@@ -87,7 +86,7 @@ public class PddUrlVO implements ValueObject<PddUrlVO> {
     }
 
     @Data
-    public static class QqAppInfoVO implements ValueObject<QqAppInfoVO>{
+    public static class QqAppInfoVO implements ValueObject<QqAppInfoVO> {
 
         /**
          * 拼多多小程序id
@@ -144,7 +143,7 @@ public class PddUrlVO implements ValueObject<PddUrlVO> {
     }
 
     @Data
-    public static class WeAppInfoVO implements ValueObject<WeAppInfoVO>{
+    public static class WeAppInfoVO implements ValueObject<WeAppInfoVO> {
 
         /**
          * 拼多多小程序id
@@ -199,8 +198,6 @@ public class PddUrlVO implements ValueObject<PddUrlVO> {
             return false;
         }
     }
-
-
 
 
 }

@@ -8,7 +8,6 @@ import com.colia.yorik.yorikcommon.infrastructure.constant.PddConstant;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
 import com.colia.yorik.yoriksupport.utils.HttpPddClient;
 import com.colia.yorik.yoriksupport.utils.JSONUtil;
-import com.pdd.pop.sdk.common.util.JsonUtil;
 import com.pdd.pop.sdk.http.PopClient;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPidGenerateRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPromotionUrlGenerateRequest;
@@ -16,7 +15,6 @@ import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPidGenerateResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPromotionUrlGenerateResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
