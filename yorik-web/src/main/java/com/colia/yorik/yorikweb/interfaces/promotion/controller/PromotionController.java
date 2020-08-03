@@ -2,8 +2,6 @@ package com.colia.yorik.yorikweb.interfaces.promotion.controller;
 
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResultUtils;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsRecommendRequest;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.PromotionFacade;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.dto.UrlDTO;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.PromotionUrlRequest;
@@ -25,7 +23,7 @@ import javax.annotation.Resource;
  */
 @Controller
 @RequestMapping("/api/promotion")
-@Api(tags = "order-controller", description = "链接生成管理")
+@Api(tags = "promotion-controller", description = "链接生成管理")
 public class PromotionController {
 
     @Resource

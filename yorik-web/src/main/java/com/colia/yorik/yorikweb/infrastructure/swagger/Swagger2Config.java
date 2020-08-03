@@ -28,7 +28,7 @@ public class Swagger2Config {
                 .select()//创建ApiSelectorBuilder对象
                 .paths(((Predicate<String>) PathSelectors.regex("/admin/.*")::apply).negate()::test)//过滤掉 admin 接口
                 .paths(((Predicate<String>) PathSelectors.regex("/error.*")::apply).negate()::test)//过滤掉 error 接口
-                .paths(((Predicate<String>) PathSelectors.regex("/health/.*")::apply).negate()::test)//过滤掉 health 接口
+                .paths(((Predicate<String>) PathSelectors.regex("/api/health/.*")::apply).negate()::test)//过滤掉 health 接口
 
                 .build();
     }
