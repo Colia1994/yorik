@@ -11,8 +11,10 @@ import com.colia.yorik.yoriksupport.utils.JSONUtil;
 import com.pdd.pop.sdk.http.PopClient;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPidGenerateRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPromotionUrlGenerateRequest;
+import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsZsUnitUrlGenRequest;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPidGenerateResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPromotionUrlGenerateResponse;
+import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsZsUnitUrlGenResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -93,6 +95,35 @@ public class PddPromotionServiceImpl implements PddPromotionService {
         return promotionMapper.toUrlVO(response.getGoodsPromotionUrlGenerateResponse().getGoodsPromotionUrlList().get(0));
     }
 
+    /**
+     * 将其他推广者的链接转为固定推广位的链接
+     *
+     * @param sourceUrl 原链接
+     * @return 新的url链接
+     */
+    @Override
+    public PddUrlVO convertPromotionUrl(String sourceUrl) {
+        PopClient client = HttpPddClient.getPddClient();
+
+        PddDdkGoodsZsUnitUrlGenRequest request = new PddDdkGoodsZsUnitUrlGenRequest();
+        request.setPid(PddConstant.DEFAULT_PID);
+        request.setSourceUrl(sourceUrl);
+//        request.setCustomParameters("str");
+        PddDdkGoodsZsUnitUrlGenResponse response = null;
+        try {
+            log.info("convertPromotionUrl:请求参数:{}", JSONUtil.transferToJson(request));
+            response = client.syncInvoke(request);
+            log.info("convertPromotionUrl:返回参数:{}", JSONUtil.transferToJson(response));
+        } catch (Exception e) {
+            log.error("convertPromotionUrl:接口异常", e);
+            throw new BizProcessException("convertPromotionUrl:接口异常", e);
+        }
+        if (response == null || response.getGoodsZsUnitGenerateResponse() == null) {
+            log.error("convertPromotionUrl:接口返回数据异常,数据为空");
+            throw new BizProcessException("convertPromotionUrl:接口返回数据异常，数据为空");
+        }
+        return promotionMapper.toUrlVO(response.getGoodsZsUnitGenerateResponse());
+    }
 
 }
 

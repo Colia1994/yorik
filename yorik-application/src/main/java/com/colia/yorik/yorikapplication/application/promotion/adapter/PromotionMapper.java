@@ -4,6 +4,7 @@ import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddPro
 import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddUrlVO;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPidGenerateResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPromotionUrlGenerateResponse;
+import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsZsUnitUrlGenResponse;
 import org.mapstruct.Mapper;
 
 /**
@@ -16,4 +17,6 @@ public interface PromotionMapper {
     PddPromotionVO toPopVO(PddDdkGoodsPidGenerateResponse.PIdGenerateResponsePIdListItem item);
 
     PddUrlVO toUrlVO(PddDdkGoodsPromotionUrlGenerateResponse.GoodsPromotionUrlGenerateResponseGoodsPromotionUrlListItem item);
+
+    PddUrlVO toUrlVO(PddDdkGoodsZsUnitUrlGenResponse.GoodsZsUnitGenerateResponse item);
 }

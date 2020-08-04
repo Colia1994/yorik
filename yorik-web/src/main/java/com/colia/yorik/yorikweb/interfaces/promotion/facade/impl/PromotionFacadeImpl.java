@@ -4,6 +4,7 @@ import com.colia.yorik.yorikapplication.application.promotion.PddPromotionServic
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.PromotionFacade;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.adapter.UrlDTOAssembler;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.dto.UrlDTO;
+import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.ConvertUrlRequest;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.PromotionUrlRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPromotionUrlGenerateRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +47,7 @@ public class PromotionFacadeImpl implements PromotionFacade {
         request.setGenerateMallCollectCoupon(params.getGenerateMallCollectCoupon());
         //weChat
         request.setGenerateWeApp(params.getGenerateWeApp());
-        request.setGenerateWeappWebview(params.getGenerateWeiboappWebview());
+        request.setGenerateWeappWebview(params.getGenerateWeappWebview());
 
         request.setGenerateSchemaUrl(params.getGenerateSchemaUrl());
         request.setGenerateShortUrl(params.getGenerateShortUrl());
@@ -54,5 +55,16 @@ public class PromotionFacadeImpl implements PromotionFacade {
         request.setSearchId(params.getSearchId());
 
         return urlDTOAssembler.toDTO(pddPromotionService.generatePromotionUrl(request));
+    }
+
+    /**
+     * 转换推广链接 通过商品id
+     *
+     * @param params 原始链接
+     * @return 链接信息
+     */
+    @Override
+    public UrlDTO convertPromotionUrl(ConvertUrlRequest params) {
+        return null;
     }
 }

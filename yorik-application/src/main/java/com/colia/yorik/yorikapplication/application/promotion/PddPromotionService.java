@@ -30,4 +30,12 @@ public interface PddPromotionService {
      */
     PddUrlVO generatePromotionUrl(PddDdkGoodsPromotionUrlGenerateRequest request);
 
+    /**
+     * 将其他推广者的链接转为固定推广位的链接
+     *
+     * @param sourceUrl 原链接
+     * @return 新的url链接
+     */
+    PddUrlVO convertPromotionUrl(String sourceUrl);
+
 }

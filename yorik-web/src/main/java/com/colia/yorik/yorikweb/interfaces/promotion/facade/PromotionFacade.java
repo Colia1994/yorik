@@ -1,6 +1,7 @@
 package com.colia.yorik.yorikweb.interfaces.promotion.facade;
 
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.dto.UrlDTO;
+import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.ConvertUrlRequest;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.PromotionUrlRequest;
 
 /**
@@ -19,4 +20,12 @@ public interface PromotionFacade {
      * @return 链接信息
      */
     UrlDTO generatePromotionUrl(PromotionUrlRequest params);
+
+    /**
+     * 转换推广链接 通过商品id
+     *
+     * @param params 原始链接
+     * @return 链接信息
+     */
+    UrlDTO convertPromotionUrl(ConvertUrlRequest params);
 }
