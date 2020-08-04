@@ -11,7 +11,7 @@ import lombok.Data;
  * @Date 2020/7/31
  */
 @Data
-@ApiModel("生成推广链接请求参数")
+@ApiModel(description = "生成推广链接请求参数")
 public class PromotionUrlRequest implements RequestCommand {
 
 

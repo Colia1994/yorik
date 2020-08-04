@@ -12,7 +12,7 @@ import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsSearchRequest;
 import java.util.List;
 
 /**
- * 商品查询相关
+ * pdd 商品查询相关
  *
  * @Author konglingyao
  * @Date 2020/7/15

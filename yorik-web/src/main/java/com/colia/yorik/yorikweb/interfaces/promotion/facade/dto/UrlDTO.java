@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel("链接信息")
+@ApiModel(description = "链接信息")
 public class UrlDTO extends BaseDTO {
 
     @ApiModelProperty("唤醒拼多多app的推广短链接")

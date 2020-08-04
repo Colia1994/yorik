@@ -43,11 +43,20 @@
 
         <!-- pdd -->
         <dependency>
-            <groupId>pop</groupId>
+            <groupId>pdd</groupId>
             <artifactId>sdk</artifactId>
-            <version>1.9.22-all</version>
+            <version>1.0.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/../libs/pop-sdk-1.9.22-all.jar</systemPath>
+        </dependency>
+
+        <!-- taobao -->
+        <dependency>
+            <groupId>taobao</groupId>
+            <artifactId>sdk</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../libs/taobao-sdk-java-auto_1582304181123-20200720.jar</systemPath>
         </dependency>
 
         <!--  jackson  -->

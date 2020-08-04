@@ -30,7 +30,7 @@ public class GoodsController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/pdd/getRecommendGoods", method = RequestMethod.POST)
+    @RequestMapping(value = "/getRecommendGoods", method = RequestMethod.POST)
     @ApiOperation(value = "获取推荐商品信息")
     public AjaxResponse<GoodsListDTO> getGoodsList(@RequestBody GoodsRecommendRequest params) {
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.recommendGoods(params));
@@ -38,14 +38,14 @@ public class GoodsController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/pdd/getGoodsDetail", method = RequestMethod.POST)
+    @RequestMapping(value = "/getGoodsDetail", method = RequestMethod.POST)
     @ApiOperation(value = "获取商品详情")
     public AjaxResponse<GoodsDetailDTO> getGoodsDetail(@RequestBody GoodsDetailRequest params) {
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.getGoodsDetailById(params));
     }
 
     @ResponseBody
-    @RequestMapping(value = "/pdd/searchGoods", method = RequestMethod.POST)
+    @RequestMapping(value = "/searchGoods", method = RequestMethod.POST)
     @ApiOperation(value = "搜索商品")
     public AjaxResponse<GoodsListDTO> searchGoods(@RequestBody GoodsSearchRequest params) {
 
