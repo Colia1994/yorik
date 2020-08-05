@@ -9,3 +9,7 @@ logging:
 pdd:
   clientId: ENC(fAlR/yw/3AN2HuDY2lTxr987lOYeeBrlMNWW3xN4WcONDFvRh042BRzIQVQaUI0DuurqMb60eGZyt/MlRN7cfvaAe/IppMtB4iA4Ecl4MvY=)
   clientSecret: ENC(d/gdv6vHHnVMcoLbkqcNw8HgrLrjqdap2rOuG/5OlkpRJzCu2oh/gd4BqoLADLmzSSHLlrscqlBTatfETKlDwFw7jkE0XlNzoTe8bkHS+WM=)
+
+taobao:
+  appKey: ENC(0GfLHKFfu0S3dScvEJRPyWE1DkNASmh3eWGLRGpuuckorXUoIDImn0jb1Si+wap+)
+  appSecret: ENC(X3KR40jsO0yuW1Dg5KBGNZqmX1VLsmMeQyRoPJqy1pYRusv6KbNvXd2uQOIRgi86ICE+7A7pCKNWX2WC/gA6PhuCZiznGv4r0hRE8WbT4Nw=)

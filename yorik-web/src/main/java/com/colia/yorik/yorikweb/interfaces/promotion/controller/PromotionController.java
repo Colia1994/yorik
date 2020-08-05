@@ -41,7 +41,7 @@ public class PromotionController {
 
     @ResponseBody
     @RequestMapping(value = "/convertUrl", method = RequestMethod.POST)
-    @ApiOperation(value = "生成推广链接")
+    @ApiOperation(value = "转换链接")
     public AjaxResponse<UrlDTO> convertUrl(@RequestBody ConvertUrlRequest params) {
         params.validate();
         return AjaxResultUtils.renderSuccess(promotionFacade.convertPromotionUrl(params));
