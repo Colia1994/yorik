@@ -88,6 +88,7 @@ public class GoodsRecommendFacadeImpl implements GoodsRecommendFacade {
         request.setPage(params.getPageNo());
         request.setPageSize(params.getPageSize());
         request.setListId(params.getListId());
+        request.setSortType(params.getSortType());
         return listAssembler.toDTO(pddGoodsService.searchGoods(request));
     }
 }

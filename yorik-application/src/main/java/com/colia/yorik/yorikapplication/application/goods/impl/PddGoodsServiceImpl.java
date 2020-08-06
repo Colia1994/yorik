@@ -140,7 +140,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
 //        activityTags.add(7);
 //        request.setActivityTags(activityTags);
         //佣金率降序
-        request.setSortType(2);
+//        request.setSortType(2);
 
         //是否只返回优惠券的商品，false返回所有商品，true只返回有优惠券的商品
         PddDdkGoodsSearchResponse response;

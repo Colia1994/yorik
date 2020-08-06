@@ -1,6 +1,7 @@
 package com.colia.yorik.yorikapplication.application.goods.impl;
 
 import com.colia.yorik.yorikapplication.application.goods.TaoBaoGoodsService;
+import com.colia.yorik.yoriksupport.utils.HttpTBClientUtils;
 import com.taobao.api.ApiException;
 import com.taobao.api.DefaultTaobaoClient;
 import com.taobao.api.TaobaoClient;
@@ -19,7 +20,7 @@ public class TaoBaoGoodsServiceImpl implements TaoBaoGoodsService {
 
     private void test(){
         JuItemsSearchRequest req = new JuItemsSearchRequest();
-
+        TaobaoClient taobaoClient = HttpTBClientUtils.getTBClient("");
 
         JuItemsSearchRequest.TopItemQuery obj1 = new JuItemsSearchRequest.TopItemQuery();
         obj1.setCurrentPage(1L);
