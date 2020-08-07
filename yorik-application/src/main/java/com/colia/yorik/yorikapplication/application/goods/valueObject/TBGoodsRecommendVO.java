@@ -1,34 +1,28 @@
 package com.colia.yorik.yorikapplication.application.goods.valueObject;
 
 import com.colia.yorik.yorikcommon.domain.vo.ValueObject;
-import com.taobao.api.internal.mapping.ApiField;
-import com.taobao.api.internal.mapping.ApiListField;
-import com.taobao.api.response.JuItemsSearchResponse;
 import lombok.Data;
 
 import java.util.List;
 
 /**
+ * 淘宝客 默认推荐商品
+ *
  * @Author konglingyao
  * @Date 2020/8/4
  */
 @Data
-public class TBGoodsSearchVO implements ValueObject<TBGoodsSearchVO> {
+public class TBGoodsRecommendVO implements ValueObject<TBGoodsRecommendVO> {
 
     /**
      * 页码
      */
     private Long currentPage;
 
-//    /**
-//     * 扩展属性
-//     */
-//    private JuItemsSearchResponse.Extend extend;
-
     /**
      * 商品数据
      */
-    private List<JuItemsSearchResponse.Items> modelList;
+    private List<TBGoodsDetailVO> modelList;
 
     /**
      * 错误码
@@ -57,10 +51,8 @@ public class TBGoodsSearchVO implements ValueObject<TBGoodsSearchVO> {
     private Long totalPage;
 
 
-
-
     @Override
-    public boolean sameValueAs(TBGoodsSearchVO other) {
+    public boolean sameValueAs(TBGoodsRecommendVO other) {
         return false;
     }
 }

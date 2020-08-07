@@ -29,7 +29,7 @@ public class GoodsDetailDTOAssembler implements Assembler<GoodsDetailDTO> {
 
         //pdd
         if (objects instanceof PddGoodsDetailVO) {
-            return goodsDTOMapper.pddVoToDto((PddGoodsDetailVO) objects);
+            return goodsDTOMapper.pddVOToDTO((PddGoodsDetailVO) objects);
         }
 
         return null;

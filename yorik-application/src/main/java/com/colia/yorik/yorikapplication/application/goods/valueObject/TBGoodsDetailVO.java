@@ -6,6 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 /**
+ * 淘宝客 商品详情
  * @Author konglingyao
  * @Date 2020/8/4
  */

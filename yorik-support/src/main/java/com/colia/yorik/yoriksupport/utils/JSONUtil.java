@@ -46,7 +46,35 @@ public class JSONUtil {
     public JSONUtil() {
     }
 
+    /**
+     * 转换成方便打印的json
+     *
+     * @param value 待处理对象
+     * @param <T> 待处理对象类型
+     * @return 方便打印的json字符串
+     * @throws JsonParseException 解析异常
+     */
+    public static <T> String transferToString(T value) throws JsonParseException {
 
+
+        String res;
+        try {
+            res = defaultObjectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(value);
+        } catch (Exception e) {
+            log.error("transferToJson:json parse error:{}", value, e);
+            throw new JsonParseException(e);
+        }
+        return res;
+    }
+
+    /**
+     * 转换成发方便传输的json
+     *
+     * @param value 待处理对象
+     * @param <T> 待处理对象类型
+     * @return 方便打印的json字符串
+     * @throws JsonParseException 解析异常
+     */
     public static <T> String transferToJson(T value) throws JsonParseException {
 
         StringWriter sw = new StringWriter();
@@ -68,9 +96,7 @@ public class JSONUtil {
                     log.error("transferToJson:close JsonGenerator:exception", e);
                 }
             }
-
         }
-
         return res;
     }
 

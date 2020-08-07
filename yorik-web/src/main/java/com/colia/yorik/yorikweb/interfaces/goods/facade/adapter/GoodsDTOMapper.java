@@ -1,8 +1,6 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade.adapter;
 
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsRecommendVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsSearchVO;
+import com.colia.yorik.yorikapplication.application.goods.valueObject.*;
 import com.colia.yorik.yorikcommon.infrastructure.adapter.StringStrategy;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
@@ -17,34 +15,36 @@ import org.mapstruct.Mappings;
 @Mapper(componentModel = "spring",uses = StringStrategy.class)
 public interface GoodsDTOMapper {
 
-    /**
-     * 转换成通用商品dto
-     *
-     * @param item 推荐商品vo
-     * @return 通用商品dto
-     */
+
     @Mappings({
             @Mapping(source = "goodsList", target = "records"),
             @Mapping(source = "totalCount", target = "total"),
     })
-    GoodsListDTO pddVoToDto(PddGoodsSearchVO item);
+    GoodsListDTO pddVOToDTO(PddGoodsSearchVO item);
 
-    /**
-     * 转换成通用商品dto
-     *
-     * @param listVO 推荐商品list
-     * @return 通用商品分页dto
-     */
+
     @Mappings({
             @Mapping(source = "list", target = "records"),
     })
-    GoodsListDTO pddVoToDto(PddGoodsRecommendVO listVO);
+    GoodsListDTO pddVOToDTO(PddGoodsRecommendVO listVO);
 
-    /**
-     * 转换成通用商品详情dto
-     *
-     * @param item 商品详情vo
-     * @return 商品详情dto
-     */
-    GoodsDetailDTO pddVoToDto(PddGoodsDetailVO item);
+
+    GoodsDetailDTO pddVOToDTO(PddGoodsDetailVO item);
+
+    @Mappings({
+            @Mapping(source = "itemId", target = "goodsId"),
+            @Mapping(source = "picUrlForPC", target = "goodsImageUrl"),
+            @Mapping(source = "picUrlForWL", target = "goodsThumbnailUrl"),
+            @Mapping(source = "title", target = "goodsName"),
+            @Mapping(source = "actPrice", target = "minGroupPrice"),
+            @Mapping(source = "actPrice", target = "minNormalPrice"),
+    })
+    GoodsDetailDTO tbVOToDTO(TBGoodsDetailVO item);
+
+    @Mappings({
+            @Mapping(source = "modelList", target = "records"),
+            @Mapping(source = "currentPage", target = "current"),
+            @Mapping(source = "totalItem", target = "total")
+    })
+    GoodsListDTO tbVOToDTO(TBGoodsRecommendVO listVO);
 }

@@ -36,7 +36,6 @@ public class GoodsDetailDTO extends BaseDTO {
     @ApiModelProperty("优惠券失效时间,UNIX时间戳")
     private Long couponEndTime;
 
-
     @ApiModelProperty("优惠券门槛价格,单位为分")
     private Long couponMinOrderAmount;
 
@@ -73,9 +72,6 @@ public class GoodsDetailDTO extends BaseDTO {
     @ApiModelProperty("商品名称")
     private String goodsName;
 
-    @ApiModelProperty("商品等级")
-    private Long goodsRate;
-
     @ApiModelProperty("商品缩略图")
     private String goodsThumbnailUrl;
 
@@ -91,9 +87,6 @@ public class GoodsDetailDTO extends BaseDTO {
     @ApiModelProperty("店铺名称")
     private String mallName;
 
-    @ApiModelProperty("市场服务费")
-    private Long marketFee;
-
     @ApiModelProperty("商家类型")
     private String merchantType;
 
@@ -106,21 +99,11 @@ public class GoodsDetailDTO extends BaseDTO {
     @ApiModelProperty("商品标签类目ID,使用pdd.goods.opt.get获取")
     private String optId;
 
-    @ApiModelProperty("商品一~四级标签类目ID列表")
-    private List<Long> optIds;
-
-    @ApiModelProperty("商品标签名")
-    private String optName;
-
-    @ApiModelProperty("二维码主图")
-    private String qrCodeImageUrl;
-
     @ApiModelProperty("销售量")
     private String salesTip;
 
     @ApiModelProperty("搜索id，建议生成推广链接时候填写，提高收益。")
     private String searchId;
-
 
     @ApiModelProperty("分享描述")
     private String shareDesc;

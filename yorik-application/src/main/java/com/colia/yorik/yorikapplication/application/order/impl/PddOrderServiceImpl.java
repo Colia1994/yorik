@@ -5,7 +5,7 @@ import com.colia.yorik.yorikapplication.application.order.adapter.OrderVOMapper;
 import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderIncListVO;
 import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderRangeListVO;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
-import com.colia.yorik.yoriksupport.utils.HttpPddClient;
+import com.colia.yorik.yoriksupport.utils.HttpClientUtils;
 import com.pdd.pop.sdk.common.util.JsonUtil;
 import com.pdd.pop.sdk.http.PopClient;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkOrderListIncrementGetRequest;
@@ -36,7 +36,7 @@ public class PddOrderServiceImpl implements PddOrderService {
      */
     @Override
     public PddOrderRangeListVO queryOrderByTimeRange(PddDdkOrderListRangeGetRequest request) {
-        PopClient client = HttpPddClient.getPddClient();
+        PopClient client = HttpClientUtils.getPddClient();
         //2019-05-07 00:00:00
         //暂时写死
         request.setPageSize(300);
@@ -60,7 +60,7 @@ public class PddOrderServiceImpl implements PddOrderService {
      */
     @Override
     public PddOrderIncListVO queryOrderIncList(PddDdkOrderListIncrementGetRequest request) {
-        PopClient client = HttpPddClient.getPddClient();
+        PopClient client = HttpClientUtils.getPddClient();
 
         PddDdkOrderListIncrementGetResponse response;
 

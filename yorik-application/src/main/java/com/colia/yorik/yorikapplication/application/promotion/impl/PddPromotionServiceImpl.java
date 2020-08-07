@@ -6,7 +6,7 @@ import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddPro
 import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddUrlVO;
 import com.colia.yorik.yorikcommon.infrastructure.constant.PddConstant;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
-import com.colia.yorik.yoriksupport.utils.HttpPddClient;
+import com.colia.yorik.yoriksupport.utils.HttpClientUtils;
 import com.colia.yorik.yoriksupport.utils.JSONUtil;
 import com.pdd.pop.sdk.http.PopClient;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPidGenerateRequest;
@@ -42,7 +42,7 @@ public class PddPromotionServiceImpl implements PddPromotionService {
      */
     @Override
     public PddPromotionVO createOnePromotion(String pIdName) {
-        PopClient client = HttpPddClient.getPddClient();
+        PopClient client = HttpClientUtils.getPddClient();
 
         PddDdkGoodsPidGenerateRequest request = new PddDdkGoodsPidGenerateRequest();
         request.setNumber(1L);
@@ -75,7 +75,7 @@ public class PddPromotionServiceImpl implements PddPromotionService {
      */
     @Override
     public PddUrlVO generatePromotionUrl(PddDdkGoodsPromotionUrlGenerateRequest request) {
-        PopClient client = HttpPddClient.getPddClient();
+        PopClient client = HttpClientUtils.getPddClient();
         request.setPId(PddConstant.DEFAULT_PID);
         PddDdkGoodsPromotionUrlGenerateResponse response;
         try {
@@ -103,7 +103,7 @@ public class PddPromotionServiceImpl implements PddPromotionService {
      */
     @Override
     public PddUrlVO convertPromotionUrl(String sourceUrl) {
-        PopClient client = HttpPddClient.getPddClient();
+        PopClient client = HttpClientUtils.getPddClient();
 
         PddDdkGoodsZsUnitUrlGenRequest request = new PddDdkGoodsZsUnitUrlGenRequest();
         request.setPid(PddConstant.DEFAULT_PID);

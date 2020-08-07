@@ -30,6 +30,7 @@ public class PageInfoDTO<T> extends BaseDTO {
      * 总记录数
      */
     private Integer total = 0;
+
     /**
      * 返回的数据体
      */

@@ -7,7 +7,7 @@ import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDe
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsRecommendVO;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsSearchVO;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
-import com.colia.yorik.yoriksupport.utils.HttpPddClient;
+import com.colia.yorik.yoriksupport.utils.HttpClientUtils;
 import com.colia.yorik.yoriksupport.utils.JSONUtil;
 import com.pdd.pop.sdk.http.PopClient;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsBasicInfoGetRequest;
@@ -45,12 +45,12 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      */
     @Override
     public PddGoodsRecommendVO getRecommendGoods(PddDdkGoodsRecommendGetRequest request) {
-        PopClient client = HttpPddClient.getPddClient();
+        PopClient client = HttpClientUtils.getPddClient();
         PddDdkGoodsRecommendGetResponse response;
         try {
-            log.info("getRecommendGoods:请求参数:{}", JSONUtil.transferToJson(request));
+            log.info("getRecommendGoods:请求参数:{}", JSONUtil.transferToString(request));
             response = client.syncInvoke(request);
-            log.info("getRecommendGoods:返回参数:{}", JSONUtil.transferToJson(response));
+            log.info("getRecommendGoods:返回参数:{}", JSONUtil.transferToString(response));
         } catch (Exception e) {
             log.error("getRecommendGoods:接口异常", e);
             throw new BizProcessException("getRecommendGoods:接口异常", e);
@@ -72,7 +72,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      */
     @Override
     public List<PddGoodsBasicVO> getGoodsBasicInfoByID(List<Long> goodsIdList) {
-        PopClient client = HttpPddClient.getPddClient();
+        PopClient client = HttpClientUtils.getPddClient();
 
         PddDdkGoodsBasicInfoGetRequest request = new PddDdkGoodsBasicInfoGetRequest();
 
@@ -105,7 +105,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
     @Override
     public List<PddGoodsDetailVO> getGoodsDetailInfo(PddDdkGoodsDetailRequest request) {
 
-        PopClient client = HttpPddClient.getPddClient();
+        PopClient client = HttpClientUtils.getPddClient();
         PddDdkGoodsDetailResponse response;
         try {
             log.info("getGoodsDetailInfo:请求参数:{}", JSONUtil.transferToJson(request));
@@ -133,7 +133,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      */
     @Override
     public PddGoodsSearchVO searchGoods(PddDdkGoodsSearchRequest request) {
-        PopClient client = HttpPddClient.getPddClient();
+        PopClient client = HttpClientUtils.getPddClient();
 
         List<Integer> activityTags = new ArrayList<>();
         //商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴等
