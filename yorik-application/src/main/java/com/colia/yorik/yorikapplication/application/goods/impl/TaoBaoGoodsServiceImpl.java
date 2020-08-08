@@ -3,14 +3,13 @@ package com.colia.yorik.yorikapplication.application.goods.impl;
 import com.colia.yorik.yorikapplication.application.goods.TaoBaoGoodsService;
 import com.colia.yorik.yorikapplication.application.goods.adapter.GoodsMapper;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.TBGoodsRecommendVO;
-import com.colia.yorik.yorikcommon.infrastructure.constant.TaoBaoConstant;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
 import com.colia.yorik.yoriksupport.utils.HttpClientUtils;
 import com.colia.yorik.yoriksupport.utils.JSONUtil;
 import com.taobao.api.ApiException;
 import com.taobao.api.TaobaoClient;
-import com.taobao.api.request.JuItemsSearchRequest;
-import com.taobao.api.response.JuItemsSearchResponse;
+import com.taobao.api.request.TbkDgOptimusMaterialRequest;
+import com.taobao.api.response.TbkDgOptimusMaterialResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -27,30 +26,31 @@ public class TaoBaoGoodsServiceImpl implements TaoBaoGoodsService {
     @Resource
     private GoodsMapper goodsMapper;
 
-
-
     /**
      * 淘宝聚划算查询商品
      *
-     * @param query 查询条件
+     * @param req 查询条件
      * @return 商品结果
      */
     @Override
-    public TBGoodsRecommendVO getRecommend(JuItemsSearchRequest.TopItemQuery query) {
-        JuItemsSearchRequest req = new JuItemsSearchRequest();
+    public TBGoodsRecommendVO getRecommend(TbkDgOptimusMaterialRequest req) {
         TaobaoClient client = HttpClientUtils.getTBClient();
 
-        query.setCurrentPage(1L);
-        query.setPageSize(1L);
-        query.setPid(TaoBaoConstant.PID);
-//        obj1.setPostage(false);
-//        obj1.setStatus(2L);
-//        obj1.setTaobaoCategoryId(1000L);
-//        obj1.setWord("棉签");
-        req.setParamTopItemQuery(query);
-        JuItemsSearchResponse rsp;
+        req.setPageSize(20L);
+        req.setAdzoneId(123L);
+        req.setPageNo(1L);
+        req.setMaterialId(123L);
+        req.setDeviceValue("xxx");
+        req.setDeviceEncrypt("MD5");
+        req.setDeviceType("IMEI");
+        req.setContentId(323L);
+        req.setContentSource("xxx");
+        req.setItemId(33243L);
+        req.setFavoritesId("123445");
+        TbkDgOptimusMaterialResponse rsp;
+
         try {
-            log.info("searchJuTqgGoods:请求参数:{}", JSONUtil.transferToJson(query));
+            log.info("searchJuTqgGoods:请求参数:{}", JSONUtil.transferToJson(req));
             rsp = client.execute(req);
             log.info("searchJuTqgGoods:返回参数:{}", JSONUtil.transferToJson(rsp));
         } catch (ApiException e) {
@@ -62,6 +62,6 @@ public class TaoBaoGoodsServiceImpl implements TaoBaoGoodsService {
             log.error("searchJuTqgGoods:接口返回数据为空");
             throw new BizProcessException("searchJuTqgGoods:接口返回数据为空");
         }
-        return goodsMapper.toTBGoodsSearchVO(rsp.getResult());
+        return goodsMapper.toTBGoodsRecommendVO(rsp);
     }
 }

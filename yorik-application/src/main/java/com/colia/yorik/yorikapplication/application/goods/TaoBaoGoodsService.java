@@ -1,7 +1,7 @@
 package com.colia.yorik.yorikapplication.application.goods;
 
 import com.colia.yorik.yorikapplication.application.goods.valueObject.TBGoodsRecommendVO;
-import com.taobao.api.request.JuItemsSearchRequest;
+import com.taobao.api.request.TbkDgOptimusMaterialRequest;
 
 /**
  * 淘宝 商品查询
@@ -16,8 +16,8 @@ public interface TaoBaoGoodsService {
     /**
      * 淘宝 精品商品推荐 支持
      *
-     * @param query 查询条件
+     * @param req 查询条件
      * @return 商品结果
      */
-    TBGoodsRecommendVO getRecommend(JuItemsSearchRequest.TopItemQuery query);
+    TBGoodsRecommendVO getRecommend(TbkDgOptimusMaterialRequest req);
 }

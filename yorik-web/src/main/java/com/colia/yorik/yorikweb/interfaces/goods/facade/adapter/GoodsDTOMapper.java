@@ -12,7 +12,7 @@ import org.mapstruct.Mappings;
  * @Author konglingyao
  * @Date 2020/7/24
  */
-@Mapper(componentModel = "spring",uses = StringStrategy.class)
+@Mapper(componentModel = "spring", uses = StringStrategy.class)
 public interface GoodsDTOMapper {
 
 
@@ -31,20 +31,9 @@ public interface GoodsDTOMapper {
 
     GoodsDetailDTO pddVOToDTO(PddGoodsDetailVO item);
 
-    @Mappings({
-            @Mapping(source = "itemId", target = "goodsId"),
-            @Mapping(source = "picUrlForPC", target = "goodsImageUrl"),
-            @Mapping(source = "picUrlForWL", target = "goodsThumbnailUrl"),
-            @Mapping(source = "title", target = "goodsName"),
-            @Mapping(source = "actPrice", target = "minGroupPrice"),
-            @Mapping(source = "actPrice", target = "minNormalPrice"),
-    })
+
     GoodsDetailDTO tbVOToDTO(TBGoodsDetailVO item);
 
-    @Mappings({
-            @Mapping(source = "modelList", target = "records"),
-            @Mapping(source = "currentPage", target = "current"),
-            @Mapping(source = "totalItem", target = "total")
-    })
+
     GoodsListDTO tbVOToDTO(TBGoodsRecommendVO listVO);
 }

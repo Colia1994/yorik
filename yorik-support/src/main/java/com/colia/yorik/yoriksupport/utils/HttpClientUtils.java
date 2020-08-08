@@ -53,7 +53,7 @@ public class HttpClientUtils {
         return pddClient;
     }
 
-    public static TaobaoClient getTBClient(){
+    public static TaobaoClient getTBClient() {
         return tbClient;
     }
 

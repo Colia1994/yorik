@@ -4,6 +4,7 @@ import com.colia.yorik.yorikcommon.interfaces.Constants;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 分页指令请求参数
@@ -11,9 +12,10 @@ import lombok.Data;
  * @Author colia
  * @Date 2020/7/16 下午6:55
  **/
+@EqualsAndHashCode(callSuper = true)
 @ApiModel
 @Data
-public abstract class PageCommand implements RequestCommand {
+public abstract class PageCommand extends CommonCommand {
 
     /**
      * 页码
@@ -33,4 +35,6 @@ public abstract class PageCommand implements RequestCommand {
      */
     @ApiModelProperty(value = "每页行数", example = "10")
     private Integer pageSize = Constants.DEFAULT_PAGE_SIZE;
+
+
 }

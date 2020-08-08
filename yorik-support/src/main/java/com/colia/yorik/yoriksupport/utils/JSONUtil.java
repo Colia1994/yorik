@@ -50,7 +50,7 @@ public class JSONUtil {
      * 转换成方便打印的json
      *
      * @param value 待处理对象
-     * @param <T> 待处理对象类型
+     * @param <T>   待处理对象类型
      * @return 方便打印的json字符串
      * @throws JsonParseException 解析异常
      */
@@ -71,7 +71,7 @@ public class JSONUtil {
      * 转换成发方便传输的json
      *
      * @param value 待处理对象
-     * @param <T> 待处理对象类型
+     * @param <T>   待处理对象类型
      * @return 方便打印的json字符串
      * @throws JsonParseException 解析异常
      */

@@ -14,8 +14,8 @@ import org.mapstruct.Mappings;
 public interface UrlDTOMapper {
 
     @Mappings({
-            @Mapping(source = "mobileShortUrl",target = "pddShortUrl"),
-            @Mapping(source = "mobileUrl",target = "pddUrl")
+            @Mapping(source = "mobileShortUrl", target = "pddShortUrl"),
+            @Mapping(source = "mobileUrl", target = "pddUrl")
     })
     UrlDTO pddVOToDto(PddUrlVO vo);
 }

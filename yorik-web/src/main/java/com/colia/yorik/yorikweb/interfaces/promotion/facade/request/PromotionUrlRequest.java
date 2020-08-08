@@ -1,18 +1,20 @@
 package com.colia.yorik.yorikweb.interfaces.promotion.facade.request;
 
 import com.colia.yorik.yorikcommon.interfaces.requestBody.CommandValidate;
-import com.colia.yorik.yorikcommon.interfaces.requestBody.RequestCommand;
+import com.colia.yorik.yorikcommon.interfaces.requestBody.CommonCommand;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @Author konglingyao
  * @Date 2020/7/31
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @ApiModel(description = "生成推广链接请求参数")
-public class PromotionUrlRequest implements RequestCommand {
+public class PromotionUrlRequest extends CommonCommand {
 
 
     /**
@@ -42,7 +44,7 @@ public class PromotionUrlRequest implements RequestCommand {
     private Boolean generateWeiboappWebview = Boolean.FALSE;
 
     @ApiModelProperty(value = "是否生成小程序推广", example = "false")
-    private Boolean generateWeApp= Boolean.FALSE;
+    private Boolean generateWeApp = Boolean.FALSE;
 
     @ApiModelProperty(value = "商品ID，仅支持单个查询")
     private Long goodsId;

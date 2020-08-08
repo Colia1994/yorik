@@ -88,7 +88,7 @@ public class OrderDetailDTO extends BaseDTO {
     private String orderSn;
 
     /**
-     *	订单状态： -1 未支付; 0-已支付；1-已成团；2-确认收货；3-审核成功；4-审核失败（不可提现）；5-已经结算；8-非多多进宝商品（无佣金订单）
+     * 订单状态： -1 未支付; 0-已支付；1-已成团；2-确认收货；3-审核成功；4-审核失败（不可提现）；5-已经结算；8-非多多进宝商品（无佣金订单）
      */
     private Integer orderStatus;
 

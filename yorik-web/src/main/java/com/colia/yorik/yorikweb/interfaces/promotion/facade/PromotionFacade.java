@@ -5,8 +5,6 @@ import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.ConvertUrlRe
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.PromotionUrlRequest;
 
 /**
- *
- *
  * @Author konglingyao
  * @Date 2020/7/30
  */

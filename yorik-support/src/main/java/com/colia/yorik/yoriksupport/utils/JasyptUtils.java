@@ -16,10 +16,10 @@ public class JasyptUtils {
     private StringEncryptor encryptorBean;
 
     public String encrypt(String originPassword) {
-        return encryptorBean.encrypt( originPassword );
+        return encryptorBean.encrypt(originPassword);
     }
 
-    public String decrypt( String encryptedPassword ) {
-        return encryptorBean.decrypt( encryptedPassword );
+    public String decrypt(String encryptedPassword) {
+        return encryptorBean.decrypt(encryptedPassword);
     }
 }

@@ -2,14 +2,10 @@ package com.colia.yorik.yorikweb.interfaces.order.controller;
 
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResultUtils;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsRecommendRequest;
 import com.colia.yorik.yorikweb.interfaces.order.facade.OrderQueryFacade;
 import com.colia.yorik.yorikweb.interfaces.order.facade.dto.OrderListDTO;
 import com.colia.yorik.yorikweb.interfaces.order.facade.request.QueryOrderIncRequest;
 import com.colia.yorik.yorikweb.interfaces.order.facade.request.QueryOrderRangeRequest;
-import com.colia.yorik.yorikweb.interfaces.promotion.facade.PromotionFacade;
-import com.colia.yorik.yorikweb.interfaces.promotion.facade.dto.UrlDTO;
-import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.PromotionUrlRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;

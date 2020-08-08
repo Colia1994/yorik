@@ -1,19 +1,19 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade.request;
 
-import com.colia.yorik.yorikcommon.interfaces.requestBody.RequestCommand;
+import com.colia.yorik.yorikcommon.interfaces.requestBody.CommonCommand;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @Author konglingyao
  * @Date 2020/7/19
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @ApiModel(description = "推荐商品请求参数")
-public class GoodsDetailRequest implements RequestCommand {
-
-
+public class GoodsDetailRequest extends CommonCommand {
 
 
     @ApiModelProperty(value = "商品id", required = true)

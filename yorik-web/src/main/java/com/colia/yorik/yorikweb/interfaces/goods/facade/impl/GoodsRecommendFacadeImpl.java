@@ -1,9 +1,9 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade.impl;
 
 import com.colia.yorik.yorikapplication.application.goods.PddGoodsService;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.GoodsRecommendFacade;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.adapter.GoodsDetailDTOAssembler;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.adapter.GoodsListDTOAssembler;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.GoodsRecommendFacade;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsDetailRequest;
@@ -52,7 +52,7 @@ public class GoodsRecommendFacadeImpl implements GoodsRecommendFacade {
         //offset 需要计算
         pddRequest.setOffset((request.getPageNo() - 1) * request.getPageSize());
         pddRequest.setCatId(request.getCatId());
-        return listAssembler.toDTO(pddGoodsService.getRecommendGoods(pddRequest));
+        return listAssembler.toDTO(pddGoodsService.getPddRecommendGoods(pddRequest));
     }
 
     /**
@@ -70,7 +70,7 @@ public class GoodsRecommendFacadeImpl implements GoodsRecommendFacade {
         pddRequest.setSearchId(request.getSearchId());
         pddRequest.setPid(request.getPid());
         pddRequest.setPlanType(request.getPlanType());
-        return detailAssembler.toDTO(pddGoodsService.getGoodsDetailInfo(pddRequest).get(0));
+        return detailAssembler.toDTO(pddGoodsService.getPddGoodsDetailInfo(pddRequest).get(0));
     }
 
     /**
@@ -89,6 +89,6 @@ public class GoodsRecommendFacadeImpl implements GoodsRecommendFacade {
         request.setPageSize(params.getPageSize());
         request.setListId(params.getListId());
         request.setSortType(params.getSortType());
-        return listAssembler.toDTO(pddGoodsService.searchGoods(request));
+        return listAssembler.toDTO(pddGoodsService.searchPddGoods(request));
     }
 }

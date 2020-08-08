@@ -34,7 +34,7 @@ public class GoodsListDTOAssembler implements Assembler<GoodsListDTO> {
             return goodsDTOMapper.pddVOToDTO((PddGoodsRecommendVO) objects);
         } else if (objects instanceof PddGoodsSearchVO) {
             return goodsDTOMapper.pddVOToDTO((PddGoodsSearchVO) objects);
-        } else if(objects instanceof TBGoodsRecommendVO) {
+        } else if (objects instanceof TBGoodsRecommendVO) {
             return goodsDTOMapper.tbVOToDTO((TBGoodsRecommendVO) objects);
         }
 

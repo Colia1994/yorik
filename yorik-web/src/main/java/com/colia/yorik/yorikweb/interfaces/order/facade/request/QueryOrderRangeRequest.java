@@ -1,10 +1,10 @@
 package com.colia.yorik.yorikweb.interfaces.order.facade.request;
 
-import com.colia.yorik.yorikcommon.interfaces.requestBody.RequestCommand;
-import com.pdd.pop.ext.fasterxml.jackson.annotation.JsonProperty;
+import com.colia.yorik.yorikcommon.interfaces.requestBody.CommonCommand;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 订单范围查询 请求参数
@@ -12,9 +12,10 @@ import lombok.Data;
  * @Author konglingyao
  * @Date 2020/7/26
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @ApiModel
-public class QueryOrderRangeRequest implements RequestCommand {
+public class QueryOrderRangeRequest extends CommonCommand {
 
     @ApiModelProperty(value = "开始时间", required = true, example = "2020-07-01 00:00:00")
     private String startTime;

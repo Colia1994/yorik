@@ -7,6 +7,7 @@ package com.colia.yorik.yorikcommon.interfaces.requestBody;
  * @Date 2020/7/16 下午6:55
  **/
 public interface RequestCommand {
+
     /**
      * 指令验证
      */

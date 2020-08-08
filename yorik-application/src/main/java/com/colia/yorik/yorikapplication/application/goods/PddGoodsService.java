@@ -25,7 +25,7 @@ public interface PddGoodsService extends AppService {
      * @param request pdd需要的请求参数
      * @return 商品流list
      */
-    PddGoodsRecommendVO getRecommendGoods(PddDdkGoodsRecommendGetRequest request);
+    PddGoodsRecommendVO getPddRecommendGoods(PddDdkGoodsRecommendGetRequest request);
 
     /**
      * pdd根据商品id获取基本信息
@@ -41,7 +41,7 @@ public interface PddGoodsService extends AppService {
      * @param request 商品详情请求参数 goods_id
      * @return 商品详情
      */
-    List<PddGoodsDetailVO> getGoodsDetailInfo(PddDdkGoodsDetailRequest request);
+    List<PddGoodsDetailVO> getPddGoodsDetailInfo(PddDdkGoodsDetailRequest request);
 
     /**
      * 搜索商品
@@ -49,7 +49,7 @@ public interface PddGoodsService extends AppService {
      * @param request 请求相关
      * @return 商品列表
      */
-    PddGoodsSearchVO searchGoods(PddDdkGoodsSearchRequest request);
+    PddGoodsSearchVO searchPddGoods(PddDdkGoodsSearchRequest request);
 
 
 }

@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * 淘宝客 默认推荐商品
+ * https://open.taobao.com/api.htm?cid=1&docId=33947&docType=2
  *
  * @Author konglingyao
  * @Date 2020/8/4
@@ -14,41 +15,22 @@ import java.util.List;
 @Data
 public class TBGoodsRecommendVO implements ValueObject<TBGoodsRecommendVO> {
 
-    /**
-     * 页码
-     */
-    private Long currentPage;
 
     /**
      * 商品数据
      */
-    private List<TBGoodsDetailVO> modelList;
-
-    /**
-     * 错误码
-     */
-    private String msgCode;
-
-    /**
-     * 错误信息
-     */
-    private String msgInfo;
-
-    /**
-     * 一页大小
-     */
-    private Long pageSize;
+    private List<TBGoodsDetailVO> resultList;
 
 
     /**
-     * 商品总数
+     * 商品总数-目前只有全品库商品查询有该字段
      */
-    private Long totalItem;
+    private Long totalCount;
 
     /**
-     * 总页数
+     * 推荐信息-是否抄底
      */
-    private Long totalPage;
+    private Boolean isDefault;
 
 
     @Override

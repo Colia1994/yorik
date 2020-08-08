@@ -1,18 +1,20 @@
 package com.colia.yorik.yorikweb.interfaces.promotion.facade.request;
 
 import com.colia.yorik.yorikcommon.interfaces.requestBody.CommandValidate;
-import com.colia.yorik.yorikcommon.interfaces.requestBody.RequestCommand;
+import com.colia.yorik.yorikcommon.interfaces.requestBody.CommonCommand;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @Author konglingyao
  * @Date 2020/8/4
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @ApiModel(description = "转换推广链接请求参数")
-public class ConvertUrlRequest implements RequestCommand {
+public class ConvertUrlRequest extends CommonCommand {
 
     /**
      * 自定义参数，为链接打上自定义标签；自定义参数最长限制64个字节；格式为： {"uid":"11111","sid":"22222"} ，
@@ -29,17 +31,11 @@ public class ConvertUrlRequest implements RequestCommand {
     private String sourceUrl;
 
     /**
-     * 数据源类型 1 pdd 2 淘宝
-     */
-    @ApiModelProperty("数据源类型 1 pdd 2 淘宝")
-    private Integer sourceType;
-
-    /**
      * 指令验证
      */
     @Override
     public void validate() {
         CommandValidate.notEmpty(sourceUrl, "原链接不能为空！");
-        CommandValidate.notNull(sourceType, "数据源类型不能为空！");
+        CommandValidate.notNull(super.getSourceType(), "数据源类型不能为空！");
     }
 }
