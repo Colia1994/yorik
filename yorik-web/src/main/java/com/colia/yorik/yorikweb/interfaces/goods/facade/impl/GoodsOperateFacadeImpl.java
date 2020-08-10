@@ -1,9 +1,12 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade.impl;
 
 import com.colia.yorik.yorikapplication.application.goods.PddGoodsService;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.GoodsRecommendFacade;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.GoodsOperateFacade;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.adapter.GoodsCatsDTOAssembler;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.adapter.GoodsDetailDTOAssembler;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.adapter.GoodsListDTOAssembler;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsCatDTO;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsCatsDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsDetailRequest;
@@ -25,7 +28,7 @@ import java.util.List;
  */
 @Slf4j
 @Service
-public class GoodsRecommendFacadeImpl implements GoodsRecommendFacade {
+public class GoodsOperateFacadeImpl implements GoodsOperateFacade {
 
     @Resource
     private GoodsListDTOAssembler listAssembler;
@@ -33,9 +36,11 @@ public class GoodsRecommendFacadeImpl implements GoodsRecommendFacade {
     @Resource
     private GoodsDetailDTOAssembler detailAssembler;
 
-
     @Resource
     private PddGoodsService pddGoodsService;
+
+    @Resource
+    private GoodsCatsDTOAssembler catsDTOAssembler;
 
 
     /**
@@ -90,5 +95,30 @@ public class GoodsRecommendFacadeImpl implements GoodsRecommendFacade {
         request.setListId(params.getListId());
         request.setSortType(params.getSortType());
         return listAssembler.toDTO(pddGoodsService.searchPddGoods(request));
+    }
+
+    /**
+     * 查询商品类目
+     *
+     * @param sourceType 1 pdd 2 淘宝 默认1
+     * @return 商品类目信息
+     */
+    @Override
+    public GoodsCatsDTO getAllCats(int sourceType) {
+        //pdd
+        if (sourceType == 1) {
+            List<GoodsCatDTO> goodsCatDTOs = new ArrayList<>();
+            goodsCatDTOs.add(new GoodsCatDTO("女装", 8439L));
+            goodsCatDTOs.add(new GoodsCatDTO("男装", 239L));
+            goodsCatDTOs.add(new GoodsCatDTO("美食", 6398L));
+            goodsCatDTOs.add(new GoodsCatDTO("美妆", 18482L));
+            goodsCatDTOs.add(new GoodsCatDTO("日用", 16989L));
+            goodsCatDTOs.add(new GoodsCatDTO("饰品", 17412L));
+            goodsCatDTOs.add(new GoodsCatDTO("宠物", 16288L));
+            GoodsCatsDTO goodsCatsDTO = new GoodsCatsDTO();
+            goodsCatsDTO.setGoodsCatsList(goodsCatDTOs);
+            return goodsCatsDTO;
+        }
+        return catsDTOAssembler.toDTO(pddGoodsService.searchPddCats());
     }
 }

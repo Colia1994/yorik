@@ -1,16 +1,19 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade;
 
+import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsCatsDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsDetailRequest;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsRecommendRequest;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsSearchRequest;
 
+import java.util.List;
+
 /**
  * @Author konglingyao
  * @Date 2020/7/24
  */
-public interface GoodsRecommendFacade {
+public interface GoodsOperateFacade {
 
     /**
      * 按需要推荐商品
@@ -37,4 +40,14 @@ public interface GoodsRecommendFacade {
      * @return 商品列表
      */
     GoodsListDTO searchGoods(GoodsSearchRequest params);
+
+    /**
+     * 查询商品类目
+     *
+     * @param sourceType 1 pdd 2 淘宝 默认1
+     * @return 商品类目信息
+     */
+    GoodsCatsDTO getAllCats(int sourceType);
+
+
 }

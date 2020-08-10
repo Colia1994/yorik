@@ -2,7 +2,8 @@ package com.colia.yorik.yorikweb.interfaces.goods.controller;
 
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResultUtils;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.GoodsRecommendFacade;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.GoodsOperateFacade;
+import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsCatsDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsDetailRequest;
@@ -13,6 +14,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 商品控制器
@@ -26,7 +28,7 @@ import javax.annotation.Resource;
 public class GoodsController {
 
     @Resource
-    private GoodsRecommendFacade goodsRecommendFacade;
+    private GoodsOperateFacade goodsRecommendFacade;
 
 
     @ResponseBody
@@ -52,5 +54,12 @@ public class GoodsController {
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.searchGoods(params));
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/getAllCats", method = RequestMethod.POST)
+    @ApiOperation(value = "商品类目信息")
+    public AjaxResponse<GoodsCatsDTO> getAllCats() {
+
+        return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.getAllCats(1));
+    }
 
 }

@@ -1,11 +1,9 @@
 package com.colia.yorik.yorikapplication.application.goods.impl;
 
 import com.colia.yorik.yorikapplication.application.goods.PddGoodsService;
+import com.colia.yorik.yorikapplication.application.goods.adapter.CatsMapper;
 import com.colia.yorik.yorikapplication.application.goods.adapter.GoodsMapper;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsBasicVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsRecommendVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsSearchVO;
+import com.colia.yorik.yorikapplication.application.goods.valueObject.*;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
 import com.colia.yorik.yoriksupport.utils.HttpClientUtils;
 import com.colia.yorik.yoriksupport.utils.JSONUtil;
@@ -29,6 +27,9 @@ public class PddGoodsServiceImpl implements PddGoodsService {
 
     @Resource
     private GoodsMapper goodsVOMapper;
+
+    @Resource
+    private CatsMapper catsMapper;
 
 
     /**
@@ -151,7 +152,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
     }
 
     @Override
-    public void searchPddCats() {
+    public PddCatsVO searchPddCats() {
         PopClient client = HttpClientUtils.getPddClient();
 
         PddGoodsCatsGetRequest request = new PddGoodsCatsGetRequest();
@@ -160,11 +161,40 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         try {
             log.info("searchPddCats:请求参数:{}", JSONUtil.transferToString(request));
             response = client.syncInvoke(request);
-            log.info("searchPddCats:请求参数:{}", JSONUtil.transferToString(request));
+//            searchPddOpts();
+//            log.info("searchPddCats:返回参数:{}", JSONUtil.transferToString(response));
         } catch (Exception e) {
             log.error("searchPddCats:接口异常", e);
             throw new BizProcessException("searchPddCats:接口异常", e);
         }
+
+        if (response == null || response.getGoodsCatsGetResponse() == null) {
+            log.error("searchPddCats:接口返回数据为空");
+            throw new BizProcessException("searchPddCats:接口返回数据为空");
+        }
+        return catsMapper.toPddCats(response.getGoodsCatsGetResponse());
+    }
+
+    public void searchPddOpts() {
+        PopClient client = HttpClientUtils.getPddClient();
+
+        PddGoodsOptGetRequest request = new PddGoodsOptGetRequest();
+        request.setParentOptId(9016);
+        PddGoodsOptGetResponse response;
+        try {
+            log.info("searchPddCats:请求参数:{}", JSONUtil.transferToString(request));
+            response = client.syncInvoke(request);
+            log.info("searchPddCats:返回参数:{}", JSONUtil.transferToString(response));
+        } catch (Exception e) {
+            log.error("searchPddCats:接口异常", e);
+            throw new BizProcessException("searchPddCats:接口异常", e);
+        }
+
+        if (response == null || response.getGoodsOptGetResponse() == null) {
+            log.error("searchPddCats:接口返回数据为空");
+            throw new BizProcessException("searchPddCats:接口返回数据为空");
+        }
+//        return catsMapper.toPddCats(response.getGoodsCatsGetResponse());
     }
 
 

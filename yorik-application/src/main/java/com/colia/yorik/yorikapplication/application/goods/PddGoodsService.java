@@ -1,9 +1,6 @@
 package com.colia.yorik.yorikapplication.application.goods;
 
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsBasicVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsDetailVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsRecommendVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsSearchVO;
+import com.colia.yorik.yorikapplication.application.goods.valueObject.*;
 import com.colia.yorik.yorikcommon.application.AppService;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsDetailRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsRecommendGetRequest;
@@ -51,7 +48,12 @@ public interface PddGoodsService extends AppService {
      */
     PddGoodsSearchVO searchPddGoods(PddDdkGoodsSearchRequest request);
 
-    void searchPddCats();
+    /**
+     * pdd查询商品类目
+     *
+     * @return 类目信息
+     */
+    PddCatsVO searchPddCats();
 
 
 }
