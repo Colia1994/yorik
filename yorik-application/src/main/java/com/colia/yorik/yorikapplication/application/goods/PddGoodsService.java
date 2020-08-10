@@ -51,5 +51,7 @@ public interface PddGoodsService extends AppService {
      */
     PddGoodsSearchVO searchPddGoods(PddDdkGoodsSearchRequest request);
 
+    void searchPddCats();
+
 
 }

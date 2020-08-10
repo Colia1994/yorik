@@ -50,9 +50,9 @@ public class TaoBaoGoodsServiceImpl implements TaoBaoGoodsService {
         TbkDgOptimusMaterialResponse rsp;
 
         try {
-            log.info("searchJuTqgGoods:请求参数:{}", JSONUtil.transferToJson(req));
+            log.info("searchJuTqgGoods:请求参数:{}", JSONUtil.transferToString(req));
             rsp = client.execute(req);
-            log.info("searchJuTqgGoods:返回参数:{}", JSONUtil.transferToJson(rsp));
+            log.info("searchJuTqgGoods:返回参数:{}", JSONUtil.transferToString(rsp));
         } catch (ApiException e) {
             log.error("searchJuTqgGoods:接口错误");
             throw new BizProcessException("searchJuTqgGoods:接口错误", e);

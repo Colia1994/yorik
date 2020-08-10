@@ -6,7 +6,7 @@ import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderIn
 import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderRangeListVO;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
 import com.colia.yorik.yoriksupport.utils.HttpClientUtils;
-import com.pdd.pop.sdk.common.util.JsonUtil;
+import com.colia.yorik.yoriksupport.utils.JSONUtil;
 import com.pdd.pop.sdk.http.PopClient;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkOrderListIncrementGetRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkOrderListRangeGetRequest;
@@ -42,9 +42,9 @@ public class PddOrderServiceImpl implements PddOrderService {
         request.setPageSize(300);
         PddDdkOrderListRangeGetResponse response;
         try {
-            log.info("queryOrderByTimeRange:请求参数:{}", JsonUtil.transferToJson(request));
+            log.info("queryOrderByTimeRange:请求参数:{}", JSONUtil.transferToString(request));
             response = client.syncInvoke(request);
-            log.info("queryOrderByTimeRange:返回参数:{}", JsonUtil.transferToJson(response));
+            log.info("queryOrderByTimeRange:返回参数:{}", JSONUtil.transferToString(response));
         } catch (Exception e) {
             log.error("queryOrderByTimeRange接口异常", e);
             throw new BizProcessException("queryOrderByTimeRange接口异常", e);
@@ -65,9 +65,9 @@ public class PddOrderServiceImpl implements PddOrderService {
         PddDdkOrderListIncrementGetResponse response;
 
         try {
-            log.info("queryOrderByTimeRange:请求参数:{}", JsonUtil.transferToJson(request));
+            log.info("queryOrderByTimeRange:请求参数:{}", JSONUtil.transferToString(request));
             response = client.syncInvoke(request);
-            log.info("queryOrderByTimeRange:返回参数:{}", JsonUtil.transferToJson(response));
+            log.info("queryOrderByTimeRange:返回参数:{}", JSONUtil.transferToString(response));
         } catch (Exception e) {
             log.error("queryOrderIncList接口异常", e);
             throw new BizProcessException("queryOrderIncList接口异常", e);

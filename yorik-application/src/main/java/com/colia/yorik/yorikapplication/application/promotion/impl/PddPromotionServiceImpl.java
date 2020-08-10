@@ -52,9 +52,9 @@ public class PddPromotionServiceImpl implements PddPromotionService {
         request.setPIdNameList(pIdNameList);
         PddDdkGoodsPidGenerateResponse response;
         try {
-            log.info("createOnePromotion:请求参数:{}", JSONUtil.transferToJson(request));
+            log.info("createOnePromotion:请求参数:{}", JSONUtil.transferToString(request));
             response = client.syncInvoke(request);
-            log.info("createOnePromotion:返回参数:{}", JSONUtil.transferToJson(response));
+            log.info("createOnePromotion:返回参数:{}", JSONUtil.transferToString(response));
         } catch (Exception e) {
             log.error("PDD创建一个推广位接口异常", e);
             throw new BizProcessException("PDD创建一个推广位接口异常", e);
@@ -79,9 +79,9 @@ public class PddPromotionServiceImpl implements PddPromotionService {
         request.setPId(PddConstant.DEFAULT_PID);
         PddDdkGoodsPromotionUrlGenerateResponse response;
         try {
-            log.info("generatePromotionUrl:请求参数:{}", JSONUtil.transferToJson(request));
+            log.info("generatePromotionUrl:请求参数:{}", JSONUtil.transferToString(request));
             response = client.syncInvoke(request);
-            log.info("generatePromotionUrl:返回参数:{}", JSONUtil.transferToJson(response));
+            log.info("generatePromotionUrl:返回参数:{}", JSONUtil.transferToString(response));
         } catch (Exception e) {
             log.error("generatePromotionUrl接口异常", e);
             throw new BizProcessException("generatePromotionUrl接口异常", e);
@@ -109,11 +109,11 @@ public class PddPromotionServiceImpl implements PddPromotionService {
         request.setPid(PddConstant.DEFAULT_PID);
         request.setSourceUrl(sourceUrl);
 //        request.setCustomParameters("str");
-        PddDdkGoodsZsUnitUrlGenResponse response = null;
+        PddDdkGoodsZsUnitUrlGenResponse response;
         try {
-            log.info("convertPromotionUrl:请求参数:{}", JSONUtil.transferToJson(request));
+            log.info("convertPromotionUrl:请求参数:{}", JSONUtil.transferToString(request));
             response = client.syncInvoke(request);
-            log.info("convertPromotionUrl:返回参数:{}", JSONUtil.transferToJson(response));
+            log.info("convertPromotionUrl:返回参数:{}", JSONUtil.transferToString(response));
         } catch (Exception e) {
             log.error("convertPromotionUrl:接口异常", e);
             throw new BizProcessException("convertPromotionUrl:接口异常", e);

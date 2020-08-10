@@ -6,7 +6,7 @@
     <!-- 日志路径文件中的变量,标明日志输出路径前缀，使用方式如上，logging.prefixpath=XXX  实现动态配置  XXX为日志文件绝对路径的前缀部分-->
     <springProperty scope="context" name="LOG_PREFIX" source="logging.prefixpath"/>
 
-    <property name="log.path" value="${LOG_PREFIX}/${LOG_USER}/logs/logback.log"/>
+    <property name="log.path" value="${logging.prefixpath}/${logging.userpath}/logs/logback.log"/>
 
     <!--输出到控制台-->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">

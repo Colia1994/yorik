@@ -10,19 +10,12 @@ import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
 import com.colia.yorik.yoriksupport.utils.HttpClientUtils;
 import com.colia.yorik.yoriksupport.utils.JSONUtil;
 import com.pdd.pop.sdk.http.PopClient;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsBasicInfoGetRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsDetailRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsRecommendGetRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsSearchRequest;
-import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsBasicInfoGetResponse;
-import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsDetailResponse;
-import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsRecommendGetResponse;
-import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsSearchResponse;
+import com.pdd.pop.sdk.http.api.pop.request.*;
+import com.pdd.pop.sdk.http.api.pop.response.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -80,9 +73,9 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         request.setGoodsIdList(goodsIdList);
         PddDdkGoodsBasicInfoGetResponse response;
         try {
-            log.info("getGoodsBasicInfoByID:请求参数:{}", JSONUtil.transferToJson(request));
+            log.info("getGoodsBasicInfoByID:请求参数:{}", JSONUtil.transferToString(request));
             response = client.syncInvoke(request);
-            log.info("getGoodsBasicInfoByID:返回参数:{}", JSONUtil.transferToJson(response));
+            log.info("getGoodsBasicInfoByID:返回参数:{}", JSONUtil.transferToString(response));
 
         } catch (Exception e) {
             log.error("PDD获取商品基本信息接口异常", e);
@@ -109,9 +102,9 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         PopClient client = HttpClientUtils.getPddClient();
         PddDdkGoodsDetailResponse response;
         try {
-            log.info("getPddGoodsDetailInfo:请求参数:{}", JSONUtil.transferToJson(request));
+            log.info("getPddGoodsDetailInfo:请求参数:{}", JSONUtil.transferToString(request));
             response = client.syncInvoke(request);
-            log.info("getPddGoodsDetailInfo:返回参数:{}", JSONUtil.transferToJson(response));
+            log.info("getPddGoodsDetailInfo:返回参数:{}", JSONUtil.transferToString(response));
 
         } catch (Exception e) {
             log.error("getPddGoodsDetailInfo:获取商品详细信息接口异常", e);
@@ -136,19 +129,12 @@ public class PddGoodsServiceImpl implements PddGoodsService {
     public PddGoodsSearchVO searchPddGoods(PddDdkGoodsSearchRequest request) {
         PopClient client = HttpClientUtils.getPddClient();
 
-        List<Integer> activityTags = new ArrayList<>();
-        //商品活动标记数组，例：[4,7]，4-秒杀 7-百亿补贴等
-//        activityTags.add(7);
-//        request.setActivityTags(activityTags);
-        //佣金率降序
-//        request.setSortType(2);
 
-        //是否只返回优惠券的商品，false返回所有商品，true只返回有优惠券的商品
         PddDdkGoodsSearchResponse response;
         try {
-            log.info("searchPddGoods:请求参数:{}", JSONUtil.transferToJson(request));
+            log.info("searchPddGoods:请求参数:{}", JSONUtil.transferToString(request));
             response = client.syncInvoke(request);
-            log.info("searchPddGoods:返回参数:{}", JSONUtil.transferToJson(response));
+            log.info("searchPddGoods:返回参数:{}", JSONUtil.transferToString(response));
         } catch (Exception e) {
             log.error("searchPddGoods:接口异常", e);
             throw new BizProcessException("searchPddGoods:接口异常", e);
@@ -162,6 +148,23 @@ public class PddGoodsServiceImpl implements PddGoodsService {
 
         return goodsVOMapper.toPddGoodsSearchVO(response.getGoodsSearchResponse());
 
+    }
+
+    @Override
+    public void searchPddCats() {
+        PopClient client = HttpClientUtils.getPddClient();
+
+        PddGoodsCatsGetRequest request = new PddGoodsCatsGetRequest();
+        request.setParentCatId(0L);
+        PddGoodsCatsGetResponse response;
+        try {
+            log.info("searchPddCats:请求参数:{}", JSONUtil.transferToString(request));
+            response = client.syncInvoke(request);
+            log.info("searchPddCats:请求参数:{}", JSONUtil.transferToString(request));
+        } catch (Exception e) {
+            log.error("searchPddCats:接口异常", e);
+            throw new BizProcessException("searchPddCats:接口异常", e);
+        }
     }
 
 
