@@ -80,6 +80,35 @@
                 </executions>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources/base/</directory>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources/${profileActive}</directory>
+            </resource>
+        </resources>
     </build>
+
+    <profiles>
+
+        <!--本地开发环境-->
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profileActive>dev</profileActive>
+            </properties>
+        </profile>
+
+        <!--生产环境prd-->
+        <profile>
+            <id>prd</id>
+            <properties>
+                <profileActive>prd</profileActive>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

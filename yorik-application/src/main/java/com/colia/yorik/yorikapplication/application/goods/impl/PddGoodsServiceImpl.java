@@ -3,8 +3,12 @@ package com.colia.yorik.yorikapplication.application.goods.impl;
 import com.colia.yorik.yorikapplication.application.goods.PddGoodsService;
 import com.colia.yorik.yorikapplication.application.goods.adapter.CatsMapper;
 import com.colia.yorik.yorikapplication.application.goods.adapter.GoodsMapper;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsDetailRequest;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsRecommendRequest;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsSearchRequest;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.*;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
+import com.colia.yorik.yorikcommon.interfaces.annotation.RedisAuto;
 import com.colia.yorik.yoriksupport.utils.HttpClientUtils;
 import com.colia.yorik.yoriksupport.utils.JSONUtil;
 import com.pdd.pop.sdk.http.PopClient;
@@ -14,6 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,13 +43,22 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      * @param request pdd需要的请求参数
      * @return 商品流list
      */
+    @RedisAuto(prefixKey = "pdd:getRecommend",minute = 60)
     @Override
-    public PddGoodsRecommendVO getPddRecommendGoods(PddDdkGoodsRecommendGetRequest request) {
+    public PddGoodsRecommendVO getPddRecommendGoods(GoodsRecommendRequest request) {
         PopClient client = HttpClientUtils.getPddClient();
+
+        PddDdkGoodsRecommendGetRequest pddRequest = new PddDdkGoodsRecommendGetRequest();
+        pddRequest.setChannelType(request.getChannelType());
+        pddRequest.setLimit(request.getPageSize());
+        //offset 需要计算
+        pddRequest.setOffset((request.getPageNo() - 1) * request.getPageSize());
+        pddRequest.setCatId(request.getCatId());
+
         PddDdkGoodsRecommendGetResponse response;
         try {
-            log.info("getPddRecommendGoods:请求参数:{}", JSONUtil.transferToString(request));
-            response = client.syncInvoke(request);
+            log.info("getPddRecommendGoods:请求参数:{}", JSONUtil.transferToString(pddRequest));
+            response = client.syncInvoke(pddRequest);
             log.info("getPddRecommendGoods:返回参数:{}", JSONUtil.transferToString(response));
         } catch (Exception e) {
             log.error("getPddRecommendGoods:接口异常", e);
@@ -65,6 +79,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      * @param goodsIdList 商品id列表
      * @return 商品基本信息
      */
+    @RedisAuto(prefixKey = "pdd:getGoodsBasic",minute = 30)
     @Override
     public List<PddGoodsBasicVO> getGoodsBasicInfoByID(List<Long> goodsIdList) {
         PopClient client = HttpClientUtils.getPddClient();
@@ -97,14 +112,22 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      * @param request 商品详情请求参数 goods_id
      * @return 商品详情
      */
+    @RedisAuto(prefixKey = "pdd:getGoodsDetail",minute = 30)
     @Override
-    public List<PddGoodsDetailVO> getPddGoodsDetailInfo(PddDdkGoodsDetailRequest request) {
+    public List<PddGoodsDetailVO> getPddGoodsDetailInfo(GoodsDetailRequest request) {
+        PddDdkGoodsDetailRequest pddRequest = new PddDdkGoodsDetailRequest();
+        List<Long> goodsIdList = new ArrayList<>();
+        goodsIdList.add(request.getGoodsId());
+        pddRequest.setGoodsIdList(goodsIdList);
+        pddRequest.setSearchId(request.getSearchId());
+        pddRequest.setPid(request.getPid());
+        pddRequest.setPlanType(request.getPlanType());
 
         PopClient client = HttpClientUtils.getPddClient();
         PddDdkGoodsDetailResponse response;
         try {
-            log.info("getPddGoodsDetailInfo:请求参数:{}", JSONUtil.transferToString(request));
-            response = client.syncInvoke(request);
+            log.info("getPddGoodsDetailInfo:请求参数:{}", JSONUtil.transferToString(pddRequest));
+            response = client.syncInvoke(pddRequest);
             log.info("getPddGoodsDetailInfo:返回参数:{}", JSONUtil.transferToString(response));
 
         } catch (Exception e) {
@@ -126,15 +149,24 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      * @param request 请求相关
      * @return 商品列表
      */
+    @RedisAuto(prefixKey = "pdd:searchGoods",minute = 10)
     @Override
-    public PddGoodsSearchVO searchPddGoods(PddDdkGoodsSearchRequest request) {
+    public PddGoodsSearchVO searchPddGoods(GoodsSearchRequest request) {
         PopClient client = HttpClientUtils.getPddClient();
-
+        PddDdkGoodsSearchRequest pddRequest = new PddDdkGoodsSearchRequest();
+        pddRequest.setActivityTags(request.getActivityTags());
+        pddRequest.setKeyword(request.getKeyword());
+        pddRequest.setWithCoupon(request.getWithCoupon());
+        pddRequest.setPage(request.getPageNo());
+        pddRequest.setPageSize(request.getPageSize());
+        pddRequest.setListId(request.getListId());
+        pddRequest.setSortType(request.getSortType());
+        pddRequest.setCatId(request.getCatId());
 
         PddDdkGoodsSearchResponse response;
         try {
-            log.info("searchPddGoods:请求参数:{}", JSONUtil.transferToString(request));
-            response = client.syncInvoke(request);
+            log.info("searchPddGoods:请求参数:{}", JSONUtil.transferToString(pddRequest));
+            response = client.syncInvoke(pddRequest);
             log.info("searchPddGoods:返回参数:{}", JSONUtil.transferToString(response));
         } catch (Exception e) {
             log.error("searchPddGoods:接口异常", e);
@@ -151,6 +183,12 @@ public class PddGoodsServiceImpl implements PddGoodsService {
 
     }
 
+    /**
+     * pdd查询商品类目
+     *
+     * @return 类目信息
+     */
+    @RedisAuto(prefixKey = "pdd:searchCats",minute = 60)
     @Override
     public PddCatsVO searchPddCats() {
         PopClient client = HttpClientUtils.getPddClient();

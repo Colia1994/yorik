@@ -20,7 +20,6 @@ public class ProxyInterceptor implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         log.info("invoke doing");
-        System.out.println("invoke doing");
         return queue;
     }
 }

@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * 注册bean代替原始bean
+ *
  * @Author konglingyao
  * @Date 2020/7/22
  */

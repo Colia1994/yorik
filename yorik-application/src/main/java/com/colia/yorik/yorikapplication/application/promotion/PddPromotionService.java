@@ -1,5 +1,6 @@
 package com.colia.yorik.yorikapplication.application.promotion;
 
+import com.colia.yorik.yorikapplication.application.promotion.request.PromotionUrlRequest;
 import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddPromotionVO;
 import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddUrlVO;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPromotionUrlGenerateRequest;
@@ -28,7 +29,7 @@ public interface PddPromotionService {
      * @param request 商品和所需链接信息
      * @return 生成的链接信息
      */
-    PddUrlVO generatePromotionUrl(PddDdkGoodsPromotionUrlGenerateRequest request);
+    PddUrlVO generatePromotionUrl(PromotionUrlRequest request);
 
     /**
      * 将其他推广者的链接转为固定推广位的链接

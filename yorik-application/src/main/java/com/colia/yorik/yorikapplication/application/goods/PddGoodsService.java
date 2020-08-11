@@ -1,5 +1,8 @@
 package com.colia.yorik.yorikapplication.application.goods;
 
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsDetailRequest;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsRecommendRequest;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsSearchRequest;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.*;
 import com.colia.yorik.yorikcommon.application.AppService;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsDetailRequest;
@@ -22,7 +25,7 @@ public interface PddGoodsService extends AppService {
      * @param request pdd需要的请求参数
      * @return 商品流list
      */
-    PddGoodsRecommendVO getPddRecommendGoods(PddDdkGoodsRecommendGetRequest request);
+    PddGoodsRecommendVO getPddRecommendGoods(GoodsRecommendRequest request);
 
     /**
      * pdd根据商品id获取基本信息
@@ -38,7 +41,7 @@ public interface PddGoodsService extends AppService {
      * @param request 商品详情请求参数 goods_id
      * @return 商品详情
      */
-    List<PddGoodsDetailVO> getPddGoodsDetailInfo(PddDdkGoodsDetailRequest request);
+    List<PddGoodsDetailVO> getPddGoodsDetailInfo(GoodsDetailRequest request);
 
     /**
      * 搜索商品
@@ -46,7 +49,8 @@ public interface PddGoodsService extends AppService {
      * @param request 请求相关
      * @return 商品列表
      */
-    PddGoodsSearchVO searchPddGoods(PddDdkGoodsSearchRequest request);
+    PddGoodsSearchVO searchPddGoods(GoodsSearchRequest request);
+
 
     /**
      * pdd查询商品类目

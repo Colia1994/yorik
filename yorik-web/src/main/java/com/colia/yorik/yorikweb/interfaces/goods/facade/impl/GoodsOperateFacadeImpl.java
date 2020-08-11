@@ -9,9 +9,9 @@ import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsCatDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsCatsDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsDetailRequest;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsRecommendRequest;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsSearchRequest;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsRecommendRequest;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsDetailRequest;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsSearchRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsDetailRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsRecommendGetRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsSearchRequest;
@@ -51,13 +51,8 @@ public class GoodsOperateFacadeImpl implements GoodsOperateFacade {
      */
     @Override
     public GoodsListDTO recommendGoods(GoodsRecommendRequest request) {
-        PddDdkGoodsRecommendGetRequest pddRequest = new PddDdkGoodsRecommendGetRequest();
-        pddRequest.setChannelType(request.getChannelType());
-        pddRequest.setLimit(request.getPageSize());
-        //offset 需要计算
-        pddRequest.setOffset((request.getPageNo() - 1) * request.getPageSize());
-        pddRequest.setCatId(request.getCatId());
-        return listAssembler.toDTO(pddGoodsService.getPddRecommendGoods(pddRequest));
+
+        return listAssembler.toDTO(pddGoodsService.getPddRecommendGoods(request));
     }
 
     /**
@@ -68,14 +63,8 @@ public class GoodsOperateFacadeImpl implements GoodsOperateFacade {
      */
     @Override
     public GoodsDetailDTO getGoodsDetailById(GoodsDetailRequest request) {
-        PddDdkGoodsDetailRequest pddRequest = new PddDdkGoodsDetailRequest();
-        List<Long> goodsIdList = new ArrayList<>();
-        goodsIdList.add(request.getGoodsId());
-        pddRequest.setGoodsIdList(goodsIdList);
-        pddRequest.setSearchId(request.getSearchId());
-        pddRequest.setPid(request.getPid());
-        pddRequest.setPlanType(request.getPlanType());
-        return detailAssembler.toDTO(pddGoodsService.getPddGoodsDetailInfo(pddRequest).get(0));
+
+        return detailAssembler.toDTO(pddGoodsService.getPddGoodsDetailInfo(request).get(0));
     }
 
     /**
@@ -86,15 +75,8 @@ public class GoodsOperateFacadeImpl implements GoodsOperateFacade {
      */
     @Override
     public GoodsListDTO searchGoods(GoodsSearchRequest params) {
-        PddDdkGoodsSearchRequest request = new PddDdkGoodsSearchRequest();
-        request.setActivityTags(params.getActivityTags());
-        request.setKeyword(params.getKeyword());
-        request.setWithCoupon(params.getWithCoupon());
-        request.setPage(params.getPageNo());
-        request.setPageSize(params.getPageSize());
-        request.setListId(params.getListId());
-        request.setSortType(params.getSortType());
-        return listAssembler.toDTO(pddGoodsService.searchPddGoods(request));
+
+        return listAssembler.toDTO(pddGoodsService.searchPddGoods(params));
     }
 
     /**
@@ -108,6 +90,7 @@ public class GoodsOperateFacadeImpl implements GoodsOperateFacade {
         //pdd
         if (sourceType == 1) {
             List<GoodsCatDTO> goodsCatDTOs = new ArrayList<>();
+            goodsCatDTOs.add(new GoodsCatDTO("全部", null));
             goodsCatDTOs.add(new GoodsCatDTO("女装", 8439L));
             goodsCatDTOs.add(new GoodsCatDTO("男装", 239L));
             goodsCatDTOs.add(new GoodsCatDTO("美食", 6398L));

@@ -9,9 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class TestServiceImpl implements TestService {
     @Override
-    public String doWork() {
+    public String doWork(String test) {
         log.info("impl doing");
-        System.out.println("impl doing");
-        return "";
+        return "111:" + test;
     }
 }

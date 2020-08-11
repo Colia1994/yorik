@@ -5,8 +5,8 @@ import com.colia.yorik.yoriksupport.utils.DateUtils;
 import com.colia.yorik.yorikweb.interfaces.order.facade.OrderQueryFacade;
 import com.colia.yorik.yorikweb.interfaces.order.facade.adapter.OrderDTOMapper;
 import com.colia.yorik.yorikweb.interfaces.order.facade.dto.OrderListDTO;
-import com.colia.yorik.yorikweb.interfaces.order.facade.request.QueryOrderIncRequest;
-import com.colia.yorik.yorikweb.interfaces.order.facade.request.QueryOrderRangeRequest;
+import com.colia.yorik.yorikapplication.application.order.request.QueryOrderIncRequest;
+import com.colia.yorik.yorikapplication.application.order.request.QueryOrderRangeRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkOrderListIncrementGetRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkOrderListRangeGetRequest;
 import org.springframework.stereotype.Service;
@@ -37,12 +37,8 @@ public class OrderQueryFacadeImpl implements OrderQueryFacade {
      */
     @Override
     public OrderListDTO queryOrderByTimeRange(QueryOrderRangeRequest params) {
-        PddDdkOrderListRangeGetRequest request = new PddDdkOrderListRangeGetRequest();
-        request.setStartTime(params.getStartTime());
-        request.setEndTime(params.getStartTime());
-        request.setLastOrderId(params.getLastOrderId());
-        request.setPageSize(params.getPageSize());
-        return orderDTOMapper.toOrderListDTO(pddOrderService.queryOrderByTimeRange(request));
+
+        return orderDTOMapper.toOrderListDTO(pddOrderService.queryOrderByTimeRange(params));
     }
 
     /**
@@ -53,12 +49,7 @@ public class OrderQueryFacadeImpl implements OrderQueryFacade {
      */
     @Override
     public OrderListDTO queryIncOrderList(QueryOrderIncRequest params) {
-        PddDdkOrderListIncrementGetRequest request = new PddDdkOrderListIncrementGetRequest();
-        request.setStartUpdateTime(DateUtils.getTimeByDate(params.getStartTime()));
-        request.setEndUpdateTime(DateUtils.getTimeByDate(params.getEndTime()));
-        request.setPage(params.getPage());
-        request.setPageSize(params.getPageSize());
-        request.setReturnCount(Boolean.TRUE);
-        return orderDTOMapper.toOrderListDTO(pddOrderService.queryOrderIncList(request));
+
+        return orderDTOMapper.toOrderListDTO(pddOrderService.queryOrderIncList(params));
     }
 }

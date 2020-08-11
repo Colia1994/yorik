@@ -11,5 +11,9 @@ public interface RedisService {
 
     void set(String str, String value);
 
+    void set(String str, String value, long time);
+
     String get(String str);
+
+
 }

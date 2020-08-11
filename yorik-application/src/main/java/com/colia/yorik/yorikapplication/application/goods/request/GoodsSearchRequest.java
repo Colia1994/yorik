@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikweb.interfaces.goods.facade.request;
+package com.colia.yorik.yorikapplication.application.goods.request;
 
 import com.colia.yorik.yorikcommon.interfaces.requestBody.PageCommand;
 import io.swagger.annotations.ApiModel;
@@ -9,6 +9,8 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 
 /**
+ *
+ *
  * @Author konglingyao
  * @Date 2020/7/28
  */

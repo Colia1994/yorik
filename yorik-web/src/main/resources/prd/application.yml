@@ -1,0 +1,82 @@
+logging:
+  # "."是logback.xml中 LOG_USER LOG_PREFIX所需的默认值。其作用是当执行"java -jar xxx.jar" 没有覆盖日志路径时，默认存放在当前路径下。
+  #    userpath: currentuser
+  userpath: .
+  #    prefixpath: logprefix
+  prefixpath: .
+
+pdd:
+  clientId: ENC(fAlR/yw/3AN2HuDY2lTxr987lOYeeBrlMNWW3xN4WcONDFvRh042BRzIQVQaUI0DuurqMb60eGZyt/MlRN7cfvaAe/IppMtB4iA4Ecl4MvY=)
+  clientSecret: ENC(d/gdv6vHHnVMcoLbkqcNw8HgrLrjqdap2rOuG/5OlkpRJzCu2oh/gd4BqoLADLmzSSHLlrscqlBTatfETKlDwFw7jkE0XlNzoTe8bkHS+WM=)
+
+taobao:
+  appKey: ENC(0GfLHKFfu0S3dScvEJRPyWE1DkNASmh3eWGLRGpuuckorXUoIDImn0jb1Si+wap+)
+  appSecret: ENC(X3KR40jsO0yuW1Dg5KBGNZqmX1VLsmMeQyRoPJqy1pYRusv6KbNvXd2uQOIRgi86ICE+7A7pCKNWX2WC/gA6PhuCZiznGv4r0hRE8WbT4Nw=)
+  httpUrl: http://gw.api.taobao.com/router/rest
+
+spring:
+  #JDBC 配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/yorik_db
+    username: root
+    password: ENC(Bm7uRkbdkny20wmtUMrx07VF2tvngTxDiAKH6fbX1f4iEzqHGAZzOJKswQxQQgU5)
+
+    driver-class-name: com.mysql.jdbc.Driver
+    #连接池配置
+    druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+      #pool-prepared-statements:
+      #max-pool-prepared-statement-per-connection-size:
+      #max-open-prepared-statements: #和上面的等价
+      validation-query: select 'x'
+      validation-query-timeout: 60000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      #          max-evictable-idle-time-millis: 600000
+      #          filters: stat,wall,log4j
+      #          # WebStatFilter配置，说明请参考Druid Wiki，配置_配置WebStatFilter
+      #          web-stat-filter:
+      #            enabled: true #是否启用StatFilter默认值true
+      #            url-pattern:
+      #            exclusions:
+      #            session-stat-enable:
+      #            session-stat-max-count:
+      #            principal-session-name:
+      #            principal-cookie-name:
+      #            profile-enable:
+      #          # StatViewServlet配置，说明请参考Druid Wiki，配置_StatViewServlet配置
+      #          stat-view-servlet:
+      #            enabled: true #是否启用StatViewServlet默认值true
+      #            url-pattern: /druid/*
+      #            reset-enable:
+      #            login-username:
+      #            login-password:
+      #            allow:
+      #            deny:
+      #          # Spring监控配置，说明请参考Druid Github Wiki，配置_Druid和Spring关联监控配置
+      #          aop-patterns: # Spring监控AOP切入点，如x.y.z.service.*,配置多个英文逗号分隔
+      filter:
+        stat:
+          db-type: mysql
+          log-slow-sql: true
+          slow-sql-millis: 2000
+        # 配置WallFilter
+        wall:
+          enabled: true
+          db-type: mysql
+          config.delete-allow: true
+          config.drop-table-allow: false
+
+  #redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: ENC(hocxAaK3k7/ZL1Hg5v/iB0lJwascksuUEQNb/wcgYzpkuinAX0yakmKpTw3pCJw2)
+    database: 0
+

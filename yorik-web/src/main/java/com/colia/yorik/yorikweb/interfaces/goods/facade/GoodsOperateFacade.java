@@ -1,13 +1,11 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade;
 
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsDetailRequest;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsRecommendRequest;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsSearchRequest;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsCatsDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsDetailRequest;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsRecommendRequest;
-import com.colia.yorik.yorikweb.interfaces.goods.facade.request.GoodsSearchRequest;
-
-import java.util.List;
 
 /**
  * @Author konglingyao
@@ -40,6 +38,7 @@ public interface GoodsOperateFacade {
      * @return 商品列表
      */
     GoodsListDTO searchGoods(GoodsSearchRequest params);
+
 
     /**
      * 查询商品类目

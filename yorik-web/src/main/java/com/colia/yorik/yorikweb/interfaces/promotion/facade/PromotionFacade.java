@@ -1,8 +1,8 @@
 package com.colia.yorik.yorikweb.interfaces.promotion.facade;
 
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.dto.UrlDTO;
-import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.ConvertUrlRequest;
-import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.PromotionUrlRequest;
+import com.colia.yorik.yorikapplication.application.promotion.request.ConvertUrlRequest;
+import com.colia.yorik.yorikapplication.application.promotion.request.PromotionUrlRequest;
 
 /**
  * @Author konglingyao

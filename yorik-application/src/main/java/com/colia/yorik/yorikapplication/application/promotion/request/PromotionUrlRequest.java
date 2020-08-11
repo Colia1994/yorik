@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikweb.interfaces.promotion.facade.request;
+package com.colia.yorik.yorikapplication.application.promotion.request;
 
 import com.colia.yorik.yorikcommon.interfaces.requestBody.CommandValidate;
 import com.colia.yorik.yorikcommon.interfaces.requestBody.CommonCommand;

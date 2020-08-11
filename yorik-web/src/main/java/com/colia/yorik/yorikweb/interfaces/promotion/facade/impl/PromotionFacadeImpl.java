@@ -4,8 +4,8 @@ import com.colia.yorik.yorikapplication.application.promotion.PddPromotionServic
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.PromotionFacade;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.adapter.UrlDTOAssembler;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.dto.UrlDTO;
-import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.ConvertUrlRequest;
-import com.colia.yorik.yorikweb.interfaces.promotion.facade.request.PromotionUrlRequest;
+import com.colia.yorik.yorikapplication.application.promotion.request.ConvertUrlRequest;
+import com.colia.yorik.yorikapplication.application.promotion.request.PromotionUrlRequest;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPromotionUrlGenerateRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -36,25 +36,9 @@ public class PromotionFacadeImpl implements PromotionFacade {
      */
     @Override
     public UrlDTO generatePromotionUrl(PromotionUrlRequest params) {
-        PddDdkGoodsPromotionUrlGenerateRequest request = new PddDdkGoodsPromotionUrlGenerateRequest();
-        List<Long> goodIdList = new ArrayList<>();
-        goodIdList.add(params.getGoodsId());
-        request.setGoodsIdList(goodIdList);
-        request.setCustomParameters(params.getCustomParameters());
-        //qq
-        request.setGenerateQqApp(params.getGenerateQqApp());
-        //coupon
-        request.setGenerateMallCollectCoupon(params.getGenerateMallCollectCoupon());
-        //weChat
-        request.setGenerateWeApp(params.getGenerateWeApp());
-        request.setGenerateWeappWebview(params.getGenerateWeappWebview());
 
-        request.setGenerateSchemaUrl(params.getGenerateSchemaUrl());
-        request.setGenerateShortUrl(params.getGenerateShortUrl());
-        request.setMultiGroup(params.getMultiGroup());
-        request.setSearchId(params.getSearchId());
 
-        return urlDTOAssembler.toDTO(pddPromotionService.generatePromotionUrl(request));
+        return urlDTOAssembler.toDTO(pddPromotionService.generatePromotionUrl(params));
     }
 
     /**

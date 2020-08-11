@@ -1,5 +1,6 @@
 package com.colia.yorik.yoriksupport.aop;
 
+import com.colia.yorik.yoriksupport.utils.JSONUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.FactoryBean;
@@ -24,10 +25,11 @@ public class ServiceProxyFactoryBean<T> implements InvocationHandler, FactoryBea
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        log.info("invoke doing");
-        method.invoke(obj, args);
-        System.out.println("invoke doing");
-        return queue;
+        log.info("invoke doing before:" + JSONUtil.transferToString(args));
+        Object object = method.invoke(obj, args);
+        log.info("invoke doing after:" + JSONUtil.transferToString(object));
+
+        return object;
     }
 
     @Override
@@ -35,7 +37,6 @@ public class ServiceProxyFactoryBean<T> implements InvocationHandler, FactoryBea
         log.info("queue:{},interfaces:{},{},{}", getQueue(), interfaces.getCanonicalName(), interfaces.getName(), interfaces.getSimpleName());
         System.out.println("queue:" + getQueue());
         log.info("准备构建代理类");
-        System.out.println("准备构建代理类");
         return (T) Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class<?>[]{interfaces}, this);
     }
 

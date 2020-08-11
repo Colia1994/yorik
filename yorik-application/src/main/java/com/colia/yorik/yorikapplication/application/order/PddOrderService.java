@@ -1,5 +1,7 @@
 package com.colia.yorik.yorikapplication.application.order;
 
+import com.colia.yorik.yorikapplication.application.order.request.QueryOrderIncRequest;
+import com.colia.yorik.yorikapplication.application.order.request.QueryOrderRangeRequest;
 import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderIncListVO;
 import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderRangeListVO;
 import com.pdd.pop.sdk.http.api.pop.request.PddDdkOrderListIncrementGetRequest;
@@ -18,7 +20,7 @@ public interface PddOrderService {
      * @param request 时间范围
      * @return 订单集合
      */
-    PddOrderRangeListVO queryOrderByTimeRange(PddDdkOrderListRangeGetRequest request);
+    PddOrderRangeListVO queryOrderByTimeRange(QueryOrderRangeRequest request);
 
 
     /**
@@ -27,6 +29,6 @@ public interface PddOrderService {
      * @param request 增量时间范围
      * @return 订单列表
      */
-    PddOrderIncListVO queryOrderIncList(PddDdkOrderListIncrementGetRequest request);
+    PddOrderIncListVO queryOrderIncList(QueryOrderIncRequest request);
 
 }

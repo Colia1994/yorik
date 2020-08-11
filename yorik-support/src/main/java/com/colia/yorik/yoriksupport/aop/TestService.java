@@ -7,5 +7,5 @@ package com.colia.yorik.yoriksupport.aop;
  */
 public interface TestService {
 
-    String doWork();
+    String doWork(String test);
 }

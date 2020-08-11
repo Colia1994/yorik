@@ -2,6 +2,7 @@ package com.colia.yorik.yorikapplication.application.promotion.impl;
 
 import com.colia.yorik.yorikapplication.application.promotion.PddPromotionService;
 import com.colia.yorik.yorikapplication.application.promotion.adapter.PromotionMapper;
+import com.colia.yorik.yorikapplication.application.promotion.request.PromotionUrlRequest;
 import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddPromotionVO;
 import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddUrlVO;
 import com.colia.yorik.yorikcommon.infrastructure.constant.PddConstant;
@@ -70,11 +71,28 @@ public class PddPromotionServiceImpl implements PddPromotionService {
     /**
      * 生成推广链接 商品直接转
      *
-     * @param request 商品和所需链接信息
+     * @param params 商品和所需链接信息
      * @return 生成的链接信息
      */
     @Override
-    public PddUrlVO generatePromotionUrl(PddDdkGoodsPromotionUrlGenerateRequest request) {
+    public PddUrlVO generatePromotionUrl(PromotionUrlRequest params) {
+        PddDdkGoodsPromotionUrlGenerateRequest request = new PddDdkGoodsPromotionUrlGenerateRequest();
+        List<Long> goodIdList = new ArrayList<>();
+        goodIdList.add(params.getGoodsId());
+        request.setGoodsIdList(goodIdList);
+        request.setCustomParameters(params.getCustomParameters());
+        //qq
+        request.setGenerateQqApp(params.getGenerateQqApp());
+        //coupon
+        request.setGenerateMallCollectCoupon(params.getGenerateMallCollectCoupon());
+        //weChat
+        request.setGenerateWeApp(params.getGenerateWeApp());
+        request.setGenerateWeappWebview(params.getGenerateWeappWebview());
+
+        request.setGenerateSchemaUrl(params.getGenerateSchemaUrl());
+        request.setGenerateShortUrl(params.getGenerateShortUrl());
+        request.setMultiGroup(params.getMultiGroup());
+        request.setSearchId(params.getSearchId());
         PopClient client = HttpClientUtils.getPddClient();
         request.setPId(PddConstant.DEFAULT_PID);
         PddDdkGoodsPromotionUrlGenerateResponse response;

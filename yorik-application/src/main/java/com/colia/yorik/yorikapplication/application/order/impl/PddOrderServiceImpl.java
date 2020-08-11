@@ -2,9 +2,12 @@ package com.colia.yorik.yorikapplication.application.order.impl;
 
 import com.colia.yorik.yorikapplication.application.order.PddOrderService;
 import com.colia.yorik.yorikapplication.application.order.adapter.OrderVOMapper;
+import com.colia.yorik.yorikapplication.application.order.request.QueryOrderIncRequest;
+import com.colia.yorik.yorikapplication.application.order.request.QueryOrderRangeRequest;
 import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderIncListVO;
 import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderRangeListVO;
 import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
+import com.colia.yorik.yoriksupport.utils.DateUtils;
 import com.colia.yorik.yoriksupport.utils.HttpClientUtils;
 import com.colia.yorik.yoriksupport.utils.JSONUtil;
 import com.pdd.pop.sdk.http.PopClient;
@@ -31,14 +34,18 @@ public class PddOrderServiceImpl implements PddOrderService {
     /**
      * 根据订单支付时间范围查询我的推广订单
      *
-     * @param request 时间范围
+     * @param params 时间范围
      * @return 订单集合
      */
     @Override
-    public PddOrderRangeListVO queryOrderByTimeRange(PddDdkOrderListRangeGetRequest request) {
+    public PddOrderRangeListVO queryOrderByTimeRange(QueryOrderRangeRequest params) {
         PopClient client = HttpClientUtils.getPddClient();
         //2019-05-07 00:00:00
-        //暂时写死
+        PddDdkOrderListRangeGetRequest request = new PddDdkOrderListRangeGetRequest();
+        request.setStartTime(params.getStartTime());
+        request.setEndTime(params.getStartTime());
+        request.setLastOrderId(params.getLastOrderId());
+        request.setPageSize(params.getPageSize());
         request.setPageSize(300);
         PddDdkOrderListRangeGetResponse response;
         try {
@@ -55,13 +62,18 @@ public class PddOrderServiceImpl implements PddOrderService {
     /**
      * 查询订单增量数据
      *
-     * @param request 增量时间范围
+     * @param params 增量时间范围
      * @return 订单列表
      */
     @Override
-    public PddOrderIncListVO queryOrderIncList(PddDdkOrderListIncrementGetRequest request) {
+    public PddOrderIncListVO queryOrderIncList(QueryOrderIncRequest params) {
         PopClient client = HttpClientUtils.getPddClient();
-
+        PddDdkOrderListIncrementGetRequest request = new PddDdkOrderListIncrementGetRequest();
+        request.setStartUpdateTime(DateUtils.getTimeByDate(params.getStartTime()));
+        request.setEndUpdateTime(DateUtils.getTimeByDate(params.getEndTime()));
+        request.setPage(params.getPage());
+        request.setPageSize(params.getPageSize());
+        request.setReturnCount(Boolean.TRUE);
         PddDdkOrderListIncrementGetResponse response;
 
         try {
