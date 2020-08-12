@@ -48,6 +48,7 @@ public class HealthCheckController {
             System.out.println("加密结果：" + pwd);
         }
         if (StringUtils.isNotBlack(after)) {
+            System.out.println("原始结果：前：" + after);
             String re = jasyptUtils.decrypt(after);
             System.out.println("原始结果：" + re);
         }

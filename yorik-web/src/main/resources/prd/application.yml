@@ -17,9 +17,9 @@ taobao:
 spring:
   #JDBC 配置
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/yorik_db
-    username: root
-    password: ENC(Bm7uRkbdkny20wmtUMrx07VF2tvngTxDiAKH6fbX1f4iEzqHGAZzOJKswQxQQgU5)
+    url: jdbc:mysql://180.76.102.222:3306/yorik_db?useSSL=false
+    username: ENC(+Q+5xrWlNx9cgCoSrOwmEIyQKZMIEhjU5h1JdSpDK24Aho716Bq3d7+Dady6Arr7)
+    password: ENC(R3ZpO4muZnsOxMibQh6yjxfc6VAE6ASkY5avwYkZqfwcI5ip5UKfhB0BIYarxcgL4m0ZMo/2NORbUrDB8ynYWg==)
 
     driver-class-name: com.mysql.jdbc.Driver
     #连接池配置
@@ -75,8 +75,8 @@ spring:
 
   #redis
   redis:
-    host: 127.0.0.1
+    host: 180.76.102.222
     port: 6379
-    password: ENC(hocxAaK3k7/ZL1Hg5v/iB0lJwascksuUEQNb/wcgYzpkuinAX0yakmKpTw3pCJw2)
+    password: ENC(+vh5wk4AO1ks8ANyuDJoPMfQQN9Tt3EGBh+DAww0M8CukSYFAH85OZTWlu9qontCZDOqDqx194amiB82b8tw3A==)
     database: 0
 

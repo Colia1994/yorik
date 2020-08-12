@@ -43,7 +43,7 @@ public class PddOrderServiceImpl implements PddOrderService {
         //2019-05-07 00:00:00
         PddDdkOrderListRangeGetRequest request = new PddDdkOrderListRangeGetRequest();
         request.setStartTime(params.getStartTime());
-        request.setEndTime(params.getStartTime());
+        request.setEndTime(params.getEndTime());
         request.setLastOrderId(params.getLastOrderId());
         request.setPageSize(params.getPageSize());
         request.setPageSize(300);
