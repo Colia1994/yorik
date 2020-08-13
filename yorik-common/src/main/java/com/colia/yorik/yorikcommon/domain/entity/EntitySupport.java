@@ -53,12 +53,12 @@ public abstract class EntitySupport<T extends Entity, ID> implements Entity<T, I
     }
 
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         return identity().hashCode();
     }
 
     @Override
-    public final boolean equals(final Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 

@@ -16,11 +16,11 @@
     </properties>
 
     <dependencies>
-        <!--工具-->
+
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${commons-lang3.version}</version>
+            <groupId>com.colia.yorik</groupId>
+            <artifactId>yorik-support</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
     </dependencies>

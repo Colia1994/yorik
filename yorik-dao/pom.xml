@@ -17,6 +17,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.colia.yorik</groupId>
+            <artifactId>yorik-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <!-- 持久化 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -36,14 +42,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatisplus-spring-boot-starter</artifactId>
-            <version>${mybatisplus-spring-boot-starter.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
-            <version>${mybatis-plus.version}</version>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.30</version>
         </dependency>
 
     </dependencies>

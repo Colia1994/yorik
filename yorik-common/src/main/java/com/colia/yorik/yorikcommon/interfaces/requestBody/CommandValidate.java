@@ -1,5 +1,7 @@
 package com.colia.yorik.yorikcommon.interfaces.requestBody;
 
+import java.util.regex.Pattern;
+
 /**
  * 指令验证器
  *
@@ -25,5 +27,18 @@ public class CommandValidate {
         }
         return object;
     }
+
+    public static void matchesPattern(CharSequence input, String pattern) {
+        if (!Pattern.matches(pattern, input)) {
+            throw new CommandValidateException(String.format("The string %s does not match the pattern %s", input, pattern));
+        }
+    }
+
+    public static void matchesPattern(CharSequence input, String pattern, String message, Object... values) {
+        if (!Pattern.matches(pattern, input)) {
+            throw new CommandValidateException(String.format(message, values));
+        }
+    }
+
 
 }

@@ -48,11 +48,6 @@
         <!-- 默认项目以依赖 -->
         <dependency>
             <groupId>com.colia.yorik</groupId>
-            <artifactId>yorik-support</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.colia.yorik</groupId>
             <artifactId>yorik-application</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

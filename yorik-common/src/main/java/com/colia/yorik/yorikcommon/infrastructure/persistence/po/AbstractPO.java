@@ -1,10 +1,10 @@
 
 package com.colia.yorik.yorikcommon.infrastructure.persistence.po;
 
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.enums.IdType;
-import lombok.Getter;
-import lombok.Setter;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -14,11 +14,11 @@ import java.io.Serializable;
  * @Author colia
  * @Date 2020/07/15 下午3:45
  **/
-@Setter
-@Getter
+@Data
 public abstract class AbstractPO implements Serializable {
 
-    @TableId(type = IdType.ID_WORKER)
+
+    @TableId(type = IdType.AUTO)
     private Long id;
 
 }
