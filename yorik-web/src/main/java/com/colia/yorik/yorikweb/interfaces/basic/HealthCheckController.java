@@ -47,7 +47,7 @@ public class HealthCheckController {
     @ResponseBody
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public <T> AjaxResponse<T> test(String pre, String after) {
-        System.out.println(JSONUtil.transferToString(userMapper.selectByUserName("kly")));
+        System.out.println(JSONUtil.transferToString(userMapper.selectById("1")));
 //        if (StringUtils.isNotBlack(pre)) {
 //            // 首先获取配置文件里的原始明文信息
 //            String pwd = jasyptUtils.encrypt(pre);

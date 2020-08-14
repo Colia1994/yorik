@@ -2,7 +2,7 @@ package com.colia.yorik.yorikdomain.repository;
 
 
 import com.colia.yorik.yorikdao.authority.user.UserMapper;
-import com.colia.yorik.yorikdao.authority.user.UserPO;
+import com.colia.yorik.yorikdao.authority.user.SysUserPO;
 import com.colia.yorik.yorikdomain.model.authority.user.SysUserEntity;
 import com.colia.yorik.yorikdomain.model.authority.user.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public void store(SysUserEntity user) {
 
-        UserPO userPO = findUserPO(user.getAccount());
+        SysUserPO userPO = findUserPO(user.getAccount());
 
 //        if (userPO == null) {
 //            userMapper.insert(transferUserPO(user));
@@ -39,8 +39,8 @@ public class UserRepositoryImpl implements UserRepository {
 //        }
     }
 
-    private UserPO findUserPO(UserAccount account) {
-        UserPO userPO = userMapper.selectByUserName(account.getAccount());
+    private SysUserPO findUserPO(UserAccount account) {
+        SysUserPO userPO = userMapper.selectByUserName(account.getAccount());
         return userPO;
     }
 

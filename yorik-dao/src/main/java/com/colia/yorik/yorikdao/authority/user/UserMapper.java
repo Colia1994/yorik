@@ -9,10 +9,10 @@ import org.apache.ibatis.annotations.Param;
  * @Author konglingyao
  * @Date 2020/8/12
  */
-public interface UserMapper extends SuperMapper<UserPO> {
+public interface UserMapper extends SuperMapper<SysUserPO> {
 
 
-    UserPO selectByUserName(@Param("userName") String userName);
+    SysUserPO selectByUserName(@Param("userName") String userName);
 
 
 

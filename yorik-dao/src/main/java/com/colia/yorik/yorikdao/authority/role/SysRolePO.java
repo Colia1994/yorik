@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikdao.authority.user;
+package com.colia.yorik.yorikdao.authority.role;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.colia.yorik.yorikcommon.infrastructure.persistence.po.AbstractPO;
@@ -10,26 +10,27 @@ import lombok.EqualsAndHashCode;
 import java.time.LocalDateTime;
 
 /**
- * @Author konglingyao
- * @Date 2020/8/12
+ * <p>
+ * 用户角色表
+ * </p>
+ *
+ * @author colia
+ * @since 2020-08-13
  */
-@EqualsAndHashCode(callSuper = true)
-@TableName("sys_user")
 @Data
-@ApiModel(value="SysUser对象", description="用户信息表")
-public class UserPO extends AbstractPO {
+@EqualsAndHashCode(callSuper = false)
+@TableName("sys_role")
+@ApiModel(value="SysRole对象", description="用户角色表")
+public class SysRolePO extends AbstractPO {
 
-    @ApiModelProperty(value = "用户名")
-    private String userName;
+    @ApiModelProperty(value = "父角色id")
+    private Long pRoleId;
 
-    @ApiModelProperty(value = "手机号")
-    private String phoneNum;
+    @ApiModelProperty(value = "角色名称")
+    private String roleName;
 
-    @ApiModelProperty(value = "账号状态")
-    private Integer state;
-
-    @ApiModelProperty(value = "密码")
-    private String password;
+    @ApiModelProperty(value = "角色描述")
+    private String roleDesc;
 
     @ApiModelProperty(value = "是否逻辑删除 默认 0")
     private Boolean isDelete;

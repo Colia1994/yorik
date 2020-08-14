@@ -25,8 +25,7 @@ public class CodeGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-
-        gc.setOutputDir("./");
+        gc.setOutputDir("./yorik-dao/src/main/java");
         gc.setAuthor("colia");
         gc.setOpen(false);
         gc.setSwagger2(true);
@@ -43,7 +42,7 @@ public class CodeGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName("user");
+        pc.setModuleName("yorik-dao");
         pc.setParent("com.colia.yorik.yorikdao.util");
         mpg.setPackageInfo(pc);
 
@@ -61,7 +60,6 @@ public class CodeGenerator {
         String templatePath = "/templates/mapper.xml.ftl";
         // 如果模板引擎是 velocity
         // String templatePath = "/templates/mapper.xml.vm";
-
         // 自定义输出配置
         List<FileOutConfig> focList = new ArrayList<>();
         // 自定义配置会被优先输出
@@ -95,7 +93,7 @@ public class CodeGenerator {
         // 写于父类中的公共字段
 //        strategy.setSuperEntityColumns("id");
         //表名，多个英文逗号分割
-        strategy.setInclude("sys_user");
+        strategy.setInclude("sys_role","sys_permission","role_permission_rel","user_role_rel");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
