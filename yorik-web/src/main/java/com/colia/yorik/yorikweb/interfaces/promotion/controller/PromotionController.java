@@ -1,11 +1,11 @@
 package com.colia.yorik.yorikweb.interfaces.promotion.controller;
 
+import com.colia.yorik.yorikapplication.application.promotion.request.ConvertUrlRequest;
+import com.colia.yorik.yorikapplication.application.promotion.request.PromotionUrlRequest;
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResultUtils;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.PromotionFacade;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.dto.UrlDTO;
-import com.colia.yorik.yorikapplication.application.promotion.request.ConvertUrlRequest;
-import com.colia.yorik.yorikapplication.application.promotion.request.PromotionUrlRequest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;

@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("user_role_rel")
-@ApiModel(value="UserRoleRel对象", description="用户角色对应关系表")
+@ApiModel(value = "UserRoleRel对象", description = "用户角色对应关系表")
 public class UserRoleRelPO extends AbstractPO {
 
     @ApiModelProperty(value = "用户id")

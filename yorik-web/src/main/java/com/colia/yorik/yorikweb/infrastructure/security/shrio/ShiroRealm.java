@@ -27,7 +27,6 @@ public class ShiroRealm extends AuthorizingRealm implements Realm {
     private UserService userService;
 
 
-
     // 简单重写获取授权信息方法
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -58,7 +57,7 @@ public class ShiroRealm extends AuthorizingRealm implements Realm {
         // 查询获取加密后的密码
         SysUserEntity user = userService.getUserByUserName(userName);
 
-        String password= user.getPassword();
+        String password = user.getPassword();
         // 盐值
         String salt = user.getSalt();
         // 进行验证

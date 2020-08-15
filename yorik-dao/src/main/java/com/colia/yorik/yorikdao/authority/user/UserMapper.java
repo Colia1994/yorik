@@ -15,5 +15,4 @@ public interface UserMapper extends SuperMapper<SysUserPO> {
     SysUserPO selectByUserName(@Param("userName") String userName);
 
 
-
 }

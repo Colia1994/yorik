@@ -1,18 +1,15 @@
 package com.colia.yorik.yorikweb.interfaces.promotion.facade.impl;
 
 import com.colia.yorik.yorikapplication.application.promotion.PddPromotionService;
+import com.colia.yorik.yorikapplication.application.promotion.request.ConvertUrlRequest;
+import com.colia.yorik.yorikapplication.application.promotion.request.PromotionUrlRequest;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.PromotionFacade;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.adapter.UrlDTOAssembler;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.dto.UrlDTO;
-import com.colia.yorik.yorikapplication.application.promotion.request.ConvertUrlRequest;
-import com.colia.yorik.yorikapplication.application.promotion.request.PromotionUrlRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPromotionUrlGenerateRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Author konglingyao

@@ -2,16 +2,14 @@ package com.colia.yorik.yorikdao.authority.permission;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.colia.yorik.yorikcommon.infrastructure.persistence.po.AbstractPO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -23,7 +21,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="SysPermission对象", description="用户权限表")
+@ApiModel(value = "SysPermission对象", description = "用户权限表")
 @TableName("sys_permission")
 public class SysPermissionPO extends AbstractPO {
 

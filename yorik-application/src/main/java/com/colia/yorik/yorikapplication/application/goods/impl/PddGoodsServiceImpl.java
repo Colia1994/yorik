@@ -43,7 +43,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      * @param request pdd需要的请求参数
      * @return 商品流list
      */
-    @RedisAuto(prefixKey = "pdd:getRecommend",minute = 60)
+    @RedisAuto(prefixKey = "pdd:getRecommend", minute = 60)
     @Override
     public PddGoodsRecommendVO getPddRecommendGoods(GoodsRecommendRequest request) {
         PopClient client = HttpClientUtils.getPddClient();
@@ -79,7 +79,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      * @param goodsIdList 商品id列表
      * @return 商品基本信息
      */
-    @RedisAuto(prefixKey = "pdd:getGoodsBasic",minute = 30)
+    @RedisAuto(prefixKey = "pdd:getGoodsBasic", minute = 30)
     @Override
     public List<PddGoodsBasicVO> getGoodsBasicInfoByID(List<Long> goodsIdList) {
         PopClient client = HttpClientUtils.getPddClient();
@@ -112,7 +112,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      * @param request 商品详情请求参数 goods_id
      * @return 商品详情
      */
-    @RedisAuto(prefixKey = "pdd:getGoodsDetail",minute = 30)
+    @RedisAuto(prefixKey = "pdd:getGoodsDetail", minute = 30)
     @Override
     public List<PddGoodsDetailVO> getPddGoodsDetailInfo(GoodsDetailRequest request) {
         PddDdkGoodsDetailRequest pddRequest = new PddDdkGoodsDetailRequest();
@@ -149,7 +149,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      * @param request 请求相关
      * @return 商品列表
      */
-    @RedisAuto(prefixKey = "pdd:searchGoods",minute = 10)
+    @RedisAuto(prefixKey = "pdd:searchGoods", minute = 10)
     @Override
     public PddGoodsSearchVO searchPddGoods(GoodsSearchRequest request) {
         PopClient client = HttpClientUtils.getPddClient();
@@ -188,7 +188,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      *
      * @return 类目信息
      */
-    @RedisAuto(prefixKey = "pdd:searchCats",minute = 60)
+    @RedisAuto(prefixKey = "pdd:searchCats", minute = 60)
     @Override
     public PddCatsVO searchPddCats() {
         PopClient client = HttpClientUtils.getPddClient();

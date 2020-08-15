@@ -36,7 +36,7 @@ public class UserController {
 
 
     @PostMapping(value = "login")
-    public AjaxResponse<Map<String,Object>> login(@RequestBody SysUserEntity sysUserEntity) {
+    public AjaxResponse<Map<String, Object>> login(@RequestBody SysUserEntity sysUserEntity) {
         String username = sysUserEntity.getName();
 
         Subject subject = SecurityUtils.getSubject();
@@ -62,7 +62,7 @@ public class UserController {
 
 
     @PostMapping("register")
-    public AjaxResponse<Map<String,Object>> register(@RequestBody SysUserEntity sysUserEntity) {
+    public AjaxResponse<Map<String, Object>> register(@RequestBody SysUserEntity sysUserEntity) {
 
         SysUserEntity userByUserName = userService.getUserByUserName(sysUserEntity.getName());
         if (userByUserName != null) {

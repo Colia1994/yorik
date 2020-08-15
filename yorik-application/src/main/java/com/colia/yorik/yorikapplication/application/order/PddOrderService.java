@@ -4,8 +4,6 @@ import com.colia.yorik.yorikapplication.application.order.request.QueryOrderIncR
 import com.colia.yorik.yorikapplication.application.order.request.QueryOrderRangeRequest;
 import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderIncListVO;
 import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderRangeListVO;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkOrderListIncrementGetRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkOrderListRangeGetRequest;
 
 /**
  * @Author konglingyao

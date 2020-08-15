@@ -26,7 +26,7 @@ public class UserAccount implements ValueObject<UserAccount> {
 
     public UserAccount(String account, String phoneNum) {
         CommandValidate.notEmpty(account, "登录账号不能为空！");
-        CommandValidate.matchesPattern(phoneNum, Constants.PHONE_NUM_REGULAR,"手机号码格式错误！");
+        CommandValidate.matchesPattern(phoneNum, Constants.PHONE_NUM_REGULAR, "手机号码格式错误！");
         this.account = account;
         this.phoneNum = phoneNum;
     }

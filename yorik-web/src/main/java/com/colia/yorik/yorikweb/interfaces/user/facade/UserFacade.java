@@ -6,6 +6,5 @@ package com.colia.yorik.yorikweb.interfaces.user.facade;
  */
 public interface UserFacade {
 
-    
 
 }

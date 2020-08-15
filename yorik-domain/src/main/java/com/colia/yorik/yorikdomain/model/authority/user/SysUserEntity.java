@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = false)
 @Data
-public class SysUserEntity extends EntitySupport<SysUserEntity,UserAccount> implements Entity<SysUserEntity, UserAccount> {
+public class SysUserEntity extends EntitySupport<SysUserEntity, UserAccount> implements Entity<SysUserEntity, UserAccount> {
 
     /**
      * 登录账号
@@ -52,8 +52,6 @@ public class SysUserEntity extends EntitySupport<SysUserEntity,UserAccount> impl
 //            userRepository.updateUserGroup(this.getAccount(),null, UserGroupStatus.ENABLE);
 //        }
     }
-
-
 
 
 }

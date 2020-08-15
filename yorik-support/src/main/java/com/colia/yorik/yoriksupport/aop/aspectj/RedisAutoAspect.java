@@ -6,10 +6,7 @@ import com.colia.yorik.yoriksupport.redis.RedisService;
 import com.colia.yorik.yoriksupport.utils.JSONUtil;
 import com.colia.yorik.yoriksupport.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.transaction.Transaction;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -46,11 +43,11 @@ public class RedisAutoAspect {
         String value = redisService.get(key);
         if (StringUtils.isNotBlack(value)) {
             // 不执行方法体 直接返回
-            redisService.set(key, value,minutes);
+            redisService.set(key, value, minutes);
             return JSONUtil.transferToObj(value, method.getReturnType());
         } else {
             Object res = pjp.proceed();
-            redisService.set(key, JSONUtil.transferToJson(res),minutes);
+            redisService.set(key, JSONUtil.transferToJson(res), minutes);
             return res;
         }
 

@@ -21,13 +21,12 @@ import java.util.Map;
 
 
 /**
- *
  * @Author konglingyao
  * @Date 2020/7/20
  **/
 @Slf4j
 @Configuration
-@MapperScan(basePackages = {"com.colia.yorik.yorikdao"},sqlSessionFactoryRef = "sqlSessionFactory")
+@MapperScan(basePackages = {"com.colia.yorik.yorikdao"}, sqlSessionFactoryRef = "sqlSessionFactory")
 public class MybatisPlusConfiguration {
 
     /*
@@ -50,7 +49,6 @@ public class MybatisPlusConfiguration {
         return DruidDataSourceBuilder.create().build();
 
     }
-
 
 
     public DataSource multipleDataSource(DataSource db1) {

@@ -6,7 +6,9 @@ public enum DataSourceEnum {
 
     private String value;
 
-    DataSourceEnum(String value){this.value=value;}
+    DataSourceEnum(String value) {
+        this.value = value;
+    }
 
     public String getValue() {
         return value;

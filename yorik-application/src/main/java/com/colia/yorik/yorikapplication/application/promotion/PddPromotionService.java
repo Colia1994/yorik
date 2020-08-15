@@ -3,7 +3,6 @@ package com.colia.yorik.yorikapplication.application.promotion;
 import com.colia.yorik.yorikapplication.application.promotion.request.PromotionUrlRequest;
 import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddPromotionVO;
 import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddUrlVO;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPromotionUrlGenerateRequest;
 
 /**
  * 推广位相关

@@ -2,15 +2,14 @@ package com.colia.yorik.yorikdao.authority.role;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -23,7 +22,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("role_permission_rel")
-@ApiModel(value="RolePermissionRel对象", description="角色权限对应关系表")
+@ApiModel(value = "RolePermissionRel对象", description = "角色权限对应关系表")
 public class RolePermissionRel implements Serializable {
 
     private static final long serialVersionUID = 1L;

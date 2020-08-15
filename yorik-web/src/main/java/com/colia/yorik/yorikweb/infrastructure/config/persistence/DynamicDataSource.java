@@ -15,11 +15,10 @@ import java.util.Map;
 public class DynamicDataSource extends AbstractRoutingDataSource {
 
 
-
     private static final Map targetDataSource = new HashMap<>();
 
     private static DynamicDataSource instance;
-    private static byte[] lock=new byte[0];
+    private static byte[] lock = new byte[0];
 
     @Nullable
     @Override
@@ -39,17 +38,16 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
         return targetDataSource;
     }
 
-    public static synchronized DynamicDataSource getInstance(){
-        if(instance==null){
-            synchronized (lock){
-                if(instance==null){
-                    instance=new DynamicDataSource();
+    public static synchronized DynamicDataSource getInstance() {
+        if (instance == null) {
+            synchronized (lock) {
+                if (instance == null) {
+                    instance = new DynamicDataSource();
                 }
             }
         }
         return instance;
     }
-
 
 
 }

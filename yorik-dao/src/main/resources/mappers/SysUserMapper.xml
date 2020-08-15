@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.colia.yorik.yorikdao.authority.user.UserMapper">
-    <resultMap id="BaseResultMap" type="com.colia.yorik.yorikdao.authority.user.SysUserPO" >
-        <id column="id" property="id" jdbcType="BIGINT" />
-        <result column="user_name" property="userName" jdbcType="VARCHAR" />
-        <result column="status" property="status" jdbcType="INTEGER" />
-        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <resultMap id="BaseResultMap" type="com.colia.yorik.yorikdao.authority.user.SysUserPO">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
     </resultMap>
 
 
-    <select id="selectByUserName" resultMap="BaseResultMap" parameterType="java.lang.String" >
-        select
-         *
+    <select id="selectByUserName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select *
         from sys_user
         where user_name = #{userName}
     </select>
-
-
-
-
-
 
 
 </mapper>

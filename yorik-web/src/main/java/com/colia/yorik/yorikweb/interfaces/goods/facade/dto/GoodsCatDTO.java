@@ -22,11 +22,11 @@ public class GoodsCatDTO extends BaseDTO {
     @ApiModelProperty("商品类目ID")
     private Long catId;
 
-    public GoodsCatDTO(){
+    public GoodsCatDTO() {
 
     }
 
-    public GoodsCatDTO(String catName,Long catId){
+    public GoodsCatDTO(String catName, Long catId) {
         this.catName = catName;
         this.catId = catId;
     }

@@ -2,13 +2,13 @@ package com.colia.yorik.yorikapplication.application.goods.valueObject;
 
 import com.colia.yorik.yorikcommon.domain.vo.ValueObject;
 import com.pdd.pop.ext.fasterxml.jackson.annotation.JsonProperty;
-import com.pdd.pop.sdk.http.api.pop.response.PddGoodsCatsGetResponse;
 import lombok.Data;
 
 import java.util.List;
 
 /**
  * pdd 商品类目
+ *
  * @Author konglingyao
  * @Date 2020/8/10
  */
@@ -23,14 +23,13 @@ public class PddCatsVO implements ValueObject<PddCatsVO> {
     private List<PddCatVO> goodsCatsList;
 
 
-
     @Override
     public boolean sameValueAs(PddCatsVO other) {
         return false;
     }
 
     @Data
-    public static class PddCatVO implements ValueObject<PddCatVO>{
+    public static class PddCatVO implements ValueObject<PddCatVO> {
         /**
          * 类目层级，1-一级类目，2-二级类目，3-三级类目，4-四级类目
          */

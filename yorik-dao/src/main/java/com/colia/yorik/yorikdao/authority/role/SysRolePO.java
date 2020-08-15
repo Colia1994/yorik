@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_role")
-@ApiModel(value="SysRole对象", description="用户角色表")
+@ApiModel(value = "SysRole对象", description = "用户角色表")
 public class SysRolePO extends AbstractPO {
 
     @ApiModelProperty(value = "父角色id")

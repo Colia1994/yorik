@@ -11,6 +11,4 @@ import com.colia.yorik.yorikdomain.model.authority.user.UserAccount;
 public interface UserRepository extends Repository<SysUserEntity, UserAccount> {
 
 
-
-
 }

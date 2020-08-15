@@ -1,12 +1,12 @@
 package com.colia.yorik.yorikweb.infrastructure.security.shrio;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
-import org.apache.shiro.mgt.SecurityManager;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -23,7 +23,7 @@ public class ShiroConfiguration {
 
     // shiro授权拦截
     @Bean
-    public ShiroFilterFactoryBean shiroFilterFactory(SecurityManager securityManager){
+    public ShiroFilterFactoryBean shiroFilterFactory(SecurityManager securityManager) {
 
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
@@ -84,6 +84,7 @@ public class ShiroConfiguration {
         hashedCredentialsMatcher.setHashIterations(2);
         return hashedCredentialsMatcher;
     }
+
     /* *
      * @Author lsc
      * <p> 开启Shiro-aop注解支持，比如使用到 @RequiresRoles, @RequiresPermissions ，

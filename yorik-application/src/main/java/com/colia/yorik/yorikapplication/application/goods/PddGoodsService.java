@@ -5,9 +5,6 @@ import com.colia.yorik.yorikapplication.application.goods.request.GoodsRecommend
 import com.colia.yorik.yorikapplication.application.goods.request.GoodsSearchRequest;
 import com.colia.yorik.yorikapplication.application.goods.valueObject.*;
 import com.colia.yorik.yorikcommon.application.AppService;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsDetailRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsRecommendGetRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsSearchRequest;
 
 import java.util.List;
 

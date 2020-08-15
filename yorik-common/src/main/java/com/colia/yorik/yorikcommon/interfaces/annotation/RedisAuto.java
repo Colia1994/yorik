@@ -1,6 +1,9 @@
 package com.colia.yorik.yorikcommon.interfaces.annotation;
 
-import java.lang.annotation.*;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * 自动加入redis的注解
@@ -12,7 +15,7 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 public @interface RedisAuto {
 
-    String prefixKey ();
+    String prefixKey();
 
     long minute() default 10;
 

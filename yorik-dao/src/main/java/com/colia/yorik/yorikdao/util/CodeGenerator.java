@@ -18,7 +18,6 @@ import java.util.List;
 public class CodeGenerator {
 
 
-
     public static void main(String[] args) {
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
@@ -93,7 +92,7 @@ public class CodeGenerator {
         // 写于父类中的公共字段
 //        strategy.setSuperEntityColumns("id");
         //表名，多个英文逗号分割
-        strategy.setInclude("sys_role","sys_permission","role_permission_rel","user_role_rel");
+        strategy.setInclude("sys_role", "sys_permission", "role_permission_rel", "user_role_rel");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);

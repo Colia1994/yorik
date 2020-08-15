@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 @TableName("sys_user")
 @Data
-@ApiModel(value="SysUser对象", description="用户信息表")
+@ApiModel(value = "SysUser对象", description = "用户信息表")
 public class SysUserPO extends AbstractPO {
 
     @ApiModelProperty(value = "用户名")

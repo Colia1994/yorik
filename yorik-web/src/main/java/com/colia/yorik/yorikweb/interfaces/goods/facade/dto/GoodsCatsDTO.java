@@ -1,8 +1,6 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade.dto;
 
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddCatsVO;
 import com.colia.yorik.yorikcommon.interfaces.dto.BaseDTO;
-import com.pdd.pop.ext.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

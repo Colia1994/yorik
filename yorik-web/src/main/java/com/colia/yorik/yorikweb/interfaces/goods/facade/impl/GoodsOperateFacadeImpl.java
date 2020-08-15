@@ -1,6 +1,9 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade.impl;
 
 import com.colia.yorik.yorikapplication.application.goods.PddGoodsService;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsDetailRequest;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsRecommendRequest;
+import com.colia.yorik.yorikapplication.application.goods.request.GoodsSearchRequest;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.GoodsOperateFacade;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.adapter.GoodsCatsDTOAssembler;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.adapter.GoodsDetailDTOAssembler;
@@ -9,12 +12,6 @@ import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsCatDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsCatsDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
-import com.colia.yorik.yorikapplication.application.goods.request.GoodsRecommendRequest;
-import com.colia.yorik.yorikapplication.application.goods.request.GoodsDetailRequest;
-import com.colia.yorik.yorikapplication.application.goods.request.GoodsSearchRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsDetailRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsRecommendGetRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsSearchRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
