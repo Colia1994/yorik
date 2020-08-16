@@ -45,7 +45,6 @@ public class SysUserEntity extends EntitySupport<SysUserEntity, UserAccount> imp
                 (UserRepository) ApplicationContextUtils.getBean(UserRepository.class);
 
         userRepository.store(this);
-        //UserService userService = (UserService) ApplicationContextUtils.getBean(UserService.class);
 //        if(!this.isEnabled()){//如果用户被禁用，将其从相应用户组移除
 //            userRepository.disableUserGroup(this.account);
 //        }else{//如果用户被启用，启用其关联的用户组
