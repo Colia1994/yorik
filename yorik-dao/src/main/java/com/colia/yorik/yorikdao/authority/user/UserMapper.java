@@ -12,6 +12,9 @@ import org.apache.ibatis.annotations.Param;
 public interface UserMapper extends SuperMapper<SysUserPO> {
 
 
+    /**
+     * 根据用户名查询完整用户信息
+     */
     SysUserPO selectByUserName(@Param("userName") String userName);
 
 
