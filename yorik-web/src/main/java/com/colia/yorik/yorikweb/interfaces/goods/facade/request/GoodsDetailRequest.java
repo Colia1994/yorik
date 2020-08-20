@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * 推荐商品请求参数
+ *
  * @Author konglingyao
  * @Date 2020/7/19
  */
