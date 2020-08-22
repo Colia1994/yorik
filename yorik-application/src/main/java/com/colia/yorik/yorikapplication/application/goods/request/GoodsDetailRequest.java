@@ -3,8 +3,17 @@ package com.colia.yorik.yorikapplication.application.goods.request;
 import com.colia.yorik.yorikcommon.interfaces.requestBody.CommonCommand;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import javassist.ClassPool;
+import javassist.CtClass;
+import javassist.CtMethod;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.lang.instrument.ClassDefinition;
+import java.lang.instrument.ClassFileTransformer;
+import java.lang.instrument.Instrumentation;
+import java.lang.instrument.UnmodifiableClassException;
+import java.util.jar.JarFile;
 
 /**
  * @Author konglingyao
