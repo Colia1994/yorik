@@ -1,7 +1,7 @@
 package com.colia.yorik.yoriksupport.utils;
 
 
-import com.colia.yorik.yorikcommon.infrastructure.exception.JsonParseException;
+import com.colia.yorik.common.infrastructure.exception.JsonParseException;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;

@@ -1,7 +1,7 @@
 package com.colia.yorik.yorikweb.interfaces.order.facade;
 
-import com.colia.yorik.yorikapplication.application.order.request.QueryOrderIncRequest;
-import com.colia.yorik.yorikapplication.application.order.request.QueryOrderRangeRequest;
+import com.colia.yorik.application.order.request.QueryOrderIncRequest;
+import com.colia.yorik.application.order.request.QueryOrderRangeRequest;
 import com.colia.yorik.yorikweb.interfaces.order.facade.dto.OrderListDTO;
 
 /**

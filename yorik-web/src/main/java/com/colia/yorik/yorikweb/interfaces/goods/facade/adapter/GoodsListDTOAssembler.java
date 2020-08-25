@@ -1,9 +1,9 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade.adapter;
 
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsRecommendVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.PddGoodsSearchVO;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.TBGoodsRecommendVO;
-import com.colia.yorik.yorikcommon.interfaces.dto.Assembler;
+import com.colia.yorik.application.goods.valueObject.PddGoodsRecommendVO;
+import com.colia.yorik.application.goods.valueObject.PddGoodsSearchVO;
+import com.colia.yorik.application.goods.valueObject.TBGoodsRecommendVO;
+import com.colia.yorik.common.interfaces.dto.Assembler;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.dto.GoodsListDTO;
 import org.springframework.stereotype.Component;
 

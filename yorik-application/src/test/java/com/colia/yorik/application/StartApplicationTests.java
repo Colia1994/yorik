@@ -1,6 +1,6 @@
 package com.colia.yorik.application;
 
-import com.colia.yorik.yorikapplication.application.promotion.PddPromotionService;
+import com.colia.yorik.application.promotion.PddPromotionService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

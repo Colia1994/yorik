@@ -1,7 +1,7 @@
 package com.colia.yorik.yorikdao.authority.role;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.colia.yorik.yorikcommon.infrastructure.persistence.po.AbstractPO;
+import com.colia.yorik.common.infrastructure.persistence.po.AbstractPO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

@@ -1,8 +1,8 @@
 package com.colia.yorik.yorikdomain.model.authority.user;
 
-import com.colia.yorik.yorikcommon.domain.vo.ValueObject;
-import com.colia.yorik.yorikcommon.interfaces.Constants;
-import com.colia.yorik.yorikcommon.interfaces.requestBody.CommandValidate;
+import com.colia.yorik.common.domain.vo.ValueObject;
+import com.colia.yorik.common.interfaces.Constants;
+import com.colia.yorik.common.interfaces.requestBody.CommandValidate;
 import lombok.Data;
 
 /**

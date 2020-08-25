@@ -1,6 +1,6 @@
 package com.colia.yorik.yorikdao.authority.user;
 
-import com.colia.yorik.yorikcommon.infrastructure.persistence.mapper.SuperMapper;
+import com.colia.yorik.common.infrastructure.persistence.mapper.SuperMapper;
 import org.apache.ibatis.annotations.Param;
 
 /**

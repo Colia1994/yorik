@@ -1,6 +1,6 @@
 package com.colia.yorik.yorikweb.interfaces.promotion.facade.adapter;
 
-import com.colia.yorik.yorikapplication.application.promotion.valueObject.PddUrlVO;
+import com.colia.yorik.application.promotion.valueObject.PddUrlVO;
 import com.colia.yorik.yorikweb.interfaces.promotion.facade.dto.UrlDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

@@ -1,6 +1,6 @@
 package com.colia.yorik.yorikweb.interfaces.promotion.facade.dto;
 
-import com.colia.yorik.yorikcommon.interfaces.dto.BaseDTO;
+import com.colia.yorik.common.interfaces.dto.BaseDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

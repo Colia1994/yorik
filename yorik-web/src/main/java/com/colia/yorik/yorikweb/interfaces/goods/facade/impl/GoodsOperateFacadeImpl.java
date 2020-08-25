@@ -1,9 +1,9 @@
 package com.colia.yorik.yorikweb.interfaces.goods.facade.impl;
 
-import com.colia.yorik.yorikapplication.application.goods.PddGoodsService;
-import com.colia.yorik.yorikapplication.application.goods.request.GoodsDetailRequest;
-import com.colia.yorik.yorikapplication.application.goods.request.GoodsRecommendRequest;
-import com.colia.yorik.yorikapplication.application.goods.request.GoodsSearchRequest;
+import com.colia.yorik.application.goods.PddGoodsService;
+import com.colia.yorik.application.goods.request.GoodsDetailRequest;
+import com.colia.yorik.application.goods.request.GoodsRecommendRequest;
+import com.colia.yorik.application.goods.request.GoodsSearchRequest;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.GoodsOperateFacade;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.adapter.GoodsCatsDTOAssembler;
 import com.colia.yorik.yorikweb.interfaces.goods.facade.adapter.GoodsDetailDTOAssembler;

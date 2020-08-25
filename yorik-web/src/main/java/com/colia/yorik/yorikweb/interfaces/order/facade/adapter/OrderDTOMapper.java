@@ -1,7 +1,7 @@
 package com.colia.yorik.yorikweb.interfaces.order.facade.adapter;
 
-import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderIncListVO;
-import com.colia.yorik.yorikapplication.application.order.valueObject.PddOrderRangeListVO;
+import com.colia.yorik.application.order.valueObject.PddOrderIncListVO;
+import com.colia.yorik.application.order.valueObject.PddOrderRangeListVO;
 import com.colia.yorik.yorikweb.interfaces.order.facade.dto.OrderListDTO;
 import org.mapstruct.Mapper;
 

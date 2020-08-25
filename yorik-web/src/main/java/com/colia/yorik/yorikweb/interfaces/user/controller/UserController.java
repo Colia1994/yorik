@@ -1,8 +1,8 @@
 package com.colia.yorik.yorikweb.interfaces.user.controller;
 
-import com.colia.yorik.yorikcommon.infrastructure.exception.BizProcessException;
-import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResponse;
-import com.colia.yorik.yorikcommon.interfaces.ajaxresult.AjaxResultUtils;
+import com.colia.yorik.common.infrastructure.exception.BizProcessException;
+import com.colia.yorik.common.interfaces.ajaxresult.AjaxResponse;
+import com.colia.yorik.common.interfaces.ajaxresult.AjaxResultUtils;
 import com.colia.yorik.yorikdomain.model.authority.user.SysUserEntity;
 import com.colia.yorik.yorikdomain.service.authority.user.UserService;
 import io.swagger.annotations.Api;
