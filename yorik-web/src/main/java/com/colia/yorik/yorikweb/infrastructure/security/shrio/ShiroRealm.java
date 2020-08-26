@@ -1,7 +1,7 @@
 package com.colia.yorik.yorikweb.infrastructure.security.shrio;
 
-import com.colia.yorik.yorikdomain.model.authority.user.SysUserEntity;
-import com.colia.yorik.yorikdomain.service.authority.user.UserService;
+import com.colia.yorik.domain.model.authority.user.SysUserEntity;
+import com.colia.yorik.domain.service.authority.user.UserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

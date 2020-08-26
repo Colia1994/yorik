@@ -1,7 +1,7 @@
-package com.colia.yorik.yorikdomain.service.authority.user.impl;
+package com.colia.yorik.domain.service.authority.user.impl;
 
-import com.colia.yorik.yorikdomain.model.authority.user.SysUserEntity;
-import com.colia.yorik.yorikdomain.service.authority.user.UserService;
+import com.colia.yorik.domain.model.authority.user.SysUserEntity;
+import com.colia.yorik.domain.service.authority.user.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

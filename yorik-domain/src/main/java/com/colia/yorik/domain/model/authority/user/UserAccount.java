@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikdomain.model.authority.user;
+package com.colia.yorik.domain.model.authority.user;
 
 import com.colia.yorik.common.domain.vo.ValueObject;
 import com.colia.yorik.common.interfaces.Constants;

@@ -1,6 +1,6 @@
-package com.colia.yorik.yorikdomain.service.authority.user;
+package com.colia.yorik.domain.service.authority.user;
 
-import com.colia.yorik.yorikdomain.model.authority.user.SysUserEntity;
+import com.colia.yorik.domain.model.authority.user.SysUserEntity;
 
 /**
  * @Author konglingyao

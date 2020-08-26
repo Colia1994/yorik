@@ -1,8 +1,8 @@
-package com.colia.yorik.yorikdomain.repository;
+package com.colia.yorik.domain.repository;
 
 import com.colia.yorik.common.domain.repository.Repository;
-import com.colia.yorik.yorikdomain.model.authority.user.SysUserEntity;
-import com.colia.yorik.yorikdomain.model.authority.user.UserAccount;
+import com.colia.yorik.domain.model.authority.user.SysUserEntity;
+import com.colia.yorik.domain.model.authority.user.UserAccount;
 
 /**
  * @Author konglingyao
