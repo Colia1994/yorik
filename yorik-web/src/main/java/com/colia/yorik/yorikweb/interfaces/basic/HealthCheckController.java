@@ -2,7 +2,7 @@ package com.colia.yorik.yorikweb.interfaces.basic;
 
 import com.colia.yorik.common.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.common.interfaces.ajaxresult.AjaxResultUtils;
-import com.colia.yorik.yorikdao.authority.user.UserMapper;
+import com.colia.yorik.dao.authority.user.UserMapper;
 import com.colia.yorik.yoriksupport.aop.TestService;
 import com.colia.yorik.yoriksupport.redis.RedisService;
 import com.colia.yorik.yoriksupport.utils.JSONUtil;

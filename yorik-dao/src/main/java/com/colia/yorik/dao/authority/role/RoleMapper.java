@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikdao.authority.role;
+package com.colia.yorik.dao.authority.role;
 
 /**
  * @Author konglingyao

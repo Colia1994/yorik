@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikdao.util;
+package com.colia.yorik.dao.util;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;

@@ -1,17 +1,19 @@
-package com.colia.yorik.yorikdao.authority.user;
+package com.colia.yorik.dao.authority.role;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.colia.yorik.common.infrastructure.persistence.po.AbstractPO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
  * <p>
- * 用户角色对应关系表
+ * 角色权限对应关系表
  * </p>
  *
  * @author colia
@@ -19,15 +21,20 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("user_role_rel")
-@ApiModel(value = "UserRoleRel对象", description = "用户角色对应关系表")
-public class UserRoleRelPO extends AbstractPO {
+@TableName("role_permission_rel")
+@ApiModel(value = "RolePermissionRel对象", description = "角色权限对应关系表")
+public class RolePermissionRel implements Serializable {
 
-    @ApiModelProperty(value = "用户id")
-    private Long userId;
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
 
     @ApiModelProperty(value = "角色id")
     private Long roleId;
+
+    @ApiModelProperty(value = "父权限id")
+    private Long permissionId;
 
     @ApiModelProperty(value = "是否逻辑删除 默认 0")
     private Boolean isDelete;

@@ -1,7 +1,5 @@
-package com.colia.yorik.yorikdao.authority.permission;
+package com.colia.yorik.dao.authority.user;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.colia.yorik.common.infrastructure.persistence.po.AbstractPO;
 import io.swagger.annotations.ApiModel;
@@ -13,7 +11,7 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 用户权限表
+ * 用户角色对应关系表
  * </p>
  *
  * @author colia
@@ -21,22 +19,15 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "SysPermission对象", description = "用户权限表")
-@TableName("sys_permission")
-public class SysPermissionPO extends AbstractPO {
+@TableName("user_role_rel")
+@ApiModel(value = "UserRoleRel对象", description = "用户角色对应关系表")
+public class UserRoleRelPO extends AbstractPO {
 
+    @ApiModelProperty(value = "用户id")
+    private Long userId;
 
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
-
-    @ApiModelProperty(value = "父权限id")
-    private Long pPermissionId;
-
-    @ApiModelProperty(value = "权限名称")
-    private String permissionName;
-
-    @ApiModelProperty(value = "权限描述")
-    private String permissionDesc;
+    @ApiModelProperty(value = "角色id")
+    private Long roleId;
 
     @ApiModelProperty(value = "是否逻辑删除 默认 0")
     private Boolean isDelete;

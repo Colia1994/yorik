@@ -1,8 +1,8 @@
 package com.colia.yorik.domain.repository;
 
 
-import com.colia.yorik.yorikdao.authority.user.SysUserPO;
-import com.colia.yorik.yorikdao.authority.user.UserMapper;
+import com.colia.yorik.dao.authority.user.SysUserPO;
+import com.colia.yorik.dao.authority.user.UserMapper;
 import com.colia.yorik.domain.model.authority.user.SysUserEntity;
 import com.colia.yorik.domain.model.authority.user.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;

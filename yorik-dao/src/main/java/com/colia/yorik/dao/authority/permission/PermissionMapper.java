@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikdao.authority.permission;
+package com.colia.yorik.dao.authority.permission;
 
 /**
  * 权限数据库操作

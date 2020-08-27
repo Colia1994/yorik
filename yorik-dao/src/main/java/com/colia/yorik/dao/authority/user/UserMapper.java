@@ -1,4 +1,4 @@
-package com.colia.yorik.yorikdao.authority.user;
+package com.colia.yorik.dao.authority.user;
 
 import com.colia.yorik.common.infrastructure.persistence.mapper.SuperMapper;
 import org.apache.ibatis.annotations.Param;
