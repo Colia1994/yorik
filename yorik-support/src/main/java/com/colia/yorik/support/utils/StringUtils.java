@@ -1,4 +1,4 @@
-package com.colia.yorik.yoriksupport.utils;
+package com.colia.yorik.support.utils;
 
 /**
  * string工具类

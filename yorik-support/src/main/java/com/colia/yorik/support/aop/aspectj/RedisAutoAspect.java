@@ -1,10 +1,10 @@
-package com.colia.yorik.yoriksupport.aop.aspectj;
+package com.colia.yorik.support.aop.aspectj;
 
 
 import com.colia.yorik.common.interfaces.annotation.RedisAuto;
-import com.colia.yorik.yoriksupport.redis.RedisService;
-import com.colia.yorik.yoriksupport.utils.JSONUtil;
-import com.colia.yorik.yoriksupport.utils.StringUtils;
+import com.colia.yorik.support.redis.RedisService;
+import com.colia.yorik.support.utils.JSONUtil;
+import com.colia.yorik.support.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

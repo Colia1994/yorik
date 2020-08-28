@@ -1,4 +1,4 @@
-package com.colia.yorik.yoriksupport.redis;
+package com.colia.yorik.support.redis;
 
 import org.springframework.stereotype.Service;
 

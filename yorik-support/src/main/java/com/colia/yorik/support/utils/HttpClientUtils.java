@@ -1,4 +1,4 @@
-package com.colia.yorik.yoriksupport.utils;
+package com.colia.yorik.support.utils;
 
 import com.pdd.pop.sdk.http.PopClient;
 import com.pdd.pop.sdk.http.PopHttpClient;

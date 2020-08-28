@@ -1,4 +1,4 @@
-package com.colia.yorik.yoriksupport.utils;
+package com.colia.yorik.support.utils;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.springframework.stereotype.Component;

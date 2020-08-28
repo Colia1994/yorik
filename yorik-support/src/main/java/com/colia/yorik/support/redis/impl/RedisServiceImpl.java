@@ -1,6 +1,6 @@
-package com.colia.yorik.yoriksupport.redis.impl;
+package com.colia.yorik.support.redis.impl;
 
-import com.colia.yorik.yoriksupport.redis.RedisService;
+import com.colia.yorik.support.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
-package com.colia.yorik.yoriksupport.aop;
+package com.colia.yorik.support.aop;
 
-import com.colia.yorik.yoriksupport.utils.JSONUtil;
+import com.colia.yorik.support.utils.JSONUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.FactoryBean;

@@ -1,4 +1,4 @@
-package com.colia.yorik.yoriksupport.aop;
+package com.colia.yorik.support.aop;
 
 
 /**
