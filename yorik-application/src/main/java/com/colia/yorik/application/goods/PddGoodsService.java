@@ -4,7 +4,7 @@ import com.colia.yorik.application.goods.request.GoodsDetailRequest;
 import com.colia.yorik.application.goods.request.GoodsRecommendRequest;
 import com.colia.yorik.application.goods.valueObject.*;
 import com.colia.yorik.application.goods.request.GoodsSearchRequest;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.*;
+import com.colia.yorik.application.goods.valueObject.*;
 import com.colia.yorik.common.application.AppService;
 
 import java.util.List;

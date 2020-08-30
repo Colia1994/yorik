@@ -7,7 +7,7 @@ import com.colia.yorik.application.goods.request.GoodsRecommendRequest;
 import com.colia.yorik.application.goods.request.GoodsSearchRequest;
 import com.colia.yorik.application.goods.valueObject.*;
 import com.colia.yorik.application.goods.adapter.GoodsMapper;
-import com.colia.yorik.yorikapplication.application.goods.valueObject.*;
+import com.colia.yorik.application.goods.valueObject.*;
 import com.colia.yorik.common.infrastructure.exception.BizProcessException;
 import com.colia.yorik.common.interfaces.annotation.RedisAuto;
 import com.colia.yorik.support.utils.HttpClientUtils;
