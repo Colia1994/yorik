@@ -1,10 +1,10 @@
 package com.colia.yorik.application.promotion.impl;
 
-import com.colia.yorik.application.promotion.valueObject.PddUrlVO;
 import com.colia.yorik.application.promotion.PddPromotionService;
 import com.colia.yorik.application.promotion.adapter.PromotionMapper;
 import com.colia.yorik.application.promotion.request.PromotionUrlRequest;
 import com.colia.yorik.application.promotion.valueObject.PddPromotionVO;
+import com.colia.yorik.application.promotion.valueObject.PddUrlVO;
 import com.colia.yorik.common.infrastructure.constant.PddConstant;
 import com.colia.yorik.common.infrastructure.exception.BizProcessException;
 import com.colia.yorik.support.utils.HttpClientUtils;

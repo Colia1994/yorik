@@ -1,8 +1,8 @@
 package com.colia.yorik.application.promotion;
 
-import com.colia.yorik.application.promotion.valueObject.PddUrlVO;
 import com.colia.yorik.application.promotion.request.PromotionUrlRequest;
 import com.colia.yorik.application.promotion.valueObject.PddPromotionVO;
+import com.colia.yorik.application.promotion.valueObject.PddUrlVO;
 
 /**
  * 推广位相关

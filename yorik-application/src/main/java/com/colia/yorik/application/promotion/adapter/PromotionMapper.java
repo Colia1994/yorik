@@ -1,7 +1,7 @@
 package com.colia.yorik.application.promotion.adapter;
 
-import com.colia.yorik.application.promotion.valueObject.PddUrlVO;
 import com.colia.yorik.application.promotion.valueObject.PddPromotionVO;
+import com.colia.yorik.application.promotion.valueObject.PddUrlVO;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPidGenerateResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPromotionUrlGenerateResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsZsUnitUrlGenResponse;

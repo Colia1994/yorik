@@ -1,8 +1,8 @@
 package com.colia.yorik.application.goods.impl;
 
+import com.colia.yorik.application.goods.TaoBaoGoodsService;
 import com.colia.yorik.application.goods.adapter.GoodsMapper;
 import com.colia.yorik.application.goods.valueObject.TBGoodsRecommendVO;
-import com.colia.yorik.application.goods.TaoBaoGoodsService;
 import com.colia.yorik.common.infrastructure.exception.BizProcessException;
 import com.colia.yorik.support.utils.HttpClientUtils;
 import com.colia.yorik.support.utils.JSONUtil;
