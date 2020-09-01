@@ -16,6 +16,9 @@ import java.lang.reflect.Method;
  */
 public class MyInterceptor implements HandlerInterceptor {
 
+    /**
+     * TODO 拦截器未生效 待处理 @colia
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         boolean flag = true;
