@@ -53,6 +53,8 @@ public class GoodsSearchRequest extends PageCommand {
     private Boolean withCoupon;
 
 
+
+
     /**
      * 指令验证
      */

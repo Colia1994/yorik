@@ -13,9 +13,10 @@ public class TaoBaoConstant {
      */
     public static final String PID = "mm_111816550_1171300302_109899450255";
 
+
     /**
      * 淘宝推广位 短
      */
-    public static final String SHORT_PID = "109899450255";
+    public static final Long SHORT_PID = 109899450255L;
 
 }

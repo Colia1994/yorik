@@ -1,6 +1,7 @@
 package com.colia.yorik.web.interfaces.goods.facade.impl;
 
 import com.colia.yorik.application.goods.PddGoodsService;
+import com.colia.yorik.application.goods.TaoBaoGoodsService;
 import com.colia.yorik.application.goods.request.GoodsDetailRequest;
 import com.colia.yorik.application.goods.request.GoodsRecommendRequest;
 import com.colia.yorik.application.goods.request.GoodsSearchRequest;
@@ -35,6 +36,10 @@ public class GoodsOperateFacadeImpl implements GoodsOperateFacade {
 
     @Resource
     private PddGoodsService pddGoodsService;
+
+    @Resource
+    private TaoBaoGoodsService taoBaoGoodsService;
+
 
     @Resource
     private GoodsCatsDTOAssembler catsDTOAssembler;
@@ -73,7 +78,7 @@ public class GoodsOperateFacadeImpl implements GoodsOperateFacade {
     @Override
     public GoodsListDTO searchGoods(GoodsSearchRequest params) {
 
-        return listAssembler.toDTO(pddGoodsService.searchPddGoods(params));
+        return listAssembler.toDTO(taoBaoGoodsService.searchTBGoods(params));
     }
 
     /**

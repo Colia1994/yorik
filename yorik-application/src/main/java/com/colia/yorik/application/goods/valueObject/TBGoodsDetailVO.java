@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * 淘宝客 商品详情
+ * https://open.taobao.com/api.htm?cid=1&docId=35896&docType=2
  *
  * @Author konglingyao
  * @Date 2020/8/4
@@ -34,6 +35,11 @@ public class TBGoodsDetailVO implements ValueObject<TBGoodsDetailVO> {
      * 商品信息-佣金比率(%)
      */
     private String commissionRate;
+
+    /**
+     * 优惠券信息-优惠券id
+     */
+    private String couponId;
 
     /**
      * 优惠券（元） 若属于预售商品，该优惠券付尾款可用，付定金不可用
@@ -393,6 +399,82 @@ public class TBGoodsDetailVO implements ValueObject<TBGoodsDetailVO> {
      * 折扣价（元） 若属于预售商品，付定金时间内，折扣价=预售价
      */
     private String zkFinalPrice;
+
+
+    /**
+     * 商品信息-佣金类型。MKT表示营销计划，SP表示定向计划，COMMON表示通用计划
+     */
+    private String commissionType;
+
+
+    /**
+     * 本地化-到门店距离（米）
+     */
+    private String distance;
+    /**
+     * 商品信息-是否包含定向计划
+     */
+    private String includeDxjh;
+    /**
+     * 	商品信息-是否包含营销计划
+     */
+    private String includeMkt;
+
+    /**
+     * 商品信息-定向计划信息
+     */
+    private String infoDxjh;
+
+    /**
+     * 链接-宝贝地址
+     */
+    private String itemUrl;
+
+    /**
+     * 商品信息-宝贝所在地
+     */
+    private String provcity;
+
+    /**
+     * 	商品邮费
+     */
+    private String realPostFee;
+
+    /**
+     * 本地化-销售开始时间
+     */
+    private String saleBeginTime;
+
+    /**
+     * 本地化-销售结束时间
+     */
+    private String saleEndTime;
+
+    /**
+     * 店铺信息-店铺dsr评分
+     */
+    private Long shopDsr;
+
+
+    /**
+     * 商品信息-淘客30天推广量
+     */
+    private String tkTotalSales;
+
+    /**
+     * 链接-宝贝推广链接
+     */
+    private String url;
+    /**
+     * 本地化-可用店铺id
+     */
+    private String usableShopId;
+
+    /**
+     * 本地化-可用店铺名称
+     */
+    private String usableShopName;
+
 
     @Data
     public static class Word implements ValueObject<Word> {

@@ -149,7 +149,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      * @param request 请求相关
      * @return 商品列表
      */
-    @RedisAuto(prefixKey = "pdd:searchGoods", minute = 10)
+    @RedisAuto(prefixKey = "pdd:searchGoods", minute = 15)
     @Override
     public PddGoodsSearchVO searchPddGoods(GoodsSearchRequest request) {
         PopClient client = HttpClientUtils.getPddClient();

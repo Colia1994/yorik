@@ -6,6 +6,7 @@ import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsBasicInfoGetResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsDetailResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsRecommendGetResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsSearchResponse;
+import com.taobao.api.response.TbkDgMaterialOptionalResponse;
 import com.taobao.api.response.TbkDgOptimusMaterialResponse;
 import org.mapstruct.Mapper;
 
@@ -30,5 +31,7 @@ public interface GoodsMapper {
     PddGoodsSearchVO toPddGoodsSearchVO(PddDdkGoodsSearchResponse.GoodsSearchResponse response);
 
     TBGoodsRecommendVO toTBGoodsRecommendVO(TbkDgOptimusMaterialResponse list);
+
+    TBGoodsSearchVO toTBGoodsSearchVO(TbkDgMaterialOptionalResponse list);
 
 }
