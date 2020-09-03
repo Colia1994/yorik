@@ -77,8 +77,11 @@ public class GoodsOperateFacadeImpl implements GoodsOperateFacade {
      */
     @Override
     public GoodsListDTO searchGoods(GoodsSearchRequest params) {
-
-        return listAssembler.toDTO(taoBaoGoodsService.searchTBGoods(params));
+        if(params.getSourceType() == 1){
+            return listAssembler.toDTO(pddGoodsService.searchPddGoods(params));
+        } else {
+            return listAssembler.toDTO(taoBaoGoodsService.searchTBGoods(params));
+        }
     }
 
     /**

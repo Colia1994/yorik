@@ -32,21 +32,21 @@ public class GoodsDetailDTO extends BaseDTO {
 
     @ApiModelProperty("优惠券面额,单位为分")
     private Long couponDiscount;
-
-    @ApiModelProperty("优惠券失效时间,UNIX时间戳")
-    private Long couponEndTime;
+//
+//    @ApiModelProperty("优惠券失效时间,UNIX时间戳")
+//    private Long couponEndTime;
 
     @ApiModelProperty("优惠券门槛价格,单位为分")
     private Long couponMinOrderAmount;
 
-    @ApiModelProperty("优惠券金额")
-    private Long couponPrice;
+//    @ApiModelProperty("优惠券金额")
+//    private Long couponPrice;
 
     @ApiModelProperty("优惠券剩余数量")
     private Long couponRemainQuantity;
 
-    @ApiModelProperty("优惠券生效时间,UNIX时间戳")
-    private Long couponStartTime;
+//    @ApiModelProperty("优惠券生效时间,UNIX时间戳")
+//    private Long couponStartTime;
 
     @ApiModelProperty("优惠券总数量")
     private Long couponTotalQuantity;
@@ -63,11 +63,11 @@ public class GoodsDetailDTO extends BaseDTO {
     @ApiModelProperty("商品主图")
     private String goodsImageUrl;
 
-    @ApiModelProperty("商品实际价格")
-    private Long goodsFactPrice;
-
-    @ApiModelProperty("商品标准价格")
-    private Long goodsMarkPrice;
+//    @ApiModelProperty("商品实际价格")
+//    private Long goodsFactPrice;
+//
+//    @ApiModelProperty("商品标准价格")
+//    private Long goodsMarkPrice;
 
     @ApiModelProperty("商品名称")
     private String goodsName;
@@ -75,20 +75,20 @@ public class GoodsDetailDTO extends BaseDTO {
     @ApiModelProperty("商品缩略图")
     private String goodsThumbnailUrl;
 
-    @ApiModelProperty("商品类型")
-    private Integer goodsType;
+//    @ApiModelProperty("商品类型")
+//    private Integer goodsType;
 
     @ApiModelProperty("商品是否带券,true-带券,false-不带券")
     private Boolean hasCoupon;
 
-    @ApiModelProperty("商家id")
-    private Long mallId;
-
-    @ApiModelProperty("店铺名称")
-    private String mallName;
-
-    @ApiModelProperty("商家类型")
-    private String merchantType;
+//    @ApiModelProperty("商家id")
+//    private Long mallId;
+//
+//    @ApiModelProperty("店铺名称")
+//    private String mallName;
+//
+//    @ApiModelProperty("商家类型")
+//    private String merchantType;
 
     @ApiModelProperty("最小成团价格，单位分")
     private Long minGroupPrice;
@@ -109,7 +109,7 @@ public class GoodsDetailDTO extends BaseDTO {
     private String shareDesc;
 
     /**
-     * 佣金比例,千分比
+     * 佣金比例,千分比 1000 代表 10%
      */
-    private Long promotionRate;
+    private String promotionRate;
 }

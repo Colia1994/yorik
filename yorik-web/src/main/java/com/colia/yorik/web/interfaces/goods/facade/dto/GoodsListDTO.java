@@ -16,6 +16,6 @@ import lombok.EqualsAndHashCode;
 public class GoodsListDTO extends PageInfoDTO<GoodsDetailDTO> {
 
 
-    @ApiModelProperty("搜索id，建议生成推广链接时候填写，提高收益")
+    @ApiModelProperty("pdd 专用字段 搜索id，建议生成推广链接时候填写，提高收益")
     private String searchId;
 }

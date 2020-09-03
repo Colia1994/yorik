@@ -3,6 +3,7 @@ package com.colia.yorik.web.interfaces.goods.facade.adapter;
 import com.colia.yorik.application.goods.valueObject.PddGoodsRecommendVO;
 import com.colia.yorik.application.goods.valueObject.PddGoodsSearchVO;
 import com.colia.yorik.application.goods.valueObject.TBGoodsRecommendVO;
+import com.colia.yorik.application.goods.valueObject.TBGoodsSearchVO;
 import com.colia.yorik.common.interfaces.dto.Assembler;
 import com.colia.yorik.web.interfaces.goods.facade.dto.GoodsListDTO;
 import org.springframework.stereotype.Component;
@@ -36,6 +37,11 @@ public class GoodsListDTOAssembler implements Assembler<GoodsListDTO> {
             return goodsDTOMapper.pddVOToDTO((PddGoodsSearchVO) objects);
         } else if (objects instanceof TBGoodsRecommendVO) {
             return goodsDTOMapper.tbVOToDTO((TBGoodsRecommendVO) objects);
+        } else if (objects instanceof TBGoodsSearchVO) {
+            //淘宝价格字段是string 完整展示，同步pdd的整形显示 分为单位
+            TBGoodsSearchVO tbGoodsSearchVO = (TBGoodsSearchVO) objects;
+
+            return goodsDTOMapper.tbVOToSearchDTO(tbGoodsSearchVO);
         }
 
         return null;

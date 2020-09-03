@@ -15,7 +15,7 @@ public class TBGoodsSearchVO implements ValueObject<TBGoodsSearchVO> {
     /**
      * 明细
      */
-    private List<TBGoodsSearchVO> resultList;
+    private List<TBGoodsDetailVO> resultList;
 
     /**
      * 搜索到符合条件的结果总数
