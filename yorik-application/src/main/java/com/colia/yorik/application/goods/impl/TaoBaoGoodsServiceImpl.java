@@ -62,7 +62,6 @@ public class TaoBaoGoodsServiceImpl implements TaoBaoGoodsService {
             log.error("searchJuTqgGoods:接口错误");
             throw new BizProcessException("searchJuTqgGoods:接口错误", e);
         }
-
         if (rsp == null) {
             log.error("searchJuTqgGoods:接口返回数据为空");
             throw new BizProcessException("searchJuTqgGoods:接口返回数据为空");
