@@ -62,19 +62,4 @@ public class GoodsController {
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.getAllCats(1));
     }
 
-    public static void main(String[] args) {
-        System.out.println(StringUtils.rightPad(String.valueOf(10), 19, "0"));
-        String test = "中文";
-        System.out.println(test.length());
-        try {
-            System.out.println(test.getBytes("gbk").length);
-
-            System.out.println(new String(test.getBytes("gbk"), "gbk"));
-
-        } catch (Exception e) {
-
-        }
-
-    }
-
 }
