@@ -42,6 +42,7 @@
     <springProfile name="test,dev">
         <logger name="com.colia.controller" level="info"/>
     </springProfile>
+
     <!-- 生产环境. -->
     <springProfile name="prod">
         <logger name="com.colia.controller" level="ERROR"/>

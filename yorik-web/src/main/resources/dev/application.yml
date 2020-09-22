@@ -14,6 +14,7 @@ taobao:
   appSecret: ENC(X3KR40jsO0yuW1Dg5KBGNZqmX1VLsmMeQyRoPJqy1pYRusv6KbNvXd2uQOIRgi86ICE+7A7pCKNWX2WC/gA6PhuCZiznGv4r0hRE8WbT4Nw=)
   httpUrl: http://gw.api.taobao.com/router/rest
 
+
 spring:
   #JDBC 配置
   datasource:
