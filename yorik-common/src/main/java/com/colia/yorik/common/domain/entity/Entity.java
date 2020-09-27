@@ -2,7 +2,7 @@ package com.colia.yorik.common.domain.entity;
 
 /**
  * 领域实体
- * <p>
+ * 
  * domain entity具有如下三个特征：
  * 唯一业务标识
  * 持有自己的业务属性和业务行为
