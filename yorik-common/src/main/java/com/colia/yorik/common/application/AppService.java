@@ -13,5 +13,6 @@ package com.colia.yorik.common.application;
  * @created 2018/6/14 上午10:52
  **/
 public interface AppService {
+    
 
 }
