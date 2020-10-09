@@ -8,6 +8,7 @@ package com.colia.yorik.common.infrastructure.exception;
  * @Date 2020/07/15 下午3:45
  **/
 public class BizException extends Exception {
+    
 
     public BizException(String message) {
         super(message);
