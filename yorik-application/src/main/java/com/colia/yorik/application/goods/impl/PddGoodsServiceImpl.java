@@ -107,7 +107,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
     }
 
     /**
-     * 获取pdd商品详情
+     * 获取pdd商品详情 就
      *
      * @param request 商品详情请求参数 goods_id
      * @return 商品详情
