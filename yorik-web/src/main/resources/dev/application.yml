@@ -18,9 +18,9 @@ taobao:
 spring:
   #JDBC 配置
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/yorik_db?useSSL=false
+    url: jdbc:mysql://139.196.184.125:3306/yorik_db?useSSL=false
     username: root
-    password: 123456
+    password: zhkly_mysql123456
     driver-class-name: com.mysql.jdbc.Driver
     #连接池配置
     druid:

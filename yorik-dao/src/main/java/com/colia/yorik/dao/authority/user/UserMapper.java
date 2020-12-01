@@ -2,6 +2,7 @@ package com.colia.yorik.dao.authority.user;
 
 import com.colia.yorik.common.infrastructure.persistence.mapper.SuperMapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 /**
  * 用户持久化接口
