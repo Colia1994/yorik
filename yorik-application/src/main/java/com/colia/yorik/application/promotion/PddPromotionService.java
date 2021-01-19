@@ -38,4 +38,8 @@ public interface PddPromotionService {
      */
     PddUrlVO convertPromotionUrl(String sourceUrl);
 
+    void pddDdkMemberAuthorityQuery();
+
+    void pddDdkRpPromUrlGenerate();
+
 }

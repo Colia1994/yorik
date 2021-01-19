@@ -24,13 +24,13 @@ public interface PddGoodsService extends AppService {
      */
     PddGoodsRecommendVO getPddRecommendGoods(GoodsRecommendRequest request);
 
-    /**
-     * pdd根据商品id获取基本信息
-     *
-     * @param goodsIdList 商品id列表
-     * @return 商品基本信息
-     */
-    List<PddGoodsBasicVO> getGoodsBasicInfoByID(List<Long> goodsIdList);
+//    /**
+//     * pdd根据商品id获取基本信息
+//     *
+//     * @param goodsIdList 商品id列表
+//     * @return 商品基本信息
+//     */
+//    List<PddGoodsBasicVO> getGoodsBasicInfoByID(List<Long> goodsIdList);
 
     /**
      * 获取pdd商品详情

@@ -2,7 +2,6 @@ package com.colia.yorik.application.goods.adapter;
 
 import com.colia.yorik.application.goods.valueObject.*;
 import com.colia.yorik.common.infrastructure.adapter.StringStrategy;
-import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsBasicInfoGetResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsDetailResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsRecommendGetResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsSearchResponse;
@@ -24,7 +23,7 @@ public interface GoodsMapper {
 
     PddGoodsRecommendVO toPddGoodsRecommendVO(PddDdkGoodsRecommendGetResponse.GoodsBasicDetailResponse response);
 
-    List<PddGoodsBasicVO> toPddGoodsBasicList(List<PddDdkGoodsBasicInfoGetResponse.GoodsBasicDetailResponseGoodsListItem> list);
+//    List<PddGoodsBasicVO> toPddGoodsBasicList(List<PddDdkGoodsBasicInfoGetResponse.GoodsBasicDetailResponseGoodsListItem> list);
 
     List<PddGoodsDetailVO> toPddGoodsDetailList(List<PddDdkGoodsDetailResponse.GoodsDetailResponseGoodsDetailsItem> list);
 

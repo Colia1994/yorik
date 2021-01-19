@@ -33,7 +33,7 @@ public class GoodsController {
 
     @ResponseBody
     @RequestMapping(value = "/getRecommendGoods", method = RequestMethod.POST)
-    @ApiOperation(value = "获取推荐商品信息")
+    @ApiOperation(value = "获取推荐商品信息，不建议使用，默认使用搜索")
     public AjaxResponse<GoodsListDTO> getGoodsList(@RequestBody GoodsRecommendRequest params) {
 
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.recommendGoods(params));

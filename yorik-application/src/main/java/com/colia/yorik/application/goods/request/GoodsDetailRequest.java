@@ -20,7 +20,7 @@ public class GoodsDetailRequest extends CommonCommand {
     private Long goodsId;
 
     @ApiModelProperty("推广位id")
-    private String pid;
+    private String pid = "11054122_148291700";
 
     @ApiModelProperty("佣金优惠券对应推广类型，3：专属 4：招商")
     private Integer planType;

@@ -1,5 +1,6 @@
 package com.colia.yorik.web.interfaces.promotion.controller;
 
+import com.colia.yorik.application.promotion.PddPromotionService;
 import com.colia.yorik.application.promotion.request.ConvertUrlRequest;
 import com.colia.yorik.application.promotion.request.PromotionUrlRequest;
 import com.colia.yorik.common.interfaces.ajaxresult.AjaxResponse;
@@ -29,6 +30,8 @@ public class PromotionController {
 
     @Resource
     private PromotionFacade promotionFacade;
+    @Resource
+    private  PddPromotionService pddPromotionService;
 
 
     @ResponseBody
@@ -45,5 +48,21 @@ public class PromotionController {
     public AjaxResponse<UrlDTO> convertUrl(@RequestBody ConvertUrlRequest params) {
         params.validate();
         return AjaxResultUtils.renderSuccess(promotionFacade.convertPromotionUrl(params));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/test01", method = RequestMethod.GET)
+    @ApiOperation(value = "测试用")
+    public AjaxResponse<Object> convertUrl1() {
+        pddPromotionService.pddDdkMemberAuthorityQuery();
+        return AjaxResultUtils.renderSuccess();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/test02", method = RequestMethod.GET)
+    @ApiOperation(value = "测试用")
+    public AjaxResponse<Object> convertUrl2() {
+        pddPromotionService.pddDdkRpPromUrlGenerate();
+        return AjaxResultUtils.renderSuccess();
     }
 }

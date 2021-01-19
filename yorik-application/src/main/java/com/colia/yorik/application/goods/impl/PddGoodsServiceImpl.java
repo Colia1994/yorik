@@ -54,6 +54,8 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         //offset 需要计算
         pddRequest.setOffset((request.getPageNo() - 1) * request.getPageSize());
         pddRequest.setCatId(request.getCatId());
+        pddRequest.setPid("11054122_148291700");
+
 
         PddDdkGoodsRecommendGetResponse response;
         try {
@@ -73,38 +75,38 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         return goodsVOMapper.toPddGoodsRecommendVO(response.getGoodsBasicDetailResponse());
     }
 
-    /**
-     * pdd根据商品id获取基本信息
-     *
-     * @param goodsIdList 商品id列表
-     * @return 商品基本信息
-     */
-    @RedisAuto(prefixKey = "pdd:getGoodsBasic", minute = 30)
-    @Override
-    public List<PddGoodsBasicVO> getGoodsBasicInfoByID(List<Long> goodsIdList) {
-        PopClient client = HttpClientUtils.getPddClient();
-
-        PddDdkGoodsBasicInfoGetRequest request = new PddDdkGoodsBasicInfoGetRequest();
-
-        request.setGoodsIdList(goodsIdList);
-        PddDdkGoodsBasicInfoGetResponse response;
-        try {
-            log.info("getGoodsBasicInfoByID:请求参数:{}", JSONUtil.transferToString(request));
-            response = client.syncInvoke(request);
-            log.info("getGoodsBasicInfoByID:返回参数:{}", JSONUtil.transferToString(response));
-
-        } catch (Exception e) {
-            log.error("PDD获取商品基本信息接口异常", e);
-            throw new BizProcessException("PDD获取商品基本信息接口异常", e);
-        }
-
-        if (response == null || response.getGoodsBasicDetailResponse() == null) {
-            log.error("getGoodsBasicInfoByID:接口返回数据为空");
-            throw new BizProcessException("getGoodsBasicInfoByID:接口返回数据为空");
-        }
-
-        return goodsVOMapper.toPddGoodsBasicList(response.getGoodsBasicDetailResponse().getGoodsList());
-    }
+//    /**
+//     * pdd根据商品id获取基本信息
+//     *
+//     * @param goodsIdList 商品id列表
+//     * @return 商品基本信息
+//     */
+//    @RedisAuto(prefixKey = "pdd:getGoodsBasic", minute = 30)
+//    @Override
+//    public List<PddGoodsBasicVO> getGoodsBasicInfoByID(List<Long> goodsIdList) {
+//        PopClient client = HttpClientUtils.getPddClient();
+//
+//        PddDdkGoodsBasicInfoGetRequest request = new PddDdkGoodsBasicInfoGetRequest();
+//
+//        request.setGoodsIdList(goodsIdList);
+//        PddDdkGoodsBasicInfoGetResponse response;
+//        try {
+//            log.info("getGoodsBasicInfoByID:请求参数:{}", JSONUtil.transferToString(request));
+//            response = client.syncInvoke(request);
+//            log.info("getGoodsBasicInfoByID:返回参数:{}", JSONUtil.transferToString(response));
+//
+//        } catch (Exception e) {
+//            log.error("PDD获取商品基本信息接口异常", e);
+//            throw new BizProcessException("PDD获取商品基本信息接口异常", e);
+//        }
+//
+//        if (response == null || response.getGoodsBasicDetailResponse() == null) {
+//            log.error("getGoodsBasicInfoByID:接口返回数据为空");
+//            throw new BizProcessException("getGoodsBasicInfoByID:接口返回数据为空");
+//        }
+//
+//        return goodsVOMapper.toPddGoodsBasicList(response.getGoodsBasicDetailResponse().getGoodsList());
+//    }
 
     /**
      * 获取pdd商品详情 就
@@ -120,7 +122,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         goodsIdList.add(request.getGoodsId());
         pddRequest.setGoodsIdList(goodsIdList);
         pddRequest.setSearchId(request.getSearchId());
-        pddRequest.setPid(request.getPid());
+        pddRequest.setPid("11054122_148291700");
         pddRequest.setPlanType(request.getPlanType());
 
         PopClient client = HttpClientUtils.getPddClient();
@@ -162,6 +164,8 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         pddRequest.setListId(request.getListId());
         pddRequest.setSortType(request.getSortType());
         pddRequest.setCatId(request.getCatId());
+        pddRequest.setIsBrandGoods(request.getIsBrandGoods());
+        pddRequest.setPid("11054122_148291700");
 
         PddDdkGoodsSearchResponse response;
         try {

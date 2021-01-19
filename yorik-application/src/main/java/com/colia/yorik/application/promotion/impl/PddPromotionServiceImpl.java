@@ -10,12 +10,8 @@ import com.colia.yorik.common.infrastructure.exception.BizProcessException;
 import com.colia.yorik.support.utils.HttpClientUtils;
 import com.colia.yorik.support.utils.JSONUtil;
 import com.pdd.pop.sdk.http.PopClient;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPidGenerateRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsPromotionUrlGenerateRequest;
-import com.pdd.pop.sdk.http.api.pop.request.PddDdkGoodsZsUnitUrlGenRequest;
-import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPidGenerateResponse;
-import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsPromotionUrlGenerateResponse;
-import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsZsUnitUrlGenResponse;
+import com.pdd.pop.sdk.http.api.pop.request.*;
+import com.pdd.pop.sdk.http.api.pop.response.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -127,6 +123,7 @@ public class PddPromotionServiceImpl implements PddPromotionService {
         request.setPid(PddConstant.DEFAULT_PID);
         request.setSourceUrl(sourceUrl);
 //        request.setCustomParameters("str");
+
         PddDdkGoodsZsUnitUrlGenResponse response;
         try {
             log.info("convertPromotionUrl:请求参数:{}", JSONUtil.transferToString(request));
@@ -143,6 +140,50 @@ public class PddPromotionServiceImpl implements PddPromotionService {
         return promotionMapper.toUrlVO(response.getGoodsZsUnitGenerateResponse());
     }
 
+    //推广位授权 11054122_148291700
+    public void pddDdkMemberAuthorityQuery(){
+
+        PopClient client = HttpClientUtils.getPddClient();
+
+        PddDdkMemberAuthorityQueryRequest request = new PddDdkMemberAuthorityQueryRequest();
+
+        request.setPid("11054122_148291700");
+//        request.setCustomParameters('str');
+        PddDdkMemberAuthorityQueryResponse response;
+        try {
+            response = client.syncInvoke(request);
+        } catch (Exception e) {
+            log.error("pddDdkMemberAuthorityQuery:接口异常", e);
+            throw new BizProcessException("pddDdkMemberAuthorityQuery:接口异常", e);
+        }
+        log.info("pddDdkMemberAuthorityQuery:response:{}",JSONUtil.transferToJson(response));
+
+    }
+    public void pddDdkRpPromUrlGenerate() {
+
+        PopClient client = HttpClientUtils.getPddClient();
+
+        PddDdkRpPromUrlGenerateRequest request = new PddDdkRpPromUrlGenerateRequest();
+
+        request.setChannelType(10);
+
+
+
+
+        request.setGenerateWeApp(true);
+        List<String> pIdList = new ArrayList<>();
+        pIdList.add("11054122_148291700");
+        request.setPIdList(pIdList);
+        PddDdkRpPromUrlGenerateResponse response;
+        try {
+            response = client.syncInvoke(request);
+        } catch (Exception e) {
+            log.error("pddDdkRpPromUrlGenerate:接口异常", e);
+            throw new BizProcessException("pddDdkRpPromUrlGenerate:接口异常", e);
+        }
+        log.info("pddDdkRpPromUrlGenerate:response:{}",JSONUtil.transferToJson(response));
+
+    }
 }
 
 
