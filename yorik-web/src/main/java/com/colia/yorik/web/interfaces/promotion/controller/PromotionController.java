@@ -1,5 +1,6 @@
 package com.colia.yorik.web.interfaces.promotion.controller;
 
+import com.colia.yorik.application.common.CommonService;
 import com.colia.yorik.application.promotion.PddPromotionService;
 import com.colia.yorik.application.promotion.request.ConvertUrlRequest;
 import com.colia.yorik.application.promotion.request.PromotionUrlRequest;
@@ -9,6 +10,7 @@ import com.colia.yorik.web.interfaces.promotion.facade.PromotionFacade;
 import com.colia.yorik.web.interfaces.promotion.facade.dto.UrlDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,12 +28,16 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("/api/promotion")
 @Api(tags = "promotion-controller", description = "链接生成管理")
+@Slf4j
 public class PromotionController {
 
     @Resource
     private PromotionFacade promotionFacade;
     @Resource
     private  PddPromotionService pddPromotionService;
+
+    @Resource
+    private CommonService commonService;
 
 
     @ResponseBody
@@ -62,7 +68,21 @@ public class PromotionController {
     @RequestMapping(value = "/test02", method = RequestMethod.GET)
     @ApiOperation(value = "测试用")
     public AjaxResponse<Object> convertUrl2() {
-        pddPromotionService.pddDdkRpPromUrlGenerate();
+        log.info("任务开始输送");
+
+        commonService.saveDailyBmpParam("1");
+        commonService.saveDailyBmpParam("2");
+        commonService.saveDailyBmpParam("3");
+        commonService.saveDailyBmpParam("4");
+        commonService.saveDailyBmpParam("5");
+        commonService.saveDailyBmpParam("6");
+        commonService.saveDailyBmpParam("7");
+        commonService.saveDailyBmpParam("8");
+        commonService.saveDailyBmpParam("9");
+        commonService.saveDailyBmpParam("10");
+        commonService.saveDailyBmpParam("14");
+
+        log.info("任务输送完毕");
         return AjaxResultUtils.renderSuccess();
     }
 }
