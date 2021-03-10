@@ -5,6 +5,7 @@ import com.colia.yorik.application.goods.TaoBaoGoodsService;
 import com.colia.yorik.application.goods.request.GoodsDetailRequest;
 import com.colia.yorik.application.goods.request.GoodsRecommendRequest;
 import com.colia.yorik.application.goods.request.GoodsSearchRequest;
+import com.colia.yorik.application.goods.valueObject.PddGoodsDetailVO;
 import com.colia.yorik.web.interfaces.goods.facade.GoodsOperateFacade;
 import com.colia.yorik.web.interfaces.goods.facade.adapter.GoodsCatsDTOAssembler;
 import com.colia.yorik.web.interfaces.goods.facade.adapter.GoodsDetailDTOAssembler;
@@ -65,8 +66,7 @@ public class GoodsOperateFacadeImpl implements GoodsOperateFacade {
      */
     @Override
     public GoodsDetailDTO getGoodsDetailById(GoodsDetailRequest request) {
-
-        return detailAssembler.toDTO(pddGoodsService.getPddGoodsDetailInfo(request).get(0));
+        return detailAssembler.toDTO(pddGoodsService.getPddGoodsDetailInfo(request));
     }
 
     /**

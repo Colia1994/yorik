@@ -5,6 +5,7 @@ import com.colia.yorik.common.interfaces.annotation.RedisAuto;
 import com.colia.yorik.support.redis.RedisService;
 import com.colia.yorik.support.utils.JSONUtil;
 import com.colia.yorik.support.utils.StringUtils;
+import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

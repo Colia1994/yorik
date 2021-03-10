@@ -116,7 +116,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
      */
     @RedisAuto(prefixKey = "pdd:getGoodsDetail", minute = 30)
     @Override
-    public List<PddGoodsDetailVO> getPddGoodsDetailInfo(GoodsDetailRequest request) {
+    public PddGoodsDetailVO getPddGoodsDetailInfo(GoodsDetailRequest request) {
         PddDdkGoodsDetailRequest pddRequest = new PddDdkGoodsDetailRequest();
         List<Long> goodsIdList = new ArrayList<>();
         goodsIdList.add(request.getGoodsId());
@@ -142,7 +142,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
             throw new BizProcessException("getPddGoodsDetailInfo:接口返回数据为空");
         }
 
-        return goodsVOMapper.toPddGoodsDetailList(response.getGoodsDetailResponse().getGoodsDetails());
+        return goodsVOMapper.toPddGoodsDetailList(response.getGoodsDetailResponse().getGoodsDetails()).get(0);
     }
 
     /**
@@ -156,7 +156,13 @@ public class PddGoodsServiceImpl implements PddGoodsService {
     public PddGoodsSearchVO searchPddGoods(GoodsSearchRequest request) {
         PopClient client = HttpClientUtils.getPddClient();
         PddDdkGoodsSearchRequest pddRequest = new PddDdkGoodsSearchRequest();
-        pddRequest.setActivityTags(request.getActivityTags());
+//        pddRequest.setActivityTags(request.getActivityTags());
+        //    //活动商品标记数组，例：[4,7]，4-秒杀，7-百亿补贴，31-品牌黑标，10564-精选爆品-官方直推爆款，10584-精选爆品-团长推荐，
+        //    // 24-品牌高佣，20-行业精选，21-金牌商家，10044-潜力爆品，10475-爆品上新，其他的值请忽略
+        List<Integer> integerList = new ArrayList<>();
+        integerList.add(7);
+        integerList.add(24);
+        pddRequest.setActivityTags(integerList);
         pddRequest.setKeyword(request.getKeyword());
         pddRequest.setWithCoupon(request.getWithCoupon());
         pddRequest.setPage(request.getPageNo());

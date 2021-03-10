@@ -38,7 +38,7 @@ public interface PddGoodsService extends AppService {
      * @param request 商品详情请求参数 goods_id
      * @return 商品详情
      */
-    List<PddGoodsDetailVO> getPddGoodsDetailInfo(GoodsDetailRequest request);
+    PddGoodsDetailVO getPddGoodsDetailInfo(GoodsDetailRequest request);
 
     /**
      * 搜索商品
