@@ -60,6 +60,9 @@ public class GoodsDetailDTO extends BaseDTO {
     @ApiModelProperty("商品id")
     private Long goodsId;
 
+    @ApiModelProperty("商品加密id")
+    private String goodsSign;
+
     @ApiModelProperty("商品主图")
     private String goodsImageUrl;
 

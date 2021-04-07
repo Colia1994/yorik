@@ -16,8 +16,8 @@ import lombok.EqualsAndHashCode;
 public class GoodsDetailRequest extends CommonCommand {
 
 
-    @ApiModelProperty(value = "商品id", required = true)
-    private Long goodsId;
+    @ApiModelProperty(value = "商品加密id", required = true)
+    private String goodsSign;
 
     @ApiModelProperty("推广位id")
     private String pid = "11054122_148291700";

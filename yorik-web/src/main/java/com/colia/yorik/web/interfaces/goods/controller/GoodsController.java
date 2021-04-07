@@ -44,7 +44,6 @@ public class GoodsController {
     @RequestMapping(value = "/getGoodsDetail", method = RequestMethod.POST)
     @ApiOperation(value = "获取商品详情")
     public AjaxResponse<GoodsDetailDTO> getGoodsDetail(@RequestBody GoodsDetailRequest params) {
-
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.getGoodsDetailById(params));
     }
 

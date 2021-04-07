@@ -18,7 +18,7 @@ public class AsyncConfiguration {
 
     @Bean("defaultExecutor")
     public Executor doSomethingExecutor() {
-        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("bmp-process-%d").build();
+        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("executor-process-%d").build();
         ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 2,
                 60L, TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<>(10000), threadFactory);

@@ -54,6 +54,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         //offset 需要计算
         pddRequest.setOffset((request.getPageNo() - 1) * request.getPageSize());
         pddRequest.setCatId(request.getCatId());
+        //TODO 推广位决定出产品的客户习惯，尽快改造
         pddRequest.setPid("11054122_148291700");
 
 
@@ -118,9 +119,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
     @Override
     public PddGoodsDetailVO getPddGoodsDetailInfo(GoodsDetailRequest request) {
         PddDdkGoodsDetailRequest pddRequest = new PddDdkGoodsDetailRequest();
-        List<Long> goodsIdList = new ArrayList<>();
-        goodsIdList.add(request.getGoodsId());
-        pddRequest.setGoodsIdList(goodsIdList);
+        pddRequest.setGoodsSign(request.getGoodsSign());
         pddRequest.setSearchId(request.getSearchId());
         pddRequest.setPid("11054122_148291700");
         pddRequest.setPlanType(request.getPlanType());

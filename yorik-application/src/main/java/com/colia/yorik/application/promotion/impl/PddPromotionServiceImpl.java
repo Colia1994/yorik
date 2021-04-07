@@ -73,9 +73,10 @@ public class PddPromotionServiceImpl implements PddPromotionService {
     @Override
     public PddUrlVO generatePromotionUrl(PromotionUrlRequest params) {
         PddDdkGoodsPromotionUrlGenerateRequest request = new PddDdkGoodsPromotionUrlGenerateRequest();
-        List<Long> goodIdList = new ArrayList<>();
-        goodIdList.add(params.getGoodsId());
-        request.setGoodsIdList(goodIdList);
+//        List<Long> goodIdList = new ArrayList<>();
+//        goodIdList.add(params.getGoodsId());
+//        request.setGoodsIdList(goodIdList);
+        request.setGoodsSign(params.getGoodsSign());
         request.setCustomParameters(params.getCustomParameters());
         //qq
         request.setGenerateQqApp(params.getGenerateQqApp());

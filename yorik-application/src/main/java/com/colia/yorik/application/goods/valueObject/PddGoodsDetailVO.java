@@ -129,6 +129,12 @@ public class PddGoodsDetailVO implements ValueObject<PddGoodsDetailVO> {
      */
     private Long goodsId;
 
+
+    /**
+     * 商品加密id
+     */
+    private String goodsSign;
+
     /**
      * 商品主图
      */
