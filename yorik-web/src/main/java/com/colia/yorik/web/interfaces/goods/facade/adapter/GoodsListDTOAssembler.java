@@ -4,7 +4,7 @@ import com.colia.yorik.application.goods.valueObject.PddGoodsRecommendVO;
 import com.colia.yorik.application.goods.valueObject.PddGoodsSearchVO;
 import com.colia.yorik.application.goods.valueObject.TBGoodsRecommendVO;
 import com.colia.yorik.application.goods.valueObject.TBGoodsSearchVO;
-import com.colia.yorik.common.interfaces.dto.Assembler;
+import com.colia.yorik.support.interfaces.dto.Assembler;
 import com.colia.yorik.web.interfaces.goods.facade.dto.GoodsListDTO;
 import org.springframework.stereotype.Component;
 

@@ -2,8 +2,8 @@ package com.colia.yorik.web.interfaces.order.controller;
 
 import com.colia.yorik.application.order.request.QueryOrderIncRequest;
 import com.colia.yorik.application.order.request.QueryOrderRangeRequest;
-import com.colia.yorik.common.interfaces.ajaxresult.AjaxResponse;
-import com.colia.yorik.common.interfaces.ajaxresult.AjaxResultUtils;
+import com.colia.yorik.support.interfaces.ajaxresult.AjaxResponse;
+import com.colia.yorik.support.interfaces.ajaxresult.AjaxResultUtils;
 import com.colia.yorik.web.interfaces.order.facade.OrderQueryFacade;
 import com.colia.yorik.web.interfaces.order.facade.dto.OrderListDTO;
 import io.swagger.annotations.Api;

@@ -6,7 +6,7 @@ import com.colia.yorik.application.order.request.QueryOrderIncRequest;
 import com.colia.yorik.application.order.request.QueryOrderRangeRequest;
 import com.colia.yorik.application.order.valueObject.PddOrderIncListVO;
 import com.colia.yorik.application.order.valueObject.PddOrderRangeListVO;
-import com.colia.yorik.common.infrastructure.exception.BizProcessException;
+import com.colia.yorik.support.infrastructure.exception.BizProcessException;
 import com.colia.yorik.support.utils.DateUtils;
 import com.colia.yorik.support.utils.HttpClientUtils;
 import com.colia.yorik.support.utils.JSONUtil;

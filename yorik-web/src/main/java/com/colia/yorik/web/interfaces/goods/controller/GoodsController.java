@@ -3,15 +3,14 @@ package com.colia.yorik.web.interfaces.goods.controller;
 import com.colia.yorik.application.goods.request.GoodsDetailRequest;
 import com.colia.yorik.application.goods.request.GoodsRecommendRequest;
 import com.colia.yorik.application.goods.request.GoodsSearchRequest;
-import com.colia.yorik.common.interfaces.ajaxresult.AjaxResponse;
-import com.colia.yorik.common.interfaces.ajaxresult.AjaxResultUtils;
+import com.colia.yorik.support.interfaces.ajaxresult.AjaxResponse;
+import com.colia.yorik.support.interfaces.ajaxresult.AjaxResultUtils;
 import com.colia.yorik.web.interfaces.goods.facade.GoodsOperateFacade;
 import com.colia.yorik.web.interfaces.goods.facade.dto.GoodsCatsDTO;
 import com.colia.yorik.web.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.web.interfaces.goods.facade.dto.GoodsListDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

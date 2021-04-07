@@ -1,8 +1,8 @@
 package com.colia.yorik.web.interfaces.goods.facade.adapter;
 
 import com.colia.yorik.application.goods.valueObject.*;
-import com.colia.yorik.common.infrastructure.adapter.MoneyStrategy;
-import com.colia.yorik.common.infrastructure.adapter.StringStrategy;
+import com.colia.yorik.support.infrastructure.adapter.MoneyStrategy;
+import com.colia.yorik.support.infrastructure.adapter.StringStrategy;
 import com.colia.yorik.web.interfaces.goods.facade.dto.GoodsDetailDTO;
 import com.colia.yorik.web.interfaces.goods.facade.dto.GoodsListDTO;
 import org.mapstruct.Mapper;

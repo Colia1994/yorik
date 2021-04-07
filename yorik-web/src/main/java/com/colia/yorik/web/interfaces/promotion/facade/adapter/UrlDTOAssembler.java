@@ -1,7 +1,7 @@
 package com.colia.yorik.web.interfaces.promotion.facade.adapter;
 
 import com.colia.yorik.application.promotion.valueObject.PddUrlVO;
-import com.colia.yorik.common.interfaces.dto.Assembler;
+import com.colia.yorik.support.interfaces.dto.Assembler;
 import com.colia.yorik.web.interfaces.promotion.facade.dto.UrlDTO;
 import org.springframework.stereotype.Component;
 

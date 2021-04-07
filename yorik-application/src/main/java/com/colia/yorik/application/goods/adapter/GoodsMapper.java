@@ -1,7 +1,7 @@
 package com.colia.yorik.application.goods.adapter;
 
 import com.colia.yorik.application.goods.valueObject.*;
-import com.colia.yorik.common.infrastructure.adapter.StringStrategy;
+import com.colia.yorik.support.infrastructure.adapter.StringStrategy;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsDetailResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsRecommendGetResponse;
 import com.pdd.pop.sdk.http.api.pop.response.PddDdkGoodsSearchResponse;

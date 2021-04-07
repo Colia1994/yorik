@@ -1,8 +1,8 @@
 package com.colia.yorik.domain.model.authority.user;
 
-import com.colia.yorik.common.domain.entity.Entity;
-import com.colia.yorik.common.domain.entity.EntitySupport;
-import com.colia.yorik.common.domain.entity.Identity;
+import com.colia.yorik.support.domain.entity.Entity;
+import com.colia.yorik.support.domain.entity.EntitySupport;
+import com.colia.yorik.support.domain.entity.Identity;
 import com.colia.yorik.domain.repository.UserRepository;
 import com.colia.yorik.support.utils.ApplicationContextUtils;
 import lombok.Data;

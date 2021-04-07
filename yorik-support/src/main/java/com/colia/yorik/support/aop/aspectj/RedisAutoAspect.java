@@ -1,11 +1,10 @@
 package com.colia.yorik.support.aop.aspectj;
 
 
-import com.colia.yorik.common.interfaces.annotation.RedisAuto;
+import com.colia.yorik.support.interfaces.annotation.RedisAuto;
 import com.colia.yorik.support.redis.RedisService;
 import com.colia.yorik.support.utils.JSONUtil;
 import com.colia.yorik.support.utils.StringUtils;
-import com.fasterxml.jackson.core.type.TypeReference;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -30,7 +29,7 @@ public class RedisAutoAspect {
     @Resource
     private RedisService redisService;
 
-    @Around(value = "@annotation(com.colia.yorik.common.interfaces.annotation.RedisAuto)")
+    @Around(value = "@annotation(com.colia.yorik.support.interfaces.annotation.RedisAuto)")
     public Object aroundMethod(ProceedingJoinPoint pjp) throws Throwable {
         MethodSignature joinPointObject = (MethodSignature) pjp.getSignature();
 

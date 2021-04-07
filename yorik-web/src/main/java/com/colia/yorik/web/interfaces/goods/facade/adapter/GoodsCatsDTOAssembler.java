@@ -1,7 +1,7 @@
 package com.colia.yorik.web.interfaces.goods.facade.adapter;
 
 import com.colia.yorik.application.goods.valueObject.PddCatsVO;
-import com.colia.yorik.common.interfaces.dto.Assembler;
+import com.colia.yorik.support.interfaces.dto.Assembler;
 import com.colia.yorik.web.interfaces.goods.facade.dto.GoodsCatsDTO;
 import org.springframework.stereotype.Component;
 

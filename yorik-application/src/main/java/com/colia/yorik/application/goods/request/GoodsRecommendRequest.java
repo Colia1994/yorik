@@ -1,6 +1,6 @@
 package com.colia.yorik.application.goods.request;
 
-import com.colia.yorik.common.interfaces.requestBody.PageCommand;
+import com.colia.yorik.support.interfaces.requestBody.PageCommand;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

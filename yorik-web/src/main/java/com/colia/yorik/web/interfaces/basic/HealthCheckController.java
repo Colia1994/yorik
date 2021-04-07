@@ -1,7 +1,7 @@
 package com.colia.yorik.web.interfaces.basic;
 
-import com.colia.yorik.common.interfaces.ajaxresult.AjaxResponse;
-import com.colia.yorik.common.interfaces.ajaxresult.AjaxResultUtils;
+import com.colia.yorik.support.interfaces.ajaxresult.AjaxResponse;
+import com.colia.yorik.support.interfaces.ajaxresult.AjaxResultUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

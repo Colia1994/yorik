@@ -1,6 +1,6 @@
 package com.colia.yorik.application.promotion.valueObject;
 
-import com.colia.yorik.common.domain.vo.ValueObject;
+import com.colia.yorik.support.domain.vo.ValueObject;
 import com.pdd.pop.ext.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 

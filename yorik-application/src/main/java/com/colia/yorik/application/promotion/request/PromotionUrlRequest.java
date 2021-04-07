@@ -1,7 +1,7 @@
 package com.colia.yorik.application.promotion.request;
 
-import com.colia.yorik.common.interfaces.requestBody.CommandValidate;
-import com.colia.yorik.common.interfaces.requestBody.CommonCommand;
+import com.colia.yorik.support.interfaces.requestBody.CommandValidate;
+import com.colia.yorik.support.interfaces.requestBody.CommonCommand;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
