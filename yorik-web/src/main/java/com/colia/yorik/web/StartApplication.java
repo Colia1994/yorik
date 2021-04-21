@@ -8,7 +8,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
 @SpringBootApplication(scanBasePackages = {"com.colia.yorik"},
-        exclude = {MultipartAutoConfiguration.class, SecurityAutoConfiguration.class})
+        exclude = {SecurityAutoConfiguration.class})
+//MultipartAutoConfiguration.class
 public class StartApplication {
 
     public static void main(String[] args) {

@@ -26,7 +26,7 @@ import java.util.Map;
  **/
 @Slf4j
 @Configuration
-@MapperScan(basePackages = {"com.colia.yorik.yorikdao"}, sqlSessionFactoryRef = "sqlSessionFactory")
+@MapperScan(basePackages = {"com.colia.yorik.dao"}, sqlSessionFactoryRef = "sqlSessionFactory")
 public class MybatisPlusConfiguration {
 
     /*
@@ -37,8 +37,6 @@ public class MybatisPlusConfiguration {
     @Primary
     public PaginationInterceptor paginationInterceptor() {
         PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
-
-
         paginationInterceptor.setDialectType("mysql");
         return paginationInterceptor;
     }
@@ -78,6 +76,7 @@ public class MybatisPlusConfiguration {
                 paginationInterceptor() //添加分页功能
         });
 //        sqlSessionFactory.setGlobalConfig(globalConfiguration());
+        sqlSessionFactory.setTypeEnumsPackage("com.colia.yorik.support.application.enums");
         return sqlSessionFactory.getObject();
     }
 

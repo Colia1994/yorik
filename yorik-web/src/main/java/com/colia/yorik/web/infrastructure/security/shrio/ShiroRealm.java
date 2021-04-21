@@ -1,5 +1,6 @@
 package com.colia.yorik.web.infrastructure.security.shrio;
 
+import com.colia.yorik.dao.entity.SysUser;
 import com.colia.yorik.domain.model.authority.user.SysUserEntity;
 import com.colia.yorik.domain.service.authority.user.UserService;
 import org.apache.shiro.authc.AuthenticationException;
@@ -55,15 +56,15 @@ public class ShiroRealm extends AuthorizingRealm implements Realm {
         // 获取用户名
         String userName = token.getPrincipal().toString();
         // 查询获取加密后的密码
-        SysUserEntity user = userService.getUserByUserName(userName);
+        SysUser user = userService.getUserByUserName(userName);
 
-        String password = user.getPassword();
+        String password = user.getUserName();
         // 盐值
-        String salt = user.getSalt();
+//        String salt = user.getSalt();
         // 进行验证
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(userName, password, ByteSource.Util.bytes(salt), getName());
+//        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(userName, password, ByteSource.Util.bytes(salt), getName());
         // 认证通过
-        return authenticationInfo;
+        return null;
     }
 
 }

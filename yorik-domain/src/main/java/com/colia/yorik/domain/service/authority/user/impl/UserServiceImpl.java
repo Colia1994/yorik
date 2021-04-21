@@ -1,9 +1,12 @@
 package com.colia.yorik.domain.service.authority.user.impl;
 
-import com.colia.yorik.domain.model.authority.user.SysUserEntity;
+import com.colia.yorik.dao.entity.SysUser;
+import com.colia.yorik.dao.repository.UserRepository;
 import com.colia.yorik.domain.service.authority.user.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @Author konglingyao
@@ -12,6 +15,11 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
+
+
+    @Resource
+    private UserRepository userRepository;
+
     /**
      * 根据用户名获取用户信息
      *
@@ -19,7 +27,12 @@ public class UserServiceImpl implements UserService {
      * @return 用户信息
      */
     @Override
-    public SysUserEntity getUserByUserName(String name) {
+    public SysUser getUserByUserName(String name) {
         return null;
+    }
+
+    @Override
+    public SysUser findUserByNameAndPwd(String userName, String password) {
+        return userRepository.findUserByNameAndPwd(userName, password);
     }
 }

@@ -4,6 +4,9 @@ import org.jasypt.encryption.StringEncryptor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 
 /**
  * @Author konglingyao
@@ -13,13 +16,14 @@ import javax.annotation.Resource;
 public class JasyptUtils {
 
     @Resource
-    private StringEncryptor encryptorBean;
+    private StringEncryptor encryptBean;
 
     public String encrypt(String originPassword) {
-        return encryptorBean.encrypt(originPassword);
+        return encryptBean.encrypt(originPassword);
     }
 
     public String decrypt(String encryptedPassword) {
-        return encryptorBean.decrypt(encryptedPassword);
+        return encryptBean.decrypt(encryptedPassword);
     }
+
 }

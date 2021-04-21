@@ -5,6 +5,7 @@ import com.colia.yorik.application.goods.request.GoodsRecommendRequest;
 import com.colia.yorik.application.goods.request.GoodsSearchRequest;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResultUtils;
+import com.colia.yorik.support.interfaces.annotation.PermissionLimit;
 import com.colia.yorik.web.interfaces.goods.facade.GoodsOperateFacade;
 import com.colia.yorik.web.interfaces.goods.facade.dto.GoodsCatsDTO;
 import com.colia.yorik.web.interfaces.goods.facade.dto.GoodsDetailDTO;
@@ -33,6 +34,7 @@ public class GoodsController {
     @ResponseBody
     @RequestMapping(value = "/getRecommendGoods", method = RequestMethod.POST)
     @ApiOperation(value = "获取推荐商品信息，不建议使用，默认使用搜索")
+    @PermissionLimit
     public AjaxResponse<GoodsListDTO> getGoodsList(@RequestBody GoodsRecommendRequest params) {
 
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.recommendGoods(params));
@@ -42,6 +44,7 @@ public class GoodsController {
     @ResponseBody
     @RequestMapping(value = "/getGoodsDetail", method = RequestMethod.POST)
     @ApiOperation(value = "获取商品详情")
+    @PermissionLimit
     public AjaxResponse<GoodsDetailDTO> getGoodsDetail(@RequestBody GoodsDetailRequest params) {
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.getGoodsDetailById(params));
     }
@@ -49,6 +52,7 @@ public class GoodsController {
     @ResponseBody
     @RequestMapping(value = "/searchGoods", method = RequestMethod.POST)
     @ApiOperation(value = "搜索商品")
+    @PermissionLimit
     public AjaxResponse<GoodsListDTO> searchGoods(@RequestBody GoodsSearchRequest params) {
 
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.searchGoods(params));
@@ -57,6 +61,7 @@ public class GoodsController {
     @ResponseBody
     @RequestMapping(value = "/getAllCats", method = RequestMethod.POST)
     @ApiOperation(value = "商品类目信息")
+    @PermissionLimit
     public AjaxResponse<GoodsCatsDTO> getAllCats() {
 
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.getAllCats(1));

@@ -1,5 +1,6 @@
 package com.colia.yorik.web.infrastructure.interceptor;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +15,7 @@ import java.lang.reflect.Method;
  * @Author colia
  * @Date 2019/1/5 17:07
  */
+@Component
 public class MyInterceptor implements HandlerInterceptor {
 
     /**

@@ -1,91 +1,91 @@
 package com.colia.yorik.web.interfaces.user.controller;
 
-import com.colia.yorik.support.infrastructure.exception.BizProcessException;
+import com.colia.yorik.dao.entity.SysUser;
+import com.colia.yorik.dao.entity.SysUserAuthorization;
+import com.colia.yorik.dao.repository.UserRepository;
+import com.colia.yorik.domain.model.authority.user.SysUserEntity;
+import com.colia.yorik.support.application.enums.IdentityTypeEnum;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResultUtils;
-import com.colia.yorik.domain.model.authority.user.SysUserEntity;
-import com.colia.yorik.domain.service.authority.user.UserService;
+import com.colia.yorik.support.interfaces.annotation.PermissionLimit;
+import com.colia.yorik.web.interfaces.user.facade.UserFacade;
+import com.colia.yorik.web.interfaces.user.facade.request.UserRequest;
 import io.swagger.annotations.Api;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.crypto.SecureRandomNumberGenerator;
-import org.apache.shiro.crypto.hash.SimpleHash;
-import org.apache.shiro.subject.Subject;
-import org.apache.shiro.util.ByteSource;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.DigestUtils;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
  * @Author konglingyao
  * @Date 2020/8/12
  */
-@Controller
+@RestController
 @RequestMapping("/api/user")
 @Api(tags = "user-controller", description = "用户管理")
+@Slf4j
 public class UserController {
 
     @Resource
-    private UserService userService;
+    private UserFacade userFacade;
 
+    @Resource
+    private UserRepository userRepository;
 
-    @PostMapping(value = "login")
-    public AjaxResponse<Map<String, Object>> login(@RequestBody SysUserEntity sysUserEntity) {
-        String username = sysUserEntity.getName();
+    @GetMapping(value = "/currentUser")
+    @PermissionLimit
+    public AjaxResponse<Object> currentUser(HttpServletRequest request) {
+        return AjaxResultUtils.renderSuccess("登陆成功", userFacade.getCurrentUser(request));
+    }
 
-        Subject subject = SecurityUtils.getSubject();
-        // shiro认证
-        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, sysUserEntity.getPassword());
-        // jwt 集成 shiro认证
-        SysUserEntity user = userService.getUserByUserName(username);
-        Map<String, Object> map = new HashMap<>();
-        if (user == null) {
-            System.out.println("用户名不能为空");
-            // 抛异常
-            throw new BizProcessException("用户名不能为空");
-        }
+    @PostMapping(value = "/login")
+    @PermissionLimit(limit = false)
+    public AjaxResponse<Object> login(@RequestBody UserRequest req,
+                                      HttpServletRequest request,
+                                      HttpServletResponse response) {
         try {
-            // shiro认证认证
-            subject.login(usernamePasswordToken);
-            map.put("name", user.getName());
-        } catch (AuthenticationException e) {
-            System.out.println("认证失败" + e.getMessage());
+
+            return AjaxResultUtils.renderSuccess("登陆成功",
+                    userFacade.login(request, response, req.getUserName(), req.getPassword()));
+        } catch (Exception ex) {
+            log.error("登陆 username={},password={}", req.getUserName(), req.getPassword(), ex);
+            return AjaxResultUtils.renderFail(ex.getMessage(), null);
         }
-        return AjaxResultUtils.renderSuccess("cl you", map);
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @PermissionLimit(limit = false)
+    public AjaxResponse<Object> logout(HttpServletRequest request, HttpServletResponse response) {
+        return AjaxResultUtils.renderSuccess(userFacade.logout(request, response));
     }
 
 
-    @PostMapping("register")
-    public AjaxResponse<Map<String, Object>> register(@RequestBody SysUserEntity sysUserEntity) {
+    @PostMapping("/register")
+    @PermissionLimit(limit = false)
+    public AjaxResponse<Map<String, Object>> register(@RequestBody UserRequest req) {
+        // md5 password
+        req.setPassword(DigestUtils.md5DigestAsHex(req.getPassword().getBytes()));
 
-        SysUserEntity userByUserName = userService.getUserByUserName(sysUserEntity.getName());
-        if (userByUserName != null) {
-            System.out.println("用户名不能为空");
-            // 抛异常
+        // check repeat
+        SysUser sysUser = userRepository.loadByUserName(req.getUserName());
+        if (sysUser != null) {
+            return AjaxResultUtils.renderFail("user_username_repeat");
         }
-        // 加密方式
-        String hashAlgorithmName = "MD5";
-        String credentials = sysUserEntity.getPassword();
 
-        // 加密次数
-        int hashIterations = 2;
-        // 生成盐,默认长度 16 位
-        String salt = new SecureRandomNumberGenerator().nextBytes().toString();
-        ByteSource credentialsSalt = ByteSource.Util.bytes(salt);
-        // 加密后的密码
-        SimpleHash simpleHash = new SimpleHash(hashAlgorithmName, credentials, credentialsSalt, hashIterations);
-        // 设置加密后的密码
-        sysUserEntity.setPassword(simpleHash.toString());
-        // 设置盐
-        sysUserEntity.setSalt(salt);
-        // r入库
-        sysUserEntity.store();
-        return AjaxResultUtils.renderSuccess("cl you", null);
+        // write
+        sysUser = new SysUser();
+        sysUser.setUserName(req.getUserName());
+        sysUser.setLevel(0);
+        SysUserAuthorization sysUserAuth = new SysUserAuthorization();
+        sysUserAuth.setIdentifier(req.getUserName());
+        sysUserAuth.setIdentityType(IdentityTypeEnum.ACCOUNT_PASSWORD);
+        sysUserAuth.setCredential(req.getPassword());
+        userRepository.saveUserInfo(sysUser, sysUserAuth);
+        return AjaxResultUtils.renderSuccess();
     }
+
 }

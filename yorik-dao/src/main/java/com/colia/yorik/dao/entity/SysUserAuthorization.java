@@ -2,6 +2,8 @@ package com.colia.yorik.dao.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.colia.yorik.support.application.enums.IdentityTypeEnum;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 
@@ -28,10 +30,11 @@ public class SysUserAuthorization implements Serializable {
     /**
      * 登陆类型 1手机 密码 2手机 验证码 2邮箱 3微信
      */
-    private Integer identityType;
+    private IdentityTypeEnum identityType;
+
 
     /**
-     * 账号标识（手机号 邮箱 用户名或第三方应用的唯一标识）
+     * 账号标识（手机号 邮箱 用户名或第三方应用的唯一标识 ）
      */
     private String identifier;
 
@@ -72,11 +75,16 @@ public class SysUserAuthorization implements Serializable {
         this.userId = userId;
     }
 
-    public Integer getIdentityType() {
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public IdentityTypeEnum getIdentityType() {
         return identityType;
     }
 
-    public void setIdentityType(Integer identityType) {
+    public void setIdentityType(IdentityTypeEnum identityType) {
         this.identityType = identityType;
     }
 

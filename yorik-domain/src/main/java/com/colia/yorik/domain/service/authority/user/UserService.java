@@ -1,6 +1,6 @@
 package com.colia.yorik.domain.service.authority.user;
 
-import com.colia.yorik.domain.model.authority.user.SysUserEntity;
+import com.colia.yorik.dao.entity.SysUser;
 
 /**
  * @Author konglingyao
@@ -14,5 +14,9 @@ public interface UserService {
      * @param name 用户名
      * @return 用户信息
      */
-    SysUserEntity getUserByUserName(String name);
+    SysUser getUserByUserName(String name);
+
+    SysUser findUserByNameAndPwd(String userName, String password);
+
+
 }

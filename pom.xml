@@ -15,9 +15,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.complier.pulugin.version>3.5.1</maven.complier.pulugin.version>
-        <spring.boot.version>2.0.3.RELEASE</spring.boot.version>
+        <spring.boot.version>2.1.3.RELEASE</spring.boot.version>
         <java.version>1.8</java.version>
-        <spring.version>5.0.7.RELEASE</spring.version>
+        <spring.version>5.1.3.RELEASE</spring.version>
 
 
         <!--权限-->
@@ -30,7 +30,7 @@
         <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
         <druid-spring-boot-starter.version>1.1.9</druid-spring-boot-starter.version>
         <mysql.version>5.1.6</mysql.version>
-        <mybatis-plus.version>3.0.1</mybatis-plus.version>
+        <mybatis-plus.version>3.0-RC3</mybatis-plus.version>
 
         <!--工具类-->
         <commons-lang3.version>3.7</commons-lang3.version>
@@ -89,8 +89,6 @@
         <module>yorik-domain</module>
         <!-- 基础支撑 -->
         <module>yorik-support</module>
-        <!-- 公共支撑 -->
-        <module>yorik-common</module>
     </modules>
 
     <build>

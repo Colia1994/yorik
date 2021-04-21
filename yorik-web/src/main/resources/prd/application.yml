@@ -15,7 +15,6 @@ spring:
     url: jdbc:mysql://139.196.184.125:3306/yorik_db?useSSL=false
     username: ENC(+Q+5xrWlNx9cgCoSrOwmEIyQKZMIEhjU5h1JdSpDK24Aho716Bq3d7+Dady6Arr7)
     password: ENC(R3ZpO4muZnsOxMibQh6yjxfc6VAE6ASkY5avwYkZqfwcI5ip5UKfhB0BIYarxcgL4m0ZMo/2NORbUrDB8ynYWg==)
-
     driver-class-name: com.mysql.jdbc.Driver
     #连接池配置
     druid:
@@ -75,3 +74,33 @@ spring:
     password: ENC(+vh5wk4AO1ks8ANyuDJoPMfQQN9Tt3EGBh+DAww0M8CukSYFAH85OZTWlu9qontCZDOqDqx194amiB82b8tw3A==)
     database: 0
 
+
+mybatis-plus:
+  mapper-locations: classpath:mappers/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.colia.yorik.dao
+  type-enums-package: com.colia.yorik.support
+  #typeEnumsPackage: com.sankuai.xy.cbc.boss.xxlbatch.mapper.entity.enums
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 2
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    #序列接口实现类配置
+    #key-generator: com.baomidou.springboot.xxx
+    #逻辑删除配置
+    logic-delete-value: 0
+    logic-not-delete-value: 1
+    #自定义填充策略接口实现
+    #meta-object-handler: com.baomidou.springboot.xxx
+    #自定义SQL注入器
+    #sql-injector: com.baomidou.springboot.xxx
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
