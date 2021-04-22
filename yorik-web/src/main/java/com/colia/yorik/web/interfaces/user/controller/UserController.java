@@ -3,7 +3,6 @@ package com.colia.yorik.web.interfaces.user.controller;
 import com.colia.yorik.dao.entity.SysUser;
 import com.colia.yorik.dao.entity.SysUserAuthorization;
 import com.colia.yorik.dao.repository.UserRepository;
-import com.colia.yorik.domain.model.authority.user.SysUserEntity;
 import com.colia.yorik.support.application.enums.IdentityTypeEnum;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResultUtils;

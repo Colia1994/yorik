@@ -44,7 +44,7 @@ public class GoodsController {
     @ResponseBody
     @RequestMapping(value = "/getGoodsDetail", method = RequestMethod.POST)
     @ApiOperation(value = "获取商品详情")
-    @PermissionLimit
+    @PermissionLimit(limit = false)
     public AjaxResponse<GoodsDetailDTO> getGoodsDetail(@RequestBody GoodsDetailRequest params) {
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.getGoodsDetailById(params));
     }
@@ -52,7 +52,7 @@ public class GoodsController {
     @ResponseBody
     @RequestMapping(value = "/searchGoods", method = RequestMethod.POST)
     @ApiOperation(value = "搜索商品")
-    @PermissionLimit
+    @PermissionLimit(limit = false)
     public AjaxResponse<GoodsListDTO> searchGoods(@RequestBody GoodsSearchRequest params) {
 
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.searchGoods(params));
@@ -61,7 +61,7 @@ public class GoodsController {
     @ResponseBody
     @RequestMapping(value = "/getAllCats", method = RequestMethod.POST)
     @ApiOperation(value = "商品类目信息")
-    @PermissionLimit
+    @PermissionLimit(limit = false)
     public AjaxResponse<GoodsCatsDTO> getAllCats() {
 
         return AjaxResultUtils.renderSuccess("cl you", goodsRecommendFacade.getAllCats(1));
