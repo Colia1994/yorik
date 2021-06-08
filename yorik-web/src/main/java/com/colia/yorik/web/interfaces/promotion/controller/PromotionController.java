@@ -6,6 +6,7 @@ import com.colia.yorik.application.promotion.request.ConvertUrlRequest;
 import com.colia.yorik.application.promotion.request.PromotionUrlRequest;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResultUtils;
+import com.colia.yorik.support.interfaces.annotation.PermissionLimit;
 import com.colia.yorik.web.interfaces.promotion.facade.PromotionFacade;
 import com.colia.yorik.web.interfaces.promotion.facade.dto.UrlDTO;
 import io.swagger.annotations.Api;
@@ -43,6 +44,7 @@ public class PromotionController {
     @ResponseBody
     @RequestMapping(value = "/generateUrl", method = RequestMethod.POST)
     @ApiOperation(value = "生成推广链接")
+    @PermissionLimit(limit = false)
     public AjaxResponse<UrlDTO> generateUrl(@RequestBody PromotionUrlRequest params) {
         params.validate();
         return AjaxResultUtils.renderSuccess(promotionFacade.generatePromotionUrl(params));

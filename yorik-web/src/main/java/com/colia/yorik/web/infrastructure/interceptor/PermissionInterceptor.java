@@ -34,7 +34,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
         }
 
         // if need login
-        boolean needLogin = true;
+        boolean needLogin = false;
         boolean needAdminUser = false;
         HandlerMethod method = (HandlerMethod) handler;
         PermissionLimit permission = method.getMethodAnnotation(PermissionLimit.class);
@@ -49,7 +49,8 @@ public class PermissionInterceptor implements HandlerInterceptor {
             if (loginUser == null) {
 //                response.setStatus(302);
 //                response.setHeader("location", request.getContextPath() + "/toLogin");
-                throw new BizProcessException("用户未登录");
+                throw
+                        new BizProcessException("用户未登录");
 //                return false;
             }
 //            if (needAdminuser && loginUser.getRole() != 1) {
