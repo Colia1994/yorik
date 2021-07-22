@@ -15,10 +15,14 @@ import com.pdd.pop.sdk.http.PopClient;
 import com.pdd.pop.sdk.http.api.pop.request.*;
 import com.pdd.pop.sdk.http.api.pop.response.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -159,9 +163,10 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         //    //活动商品标记数组，例：[4,7]，4-秒杀，7-百亿补贴，31-品牌黑标，10564-精选爆品-官方直推爆款，10584-精选爆品-团长推荐，
         //    // 24-品牌高佣，20-行业精选，21-金牌商家，10044-潜力爆品，10475-爆品上新，其他的值请忽略
         List<Integer> integerList = new ArrayList<>();
-        integerList.add(7);
-        integerList.add(24);
+        Integer[] activityArray = new Integer[]{4,7,31,10564,10584,24,20,21,10044,10475};
+        Collections.addAll(integerList,activityArray);
         pddRequest.setActivityTags(integerList);
+
         pddRequest.setKeyword(request.getKeyword());
         pddRequest.setWithCoupon(request.getWithCoupon());
         pddRequest.setPage(request.getPageNo());
