@@ -7,8 +7,11 @@ import com.colia.yorik.support.application.enums.IdentityTypeEnum;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResultUtils;
 import com.colia.yorik.support.interfaces.annotation.PermissionLimit;
+import com.colia.yorik.support.utils.JSONUtil;
 import com.colia.yorik.web.interfaces.user.facade.UserFacade;
 import com.colia.yorik.web.interfaces.user.facade.request.UserRequest;
+import com.ql.util.express.DefaultContext;
+import com.ql.util.express.ExpressRunner;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.DigestUtils;
@@ -87,4 +90,27 @@ public class UserController {
         return AjaxResultUtils.renderSuccess();
     }
 
+    @PostMapping("/test")
+    @PermissionLimit(limit = false)
+    public void testRunner() {
+        DefaultContext<String, Object> context = new DefaultContext<>();
+
+        context.put("d", "{\"0\":\"A,B,C\",\"1\":\"C\"}");
+        ExpressRunner runner = new ExpressRunner();
+        try {
+            runner.addFunctionOfServiceMethod("JSONAnyMatch", new JSONCompararetor(), "compare", new Class[]{String.class, String.class}, null);
+
+            String jsonRule = "{'0':'C','1':'D'}";
+
+            String express = String.format("JSONAnyMatch(d,'%s')", jsonRule);
+            System.out.println(express);
+
+
+            Object result = runner.execute(express, context, null, false, false);
+            System.out.println(result);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
