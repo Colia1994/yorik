@@ -2,7 +2,6 @@ package com.colia.yorik.web.interfaces.user.controller;
 
 import com.colia.yorik.dao.entity.SysUser;
 import com.colia.yorik.dao.entity.SysUserAuthorization;
-import com.colia.yorik.dao.repository.UserRepository;
 import com.colia.yorik.support.application.enums.IdentityTypeEnum;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResponse;
 import com.colia.yorik.support.interfaces.ajaxresult.AjaxResultUtils;
@@ -32,8 +31,8 @@ public class UserController {
     @Resource
     private UserFacade userFacade;
 
-    @Resource
-    private UserRepository userRepository;
+//    @Resource
+//    private UserRepository userRepository;
 
     @GetMapping(value = "/currentUser")
     @PermissionLimit
@@ -70,7 +69,7 @@ public class UserController {
         req.setPassword(DigestUtils.md5DigestAsHex(req.getPassword().getBytes()));
 
         // check repeat
-        SysUser sysUser = userRepository.loadByUserName(req.getUserName());
+        SysUser sysUser = new SysUser();
         if (sysUser != null) {
             return AjaxResultUtils.renderFail("user_username_repeat");
         }
@@ -83,7 +82,7 @@ public class UserController {
         sysUserAuth.setIdentifier(req.getUserName());
         sysUserAuth.setIdentityType(IdentityTypeEnum.ACCOUNT_PASSWORD);
         sysUserAuth.setCredential(req.getPassword());
-        userRepository.saveUserInfo(sysUser, sysUserAuth);
+//        userRepository.saveUserInfo(sysUser, sysUserAuth);
         return AjaxResultUtils.renderSuccess();
     }
 

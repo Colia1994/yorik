@@ -52,7 +52,7 @@
             <artifactId>sdk</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/../libs/pop-sdk-1.10.20-all.jar</systemPath>
+            <systemPath>${project.basedir}/../libs/pop-sdk-1.16.83-all.jar</systemPath>
         </dependency>
 
         <!-- taobao -->

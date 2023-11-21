@@ -122,7 +122,7 @@ public class PddGoodsServiceImpl implements PddGoodsService {
         pddRequest.setGoodsSign(request.getGoodsSign());
         pddRequest.setSearchId(request.getSearchId());
         pddRequest.setPid("11054122_148291700");
-        pddRequest.setPlanType(request.getPlanType());
+//        pddRequest.setPlanType(request.getPlanType());
 
         PopClient client = HttpClientUtils.getPddClient();
         PddDdkGoodsDetailResponse response;

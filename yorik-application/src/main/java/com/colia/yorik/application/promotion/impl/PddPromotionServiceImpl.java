@@ -73,10 +73,10 @@ public class PddPromotionServiceImpl implements PddPromotionService {
     @Override
     public PddUrlVO generatePromotionUrl(PromotionUrlRequest params) {
         PddDdkGoodsPromotionUrlGenerateRequest request = new PddDdkGoodsPromotionUrlGenerateRequest();
-//        List<Long> goodIdList = new ArrayList<>();
-//        goodIdList.add(params.getGoodsId());
-//        request.setGoodsIdList(goodIdList);
-        request.setGoodsSign(params.getGoodsSign());
+
+        List<String> goodSignList = new ArrayList<>();
+        goodSignList.add(params.getGoodsSign());
+        request.setGoodsSignList(goodSignList);
         request.setCustomParameters(params.getCustomParameters());
         //qq
         request.setGenerateQqApp(params.getGenerateQqApp());
@@ -84,7 +84,6 @@ public class PddPromotionServiceImpl implements PddPromotionService {
         request.setGenerateMallCollectCoupon(params.getGenerateMallCollectCoupon());
         //weChat
         request.setGenerateWeApp(params.getGenerateWeApp());
-        request.setGenerateWeappWebview(params.getGenerateWeappWebview());
 
         request.setGenerateSchemaUrl(params.getGenerateSchemaUrl());
         request.setGenerateShortUrl(params.getGenerateShortUrl());

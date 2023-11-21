@@ -1,5 +1,3 @@
-
-
 pdd:
   clientId: ENC(fAlR/yw/3AN2HuDY2lTxr987lOYeeBrlMNWW3xN4WcONDFvRh042BRzIQVQaUI0DuurqMb60eGZyt/MlRN7cfvaAe/IppMtB4iA4Ecl4MvY=)
   clientSecret: ENC(d/gdv6vHHnVMcoLbkqcNw8HgrLrjqdap2rOuG/5OlkpRJzCu2oh/gd4BqoLADLmzSSHLlrscqlBTatfETKlDwFw7jkE0XlNzoTe8bkHS+WM=)
@@ -11,9 +9,11 @@ taobao:
 
 
 spring:
+  profiles:
+    active: dev
   #JDBC 配置
   datasource:
-    url: jdbc:mysql://139.196.184.125:3306/yorik_db?useSSL=false
+    url: jdbc:mysql://47.99.180.120:3306/yorik?useSSL=false
     username: ENC(+Q+5xrWlNx9cgCoSrOwmEIyQKZMIEhjU5h1JdSpDK24Aho716Bq3d7+Dady6Arr7)
     password: ENC(R3ZpO4muZnsOxMibQh6yjxfc6VAE6ASkY5avwYkZqfwcI5ip5UKfhB0BIYarxcgL4m0ZMo/2NORbUrDB8ynYWg==)
     driver-class-name: com.mysql.jdbc.Driver
@@ -69,7 +69,7 @@ spring:
           config.drop-table-allow: false
   #redis
   redis:
-    host: 139.196.184.125
+    host: 47.99.180.120
     port: 6379
     password: ENC(+vh5wk4AO1ks8ANyuDJoPMfQQN9Tt3EGBh+DAww0M8CukSYFAH85OZTWlu9qontCZDOqDqx194amiB82b8tw3A==)
     database: 0

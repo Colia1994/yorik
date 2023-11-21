@@ -67,7 +67,7 @@ public class CodeGenerator {
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("密码见profile项目");
-        dsc.setUrl("jdbc:mysql://139.196.184.125:3306/yorik_db?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://47.99.180.120:3306/yorik?useUnicode=true&useSSL=false&characterEncoding=utf8");
         mpg.setDataSource(dsc);
 
         // 策略配置
